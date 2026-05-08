@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAI 100K — Plano de Força | José Costa</title>
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('a'));
+  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('a'));
+  document.getElementById('p-' + id).classList.add('a');
+  btn.classList.add('a');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 <style>
 :root {
   --bg:#0b0d10; --surface:#141720; --card:#1b2030; --border:#242a38;
