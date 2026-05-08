@@ -228,7 +228,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav" id="mainNav">
-  <button class="a" onclick="show('overview',this)">📋 Visão Geral</button>
+  <button class="a" onclick="show('race',this)">🏁 UAI Race</button>
   <button onclick="show('monday',this)">Segunda · Tronco+Core</button>
   <button onclick="show('tuesday',this)">Terça · Ativação</button>
   <button onclick="show('wednesday',this)">Quarta · Cadeia Post.</button>
@@ -236,178 +236,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
   <button onclick="show('periodization',this)">📈 Periodização</button>
   <button onclick="show('garmin',this)">🗓️ Plano Garmin</button>
   <button onclick="show('tips',this)">💡 Ciência &amp; Dicas</button>
-  <button onclick="show('race',this)">🏁 UAI Race</button>
 </nav>
-
-<!-- ═══════════════ OVERVIEW ═══════════════ -->
-<div class="page a" id="p-overview">
-
-  <div class="ph">📋 Visão Geral da Prova e Estrutura</div>
-  <p class="ps">Dados da prova e condições climáticas para calibrar a especificidade dos exercícios.</p>
-
-  <!-- ALTIMETRY -->
-  <div class="altimetry-wrap">
-    <h3>🏔️ Perfil de Altimetria — UAI 100KM · Estrada Real / Serra da Mantiqueira</h3>
-    <svg class="elev" viewBox="0 0 900 160" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="elevGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#f5a623" stop-opacity=".5"/>
-          <stop offset="100%" stop-color="#f5a623" stop-opacity=".03"/>
-        </linearGradient>
-        <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#4f9cf9"/>
-          <stop offset="40%" stop-color="#f5a623"/>
-          <stop offset="70%" stop-color="#e05c5c"/>
-          <stop offset="100%" stop-color="#3ecf8e"/>
-        </linearGradient>
-      </defs>
-      <!-- grid lines -->
-      <line x1="0" y1="40" x2="900" y2="40" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="80" x2="900" y2="80" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="120" x2="900" y2="120" stroke="#242a38" stroke-width="1"/>
-      <!-- elevation fill -->
-      <path d="M0,145 L0,130 C30,128 50,122 80,110 C110,98 130,90 160,75 C190,60 200,55 230,50 C260,45 270,52 300,65 C330,78 340,88 370,100 C390,108 400,112 430,105 C460,98 470,85 500,68 C530,51 540,45 570,42 C590,38 600,40 630,48 C655,55 665,60 690,70 C715,80 730,88 760,78 C785,68 800,60 830,50 C855,42 870,40 900,38 L900,145 Z" fill="url(#elevGrad)"/>
-      <!-- elevation line -->
-      <path d="M0,130 C30,128 50,122 80,110 C110,98 130,90 160,75 C190,60 200,55 230,50 C260,45 270,52 300,65 C330,78 340,88 370,100 C390,108 400,112 430,105 C460,98 470,85 500,68 C530,51 540,45 570,42 C590,38 600,40 630,48 C655,55 665,60 690,70 C715,80 730,88 760,78 C785,68 800,60 830,50 C855,42 870,40 900,38" fill="none" stroke="url(#lineGrad)" stroke-width="2.5"/>
-      <!-- checkpoint labels -->
-      <text x="0" y="158" font-size="9" fill="#8892a4" font-family="monospace">0km Baependi</text>
-      <text x="225" y="158" font-size="9" fill="#8892a4" font-family="monospace" text-anchor="middle">~25km</text>
-      <text x="450" y="158" font-size="9" fill="#8892a4" font-family="monospace" text-anchor="middle">~50km</text>
-      <text x="675" y="158" font-size="9" fill="#8892a4" font-family="monospace" text-anchor="middle">~75km</text>
-      <text x="900" y="158" font-size="9" fill="#8892a4" font-family="monospace" text-anchor="end">100km Passa Quatro</text>
-      <!-- altitude labels -->
-      <text x="4" y="37" font-size="8" fill="#f5a623">≈1.600m</text>
-      <text x="4" y="77" font-size="8" fill="#8892a4">≈1.200m</text>
-      <text x="4" y="117" font-size="8" fill="#8892a4">≈800m</text>
-      <!-- peak marker -->
-      <circle cx="570" cy="42" r="4" fill="#e05c5c"/>
-      <text x="570" y="32" font-size="9" fill="#e05c5c" text-anchor="middle">Pico</text>
-      <!-- start/finish markers -->
-      <circle cx="0" cy="130" r="4" fill="#4f9cf9"/>
-      <circle cx="900" cy="38" r="4" fill="#3ecf8e"/>
-    </svg>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:11px;color:var(--muted)">
-      <span>🔵 Início (18h) — Baependi</span>
-      <span>🔴 Ponto mais alto — Serra da Mantiqueira</span>
-      <span>🟢 Chegada — Passa Quatro</span>
-      <span style="margin-left:auto;color:var(--accent);font-weight:700">+2.244m ganho acumulado · Estrada Real</span>
-    </div>
-  </div>
-
-  <!-- INFO GRID -->
-  <div class="profile-grid">
-    <div class="info-box">
-      <h3>🏁 Dados da Prova</h3>
-      <div class="stat-row"><span class="sl">Data</span><span class="sv">17–25 Jul 2026</span></div>
-      <div class="stat-row"><span class="sl">Largada</span><span class="sv">Baependi, MG — 18h</span></div>
-      <div class="stat-row"><span class="sl">Chegada</span><span class="sv">Passa Quatro, MG</span></div>
-      <div class="stat-row"><span class="sl">Terreno</span><span class="sv">Estrada Real / trilhas Mantiqueira</span></div>
-      <div class="stat-row"><span class="sl">Ganho altitude</span><span class="sv" style="color:var(--accent)">+2.244m</span></div>
-      <div class="stat-row"><span class="sl">Índice UTMB</span><span class="sv">100K UTMB Index</span></div>
-      <div class="stat-row"><span class="sl">Edição 2024</span><span class="sv">71 finishers</span></div>
-    </div>
-    <div class="info-box">
-      <h3>🌡️ Clima — Julho · Passa Quatro / MG</h3>
-      <div class="climate-row">
-        <div class="cl-chip"><span class="cv">23°C</span><span class="cl">Máx média</span></div>
-        <div class="cl-chip"><span class="cv" style="color:var(--blue)">10°C</span><span class="cl">Mín média</span></div>
-        <div class="cl-chip"><span class="cv" style="color:var(--green)">6°C</span><span class="cl">Mín extrema</span></div>
-      </div>
-      <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px">
-        <div class="stat-row"><span class="sl">Umidade</span><span class="sv" style="color:var(--green)">Seca (0% opressiva)</span></div>
-        <div class="stat-row"><span class="sl">Chuva</span><span class="sv">~10% chance/dia</span></div>
-        <div class="stat-row"><span class="sl">Vento</span><span class="sv">6,2 km/h · Norte</span></div>
-        <div class="stat-row"><span class="sl">Largada noturna</span><span class="sv" style="color:var(--red)">~10–12°C às 18h</span></div>
-        <div class="stat-row"><span class="sl">Madrugada</span><span class="sv" style="color:var(--red)">6–8°C (maior risco)</span></div>
-        <div class="stat-row"><span class="sl">Estação</span><span class="sv">Inverno sul-americano — seco</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCIENCE CARDS -->
-  <div class="ph" style="margin-top:32px">🔬 Base Científica do Plano</div>
-  <p class="ps">Exercícios selecionados com base em literatura peer-reviewed de fisiologia do ultratrail.</p>
-  <div class="sci-grid">
-    <div class="sci-card">
-      <span class="sci-icon">💥</span>
-      <h4>Dano Muscular Extremo</h4>
-      <p>Ultra-maratonas elevam a creatino-quinase (CK) a 100.000–200.000 U/l. O treino excêntrico regular pré-prova reduz esse dano em até 40%, acelerando recuperação.</p>
-      <div class="sci-src">Frontiers in Physiology, 2018 — Scheer et al.</div>
-    </div>
-    <div class="sci-card">
-      <span class="sci-icon">🦵</span>
-      <h4>Lesões Prevalentes</h4>
-      <p>50–60% dos participantes de ultramaratonas longas sofrem problemas musculoesqueléticos. Tornozelo e joelho são os sítios mais afetados — justificando foco em glúteo médio e propriocepção.</p>
-      <div class="sci-src">Frontiers in Physiology, 2018 — Scheer et al.</div>
-    </div>
-    <div class="sci-card">
-      <span class="sci-icon">⚡</span>
-      <h4>Economia de Corrida +8%</h4>
-      <p>Atletas de endurance que adicionaram treino de força à rotina melhoraram economia de corrida em média 8%. Movimentos multiarticulares com pesos livres têm maior transferência que máquinas.</p>
-      <div class="sci-src">iRunFar / Altitude Endurance Coaching — revisão de literatura</div>
-    </div>
-    <div class="sci-card">
-      <span class="sci-icon">🧊</span>
-      <h4>Frio da Serra Mantiqueira</h4>
-      <p>Largada noturna a 10–12°C com mínima de 6°C na madrugada aumenta risco de lesão muscular e reduz propriocepção de tornozelo. Treinamento excêntrico de calcâneo e estabilidade de tornozelo são críticos.</p>
-      <div class="sci-src">WeatherSpark — Passa Quatro MG, Julho histórico</div>
-    </div>
-    <div class="sci-card">
-      <span class="sci-icon">🏋️</span>
-      <h4>Intensidade Prescrita</h4>
-      <p>70%+ do 1RM com 5–12 repetições em 3 séries. Peso que permite completar as repetições sem falhar — overload progressivo semanal de 2,5–5%.</p>
-      <div class="sci-src">iRunFar — Pumping Iron for Endurance Runners</div>
-    </div>
-    <div class="sci-card">
-      <span class="sci-icon">📅</span>
-      <h4>Timing: Agrupar com o Difícil</h4>
-      <p>Musculação deve ser combinada com os dias de corrida mais intensa (Qui-HIIT), não com os leves. Concentra o estresse num dia e libera os demais para recuperação.</p>
-      <div class="sci-src">Altitude Endurance Coaching — Structured Guide Ultra Runners</div>
-    </div>
-  </div>
-
-  <!-- WEEKLY CALENDAR -->
-  <div class="ph" style="margin-top:36px">📅 Semana de Treinamento</div>
-  <p class="ps">4 sessões de musculação após cada treino de natação/corrida — Seg a Qui.</p>
-  <div class="week-bar">
-    <div class="wday mon">
-      <div class="wn">SEG</div>
-      <span class="wi">🏊</span>
-      <div class="wl" style="color:var(--mon)">Natação<br><b>+ GIM</b><br>Tronco+Core</div>
-    </div>
-    <div class="wday tue">
-      <div class="wn">TER</div>
-      <span class="wi">🏃</span>
-      <div class="wl" style="color:var(--tue)">Corrida<br>Leve<br><b>+ GIM</b></div>
-    </div>
-    <div class="wday wed">
-      <div class="wn">QUA</div>
-      <span class="wi">🏊</span>
-      <div class="wl" style="color:var(--wed)">Natação<br><b>+ GIM</b><br>Cadeia Post.</div>
-    </div>
-    <div class="wday thu">
-      <div class="wn">QUI</div>
-      <span class="wi">⚡</span>
-      <div class="wl" style="color:var(--thu)">HIIT<br><b>+ GIM</b><br>Potência</div>
-    </div>
-    <div class="wday" style="border-color:#333">
-      <div class="wn">SEX</div>
-      <span class="wi">😴</span>
-      <div class="wl" style="color:var(--muted)">Descanso<br>Mobilidade</div>
-    </div>
-    <div class="wday" style="border-color:var(--accent);background:rgba(245,166,35,.07)">
-      <div class="wn" style="color:var(--accent)">SÁB</div>
-      <span class="wi">🏔️</span>
-      <div class="wl" style="color:var(--accent)">Trail<br>25–34km<br><b>Moderado</b></div>
-    </div>
-    <div class="wday" style="border-color:#333">
-      <div class="wn">DOM</div>
-      <span class="wi">♻️</span>
-      <div class="wl" style="color:var(--muted)">Recuperação<br>Ativa</div>
-    </div>
-  </div>
-
-</div>
 
 <!-- ═══════════════ MONDAY ═══════════════ -->
 <div class="page" id="p-monday">
@@ -1523,7 +1352,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 </div>
 
 <!-- ═══════════════ UAI RACE ═══════════════ -->
-<div class="page" id="p-race">
+<div class="page a" id="p-race">
   <div class="ph">🏁 UAI Race — Dados Oficiais 100K</div>
   <p class="ps">Perfil completo, regras, cortes e logística de largada · UAI Ultramaratona dos Anjos Internacional · Baependi → Passa Quatro</p>
 
@@ -1533,7 +1362,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       <h3>🏁 Largada</h3>
       <div class="stat-row"><span class="sl">Local</span><span class="sv">Baependi, MG</span></div>
       <div class="stat-row"><span class="sl">Horário</span><span class="sv" style="color:var(--accent)">18h00</span></div>
-      <div class="stat-row"><span class="sl">Data</span><span class="sv">Julho 2026</span></div>
+      <div class="stat-row"><span class="sl">Data</span><span class="sv">17 Jul 2026</span></div>
       <div class="stat-row"><span class="sl">Formato</span><span class="sv">Noturna → Diurna</span></div>
     </div>
     <div class="info-box" style="border-color:rgba(79,156,249,.4)">
