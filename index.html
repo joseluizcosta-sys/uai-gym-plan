@@ -1660,7 +1660,64 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
   <div class="ph">🧭 Estratégia de Prova — UAI 100K</div>
   <p class="ps">Pace por segmento · Nutrição · Drop bags · O que pegar e o que deixar · Baependi → Passa Quatro · 17 Jul 2026 · 18h00</p>
 
-  <!-- PACE -->
+  <!-- ALTIMETRY CHART -->
+  <div style="margin-bottom:28px">
+<h3>🏔️ Perfil de Altimetria Detalhado — UAI 100KM · Baependi → Passa Quatro</h3>
+    <svg viewBox="0 0 900 210" style="width:100%;height:210px;display:block" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="raceElevGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f5a623" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#f5a623" stop-opacity=".04"/>
+        </linearGradient>
+      </defs>
+      <!-- Grid lines -->
+      <line x1="0" y1="45" x2="900" y2="45" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="95" x2="900" y2="95" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="145" x2="900" y2="145" stroke="#242a38" stroke-width="1"/>
+      <!-- Elev labels -->
+      <text x="6" y="43" fill="#8892a4" font-size="9" font-family="monospace">1.750m</text>
+      <text x="6" y="93" fill="#8892a4" font-size="9" font-family="monospace">1.350m</text>
+      <text x="6" y="143" fill="#8892a4" font-size="9" font-family="monospace">1.050m</text>
+      <!-- Elevation fill -->
+      <path d="M0,172 C30,162 60,140 90,130 C112,124 126,88 136,74 C150,57 168,110 182,113 C222,118 252,124 270,130 C302,122 326,62 344,46 C360,23 370,12 380,10 C397,26 422,50 452,73 C480,93 507,122 524,130 C547,110 567,70 587,76 C612,56 632,36 650,28 C667,48 687,66 704,73 C730,86 750,106 767,113 C792,126 812,143 830,150 C860,162 883,176 900,183 L900,200 L0,200 Z" fill="url(#raceElevGrad)"/>
+      <!-- Elevation line -->
+      <path d="M0,172 C30,162 60,140 90,130 C112,124 126,88 136,74 C150,57 168,110 182,113 C222,118 252,124 270,130 C302,122 326,62 344,46 C360,23 370,12 380,10 C397,26 422,50 452,73 C480,93 507,122 524,130 C547,110 567,70 587,76 C612,56 632,36 650,28 C667,48 687,66 704,73 C730,86 750,106 767,113 C792,126 812,143 830,150 C860,162 883,176 900,183" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Start -->
+      <circle cx="0" cy="172" r="5" fill="#4f9cf9"/>
+      <text x="4" y="207" fill="#4f9cf9" font-size="8" font-weight="700">0km</text>
+      <!-- PC1 30km -->
+      <line x1="270" y1="130" x2="270" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="270" cy="130" r="4" fill="#3ecf8e"/>
+      <text x="252" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC1 30k</text>
+      <!-- PC2 50km -->
+      <line x1="452" y1="73" x2="452" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="452" cy="73" r="4" fill="#3ecf8e"/>
+      <text x="434" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC2 50k</text>
+      <!-- Summit ~42km -->
+      <circle cx="380" cy="10" r="5" fill="#f5a623"/>
+      <text x="355" y="9" fill="#f5a623" font-size="9" font-weight="800">~1.750m</text>
+      <!-- PC3 70km -->
+      <line x1="650" y1="28" x2="650" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="650" cy="28" r="4" fill="#3ecf8e"/>
+      <text x="632" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC3 70k</text>
+      <!-- PC4 85km -->
+      <line x1="767" y1="113" x2="767" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="767" cy="113" r="4" fill="#3ecf8e"/>
+      <text x="749" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC4 85k</text>
+      <!-- Finish -->
+      <circle cx="900" cy="183" r="5" fill="#e05c5c"/>
+      <text x="874" y="207" fill="#e05c5c" font-size="8" font-weight="700">100km</text>
+    </svg>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)">
+      <span><span style="color:#4f9cf9">●</span> Largada Baependi</span>
+      <span><span style="color:#f5a623">●</span> Pico ~1.750m (~km42)</span>
+      <span><span style="color:#3ecf8e">●</span> Postos de controle</span>
+      <span><span style="color:#e05c5c">●</span> Chegada Passa Quatro</span>
+    </div>
+
+  </div>
+
+    <!-- PACE -->
   <div style="margin-bottom:28px">
     <div style="font-size:15px;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px">⏱️ Pace por Segmento</div>
     <div style="overflow-x:auto">
