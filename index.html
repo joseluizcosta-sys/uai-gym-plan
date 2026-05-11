@@ -1256,6 +1256,310 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     <span style="margin-left:auto;color:var(--muted)">Fonte: Garmin · Treino Online (sync 04/mai/2026)</span>
   </div>
 </div>
+<!-- ═══════════════ GARMIN ANALYSIS ═══════════════ -->
+<div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border)">
+  <div class="ph" style="margin-bottom:4px">📊 Análise Garmin — Últimos 30 Dias</div>
+  <p class="ps" style="margin-bottom:24px">Cross-análise de recuperação, carga, estresse e zonas de FC — dados diretos do InfluxDB.</p>
+
+  <!-- GRID 2x2 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+
+    <!-- CARD 1: Sleep → Body Battery -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:4px">Sono → Body Battery do Dia Seguinte</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:14px">Carga de treino supera qualidade de sono como driver de BB</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px">
+        <thead>
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:4px 6px;font-weight:600">Data</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">Score</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">Sono</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">BB pico</th>
+            <th style="text-align:left;padding:4px 6px;font-weight:600">Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Abr 29</td><td style="text-align:center;color:#7be27b">78</td><td style="text-align:center">6.7h</td><td style="text-align:center">66</td><td style="color:var(--accent);font-size:10px">🏃 treino</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Abr 30</td><td style="text-align:center;color:var(--red)">59</td><td style="text-align:center">4.8h</td><td style="text-align:center;font-weight:700;color:#7be27b">80</td><td style="color:var(--muted);font-size:10px">😴 descanso</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 01</td><td style="text-align:center;color:#7be27b">90</td><td style="text-align:center">8.8h</td><td style="text-align:center;color:var(--red)">61</td><td style="color:var(--accent);font-size:10px">🏃 treino</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 02</td><td style="text-align:center">73</td><td style="text-align:center">6.3h</td><td style="text-align:center">72</td><td style="color:var(--muted);font-size:10px">😴 descanso</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 04</td><td style="text-align:center">68</td><td style="text-align:center">5.6h</td><td style="text-align:center;font-weight:700;color:#7be27b">84</td><td style="color:var(--accent);font-size:10px">🏃 treino leve</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 05</td><td style="text-align:center">83</td><td style="text-align:center">6.8h</td><td style="text-align:center">75</td><td style="color:var(--accent);font-size:10px">🏃 treino</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 06</td><td style="text-align:center">77</td><td style="text-align:center">6.3h</td><td style="text-align:center;color:var(--red);font-weight:700">55</td><td style="color:var(--accent);font-size:10px">🏃 treino duro</td></tr>
+          <tr><td style="padding:5px 6px">Mai 09</td><td style="text-align:center">68</td><td style="text-align:center">6.1h</td><td style="text-align:center">62</td><td style="color:var(--muted);font-size:10px">😴 descanso</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;padding:10px;background:rgba(245,166,35,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
+        ⚠️ Score 59 + descanso → BB 80. Score 90 + treino → BB 61.<br>
+        <strong style="color:var(--accent)">Conclusão: redução de volume no taper vale mais que otimizar sono.</strong>
+      </div>
+    </div>
+
+    <!-- CARD 2: Training Load → HRV -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:4px">Carga de Treino → Supressão de VFC</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:14px">VFC noturna antes e após cada sessão (SleepSummary.avgOvernightHrv)</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px">
+        <thead>
+          <tr style="color:var(--muted);border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:4px 6px;font-weight:600">Sessão</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">Carga</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">FC med</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">VFC ant.</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">VFC pós</th>
+            <th style="text-align:center;padding:4px 6px;font-weight:600">Δ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Abr 30 · 7km</td><td style="text-align:center">219</td><td style="text-align:center">143</td><td style="text-align:center">30</td><td style="text-align:center">32</td><td style="text-align:center;color:#7be27b">+2</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 02 · 6km</td><td style="text-align:center">86</td><td style="text-align:center">135</td><td style="text-align:center">27</td><td style="text-align:center">29</td><td style="text-align:center;color:#7be27b">+2</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 04 · 1.9km</td><td style="text-align:center">76</td><td style="text-align:center">113</td><td style="text-align:center">31</td><td style="text-align:center">31</td><td style="text-align:center;color:var(--muted)">0</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 05 · 14km</td><td style="text-align:center">187</td><td style="text-align:center">138</td><td style="text-align:center">31</td><td style="text-align:center">32</td><td style="text-align:center;color:#7be27b">+1</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 07 · 8km</td><td style="text-align:center;font-weight:700">206</td><td style="text-align:center;color:var(--red);font-weight:700">151</td><td style="text-align:center">29</td><td style="text-align:center">—</td><td style="text-align:center;color:var(--muted)">—</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 09 · 28.6km</td><td style="text-align:center;font-weight:700;color:var(--accent)">246</td><td style="text-align:center">136</td><td style="text-align:center">32</td><td style="text-align:center">31</td><td style="text-align:center;color:var(--red)">−1</td></tr>
+          <tr><td style="padding:5px 6px">Mai 11 · 2km</td><td style="text-align:center">46</td><td style="text-align:center">106</td><td style="text-align:center;font-weight:700;color:#7be27b">35</td><td style="text-align:center">—</td><td style="text-align:center;color:var(--muted)">—</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;padding:10px;background:rgba(79,156,249,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
+        VFC 11/mai = <strong style="color:#7be27b">35 ms (máximo do período)</strong> — sinal verde de prontidão.<br>
+        28.6km suprimiu apenas −1 ms. Maior impacto: 8km a FC 151 (Z4/Z5 93%).
+      </div>
+    </div>
+
+    <!-- CARD 3: Stress Distribution -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#a78bfa;margin-bottom:4px">Distribuição de Estresse Diário</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:14px">Semana 1 avg: 14 min/dia alto estresse → Semana 2: 19 min/dia (+36%)</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--muted)">Abr 29</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:26880;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:5640;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:780;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:38580;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--muted);text-align:right">13 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--accent)">Abr 30 🏃</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:26220;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:7860;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:1920;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:31980;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--red);text-align:right">32 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--muted)">Mai 01</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:29400;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:7800;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:540;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:34080;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--muted);text-align:right">9 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--accent)">Mai 02 🏃</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:30960;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:6300;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:1260;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:25560;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--muted);text-align:right">21 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--muted)">Mai 03</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:16080;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:2640;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:180;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:54060;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--muted);text-align:right">3 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--accent)">Mai 04 🏃</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:13620;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:4620;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:600;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:41940;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--muted);text-align:right">10 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--accent)">Mai 05 🏃</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:27180;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:10740;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:2220;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:29460;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--red);text-align:right">37 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--accent)">Mai 07 🏃</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:24480;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:6540;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:1260;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:27780;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--muted);text-align:right">21 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--accent)">Mai 09 🏃</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:22860;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:8940;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:2700;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:26160;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:var(--red);text-align:right">45 min</span>
+        </div>
+        <div style="display:grid;grid-template-columns:52px 1fr 38px;align-items:center;gap:8px;font-size:10px">
+          <span style="color:var(--muted)">Mai 10</span>
+          <div style="display:flex;height:12px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:26580;background:rgba(79,156,249,.5)"></div>
+            <div style="flex:960;background:rgba(245,166,35,.6)"></div>
+            <div style="flex:0;background:rgba(224,92,92,.7)"></div>
+            <div style="flex:47400;background:rgba(255,255,255,.07)"></div>
+          </div>
+          <span style="color:#7be27b;text-align:right">0 min</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:12px;font-size:10px;color:var(--muted)">
+        <span><span style="display:inline-block;width:10px;height:10px;background:rgba(79,156,249,.5);border-radius:2px;margin-right:4px"></span>Baixo</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:rgba(245,166,35,.6);border-radius:2px;margin-right:4px"></span>Médio</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:rgba(224,92,92,.7);border-radius:2px;margin-right:4px"></span>Alto</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:rgba(255,255,255,.07);border-radius:2px;margin-right:4px"></span>Descanso/Sono</span>
+      </div>
+    </div>
+
+    <!-- CARD 4: HR Zone Distribution -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:4px">Distribuição de Zonas de FC por Sessão</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:14px">Meta 80/20: 80% fácil (Z1+Z2) · 20% duro (Z4+Z5) · Atual: <strong style="color:var(--red)">25% easy / 40% hard ⚠️</strong></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <!-- Session rows -->
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span style="color:var(--red);font-weight:700">Abr 30 · 7.1km · load 219 · FC 143</span><span style="color:var(--red)">🔴 DURO · Easy 15% Hard 67%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:45;background:#4f9cf9;opacity:.6" title="Z1 45s"></div>
+            <div style="flex:338;background:#7be27b;opacity:.7" title="Z2 338s"></div>
+            <div style="flex:438;background:#f5a623;opacity:.7" title="Z3 438s"></div>
+            <div style="flex:769;background:#e05c5c;opacity:.7" title="Z4 769s"></div>
+            <div style="flex:916;background:#c0392b" title="Z5 916s"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span>Mai 02 · 6km · load 86 · FC 135</span><span style="color:var(--accent)">🟡 Z3 Tempo · Easy 5% Hard 31%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:8;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:94;background:#7be27b;opacity:.7"></div>
+            <div style="flex:1458;background:#f5a623;opacity:.7"></div>
+            <div style="flex:696;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:2;background:#c0392b"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span>Mai 04 · 1.9km · load 76 · FC 113</span><span style="color:#7be27b">🟠 Misto · Easy 59% Hard 1%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:1101;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:888;background:#7be27b;opacity:.7"></div>
+            <div style="flex:1332;background:#f5a623;opacity:.7"></div>
+            <div style="flex:39;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:3;background:#c0392b"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span style="color:var(--red);font-weight:700">Mai 05 · 14km · load 187 · FC 138</span><span style="color:var(--red)">🔴 DURO · Easy 2% Hard 51%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:17;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:74;background:#7be27b;opacity:.7"></div>
+            <div style="flex:2194;background:#f5a623;opacity:.7"></div>
+            <div style="flex:2346;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:1;background:#c0392b"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span>Mai 06 · 1.7km · load 81 · FC 112</span><span style="color:#7be27b">🟢 Fácil · Easy 66% Hard 14%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:845;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:857;background:#7be27b;opacity:.7"></div>
+            <div style="flex:503;background:#f5a623;opacity:.7"></div>
+            <div style="flex:357;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:1;background:#c0392b"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span style="color:var(--red);font-weight:700">Mai 07 · 8km · load 206 · FC 151</span><span style="color:var(--red)">🔴 DURO · Easy 4% Hard 93%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:35;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:54;background:#7be27b;opacity:.7"></div>
+            <div style="flex:61;background:#f5a623;opacity:.7"></div>
+            <div style="flex:1284;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:848;background:#c0392b"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span style="color:var(--red);font-weight:700">Mai 09 · 28.6km · load 246 · FC 136</span><span style="color:var(--red)">🔴 DURO · Easy 9% Hard 50%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:67;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:1067;background:#7be27b;opacity:.7"></div>
+            <div style="flex:5017;background:#f5a623;opacity:.7"></div>
+            <div style="flex:5627;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:415;background:#c0392b"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span>Mai 11 · 2km · load 46 · FC 106</span><span style="color:#7be27b">🟢 Fácil · Easy 89% Hard 0%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:1201;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:1635;background:#7be27b;opacity:.7"></div>
+            <div style="flex:342;background:#f5a623;opacity:.7"></div>
+            <div style="flex:1;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:1;background:#c0392b"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:12px;font-size:10px;color:var(--muted)">
+        <span><span style="display:inline-block;width:10px;height:10px;background:#4f9cf9;border-radius:2px;margin-right:4px"></span>Z1</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#7be27b;border-radius:2px;margin-right:4px"></span>Z2</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#f5a623;border-radius:2px;margin-right:4px"></span>Z3</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#e05c5c;border-radius:2px;margin-right:4px"></span>Z4</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#c0392b;border-radius:2px;margin-right:4px"></span>Z5</span>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:rgba(224,92,92,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
+        ⚠️ 4 de 8 sessões classificadas como DURO. Long run 28.6km com 50% Z4+Z5 — intensidade excessiva para base aeróbica.<br>
+        <strong style="color:var(--red)">Recomendação: longões em Z2–Z3. Z4+Z5 apenas em sessões curtas (1–2x/semana).</strong>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+  <div style="font-size:10px;color:var(--muted);text-align:right;margin-top:4px">Fonte: InfluxDB · GarminStats · dados até 11/Mai/2026</div>
+</div>
+
 
 <!-- ═══════════════ TIPS ═══════════════ -->
 <div class="page" id="p-tips">
