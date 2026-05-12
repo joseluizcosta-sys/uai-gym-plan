@@ -2374,7 +2374,7 @@ if (tb) trailObs.observe(tb);
       attribution: '© OpenTopoMap (CC-BY-SA)',
       maxZoom: 15
     }).addTo(map);
-    var poly = L.polyline(routeCoords, {color:'#f5a623', weight:3, opacity:.9}).addTo(map);
+    var poly = L.polyline(routeCoords, {color:'#e8003d', weight:4, opacity:1}).addTo(map);
     map.fitBounds(poly.getBounds(), {padding:[20,20]});
     // Start marker
     L.circleMarker(routeCoords[0], {radius:8,color:'#4f9cf9',fillColor:'#4f9cf9',fillOpacity:1,weight:2})
