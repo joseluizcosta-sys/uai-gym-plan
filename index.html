@@ -1793,7 +1793,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       <div class="stat-row"><span class="sl">Distância</span><span class="sv" style="color:var(--blue)">100 km</span></div>
       <div class="stat-row"><span class="sl">D+ total</span><span class="sv">+1.733 m</span></div>
       <div class="stat-row"><span class="sl">D− total</span><span class="sv">~−1.733 m</span></div>
-      <div class="stat-row"><span class="sl">Alt. máxima</span><span class="sv" title="Dado SRTM: 1.260m">~1.750 m*</span></div>
+      <div class="stat-row"><span class="sl">Alt. máxima</span><span class="sv" style="color:var(--green)">1.298 m</span></div>
     </div>
     <div class="info-box" style="border-color:rgba(62,207,142,.4)">
       <h3>🏔️ Terreno</h3>
@@ -1817,49 +1817,51 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     <svg viewBox="0 0 900 210" style="width:100%;height:210px;display:block" preserveAspectRatio="none">
       <defs>
         <linearGradient id="raceElevGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#f5a623" stop-opacity=".5"/>
+          <stop offset="0%" stop-color="#f5a623" stop-opacity=".45"/>
           <stop offset="100%" stop-color="#f5a623" stop-opacity=".04"/>
         </linearGradient>
       </defs>
-      <!-- Grid lines (SRTM real data) -->
-      <line x1="0" y1="48" x2="900" y2="48" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="130" x2="900" y2="130" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="171" x2="900" y2="171" stroke="#242a38" stroke-width="1"/>
+      <!-- Grid lines — scale matches official altimetry (848–1.323m) -->
+      <line x1="0" y1="20.8" x2="900" y2="20.8" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="75.0" x2="900" y2="75.0" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="129.6" x2="900" y2="129.6" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="183.8" x2="900" y2="183.8" stroke="#242a38" stroke-width="1"/>
       <!-- Elev labels -->
-      <text x="6" y="46" fill="#8892a4" font-size="9" font-family="monospace">1.200m</text>
-      <text x="6" y="128" fill="#8892a4" font-size="9" font-family="monospace">1.000m</text>
-      <text x="6" y="169" fill="#8892a4" font-size="9" font-family="monospace">900m</text>
+      <text x="6" y="19" fill="#8892a4" font-size="9" font-family="monospace">1.323m</text>
+      <text x="6" y="73" fill="#8892a4" font-size="9" font-family="monospace">1.165m</text>
+      <text x="6" y="128" fill="#8892a4" font-size="9" font-family="monospace">1.006m</text>
+      <text x="6" y="182" fill="#8892a4" font-size="9" font-family="monospace">848m</text>
       <!-- Elevation fill -->
-      <path d="M0.0,166.2 L9.2,175.7 L18.5,174.4 L27.4,174.4 L36.4,156.8 L45.5,171.1 L54.6,176.1 L63.9,168.3 L72.9,141.6 L82.0,154.3 L90.9,171.6 L100.4,168.7 L109.1,176.9 L118.2,178.5 L127.4,178.1 L136.5,176.5 L146.8,164.2 L154.6,166.6 L164.3,169.9 L172.8,154.8 L182.0,170.7 L191.1,167.0 L200.4,157.6 L209.4,156.0 L218.5,152.3 L227.6,141.2 L238.6,153.9 L246.3,160.5 L254.8,166.6 L263.9,167.9 L272.9,167.0 L281.9,172.4 L291.0,168.3 L300.9,165.0 L309.1,161.7 L318.5,138.8 L327.5,166.2 L336.4,153.9 L345.8,168.3 L354.6,178.1 L363.8,158.9 L372.8,138.0 L382.0,171.1 L391.2,178.9 L400.2,180.2 L409.5,181.0 L418.3,181.8 L428.0,175.7 L436.4,153.9 L445.8,155.6 L454.6,148.6 L463.9,175.2 L472.8,158.9 L481.9,176.5 L491.2,170.3 L500.3,170.7 L509.1,170.7 L519.1,177.3 L527.3,169.1 L536.4,178.5 L545.6,177.7 L554.6,170.7 L563.8,171.6 L573.1,157.2 L582.4,160.1 L591.3,161.7 L600.1,149.8 L609.1,157.2 L618.5,169.1 L627.4,175.2 L636.8,173.2 L646.3,175.2 L655.2,145.7 L663.9,146.6 L672.8,166.6 L682.0,168.3 L690.9,163.4 L701.3,150.7 L709.4,152.7 L718.3,139.2 L727.5,134.3 L736.4,122.8 L745.6,101.9 L754.6,63.0 L763.7,32.2 L772.9,23.2 L781.9,55.2 L791.0,79.8 L800.2,92.0 L809.1,75.7 L818.3,83.0 L827.3,63.4 L836.4,75.7 L845.5,66.6 L854.6,58.9 L863.7,94.5 L872.9,109.7 L881.9,137.5 L892.4,163.8 L900.0,160.9 L900.0,190 L0.0,190 Z" fill="url(#raceElevGrad)"/>
+      <path d="M0.0,162.2 L9.1,170.1 L18.2,169.1 L27.3,169.1 L36.4,154.3 L45.5,166.3 L54.7,170.4 L63.8,163.9 L72.9,141.6 L82.0,152.3 L91.1,166.7 L100.2,164.3 L109.3,171.1 L118.4,172.5 L127.5,172.2 L136.6,170.8 L146.7,160.5 L154.9,162.5 L164.0,165.3 L173.1,152.6 L182.2,166.0 L191.3,162.9 L200.4,155.0 L209.5,153.6 L218.6,150.5 L227.7,141.3 L238.7,151.9 L246.0,157.4 L255.1,162.5 L264.2,163.6 L272.4,162.9 L281.5,167.4 L290.6,163.9 L300.6,161.2 L308.8,158.4 L317.9,139.2 L327.0,162.2 L336.1,151.9 L345.2,163.9 L354.4,172.2 L363.5,156.0 L372.6,138.5 L381.7,166.3 L390.8,172.8 L399.9,173.9 L409.0,174.6 L418.1,175.2 L428.1,170.1 L436.3,151.9 L445.4,153.3 L454.6,147.5 L463.7,169.8 L472.8,156.0 L481.9,170.8 L491.0,165.6 L500.1,166.0 L509.2,166.0 L519.2,171.5 L527.4,164.6 L536.5,172.5 L545.6,171.8 L554.8,166.0 L563.9,166.7 L573.0,154.7 L582.1,157.1 L591.2,158.4 L600.3,148.5 L608.5,154.7 L618.5,164.6 L626.7,169.8 L636.7,168.0 L645.9,169.8 L655.0,145.0 L664.1,145.7 L672.3,162.5 L681.4,163.9 L690.5,159.8 L701.4,149.2 L708.7,150.9 L717.8,139.6 L726.9,135.4 L736.0,125.8 L745.1,108.3 L754.3,75.7 L763.4,50.0 L772.5,42.5 L781.6,69.2 L790.7,89.8 L799.8,100.1 L808.9,86.4 L818.0,92.5 L827.1,76.1 L836.2,86.4 L845.3,78.8 L854.5,72.3 L863.6,102.2 L872.7,114.9 L881.8,138.2 L891.8,160.1 L900.0,157.7 L900.0,190 L0.0,190 Z" fill="url(#raceElevGrad)"/>
       <!-- Elevation line -->
-      <path d="M0.0,166.2 L9.2,175.7 L18.5,174.4 L27.4,174.4 L36.4,156.8 L45.5,171.1 L54.6,176.1 L63.9,168.3 L72.9,141.6 L82.0,154.3 L90.9,171.6 L100.4,168.7 L109.1,176.9 L118.2,178.5 L127.4,178.1 L136.5,176.5 L146.8,164.2 L154.6,166.6 L164.3,169.9 L172.8,154.8 L182.0,170.7 L191.1,167.0 L200.4,157.6 L209.4,156.0 L218.5,152.3 L227.6,141.2 L238.6,153.9 L246.3,160.5 L254.8,166.6 L263.9,167.9 L272.9,167.0 L281.9,172.4 L291.0,168.3 L300.9,165.0 L309.1,161.7 L318.5,138.8 L327.5,166.2 L336.4,153.9 L345.8,168.3 L354.6,178.1 L363.8,158.9 L372.8,138.0 L382.0,171.1 L391.2,178.9 L400.2,180.2 L409.5,181.0 L418.3,181.8 L428.0,175.7 L436.4,153.9 L445.8,155.6 L454.6,148.6 L463.9,175.2 L472.8,158.9 L481.9,176.5 L491.2,170.3 L500.3,170.7 L509.1,170.7 L519.1,177.3 L527.3,169.1 L536.4,178.5 L545.6,177.7 L554.6,170.7 L563.8,171.6 L573.1,157.2 L582.4,160.1 L591.3,161.7 L600.1,149.8 L609.1,157.2 L618.5,169.1 L627.4,175.2 L636.8,173.2 L646.3,175.2 L655.2,145.7 L663.9,146.6 L672.8,166.6 L682.0,168.3 L690.9,163.4 L701.3,150.7 L709.4,152.7 L718.3,139.2 L727.5,134.3 L736.4,122.8 L745.6,101.9 L754.6,63.0 L763.7,32.2 L772.9,23.2 L781.9,55.2 L791.0,79.8 L800.2,92.0 L809.1,75.7 L818.3,83.0 L827.3,63.4 L836.4,75.7 L845.5,66.6 L854.6,58.9 L863.7,94.5 L872.9,109.7 L881.9,137.5 L892.4,163.8 L900.0,160.9" fill="none" stroke="#f5a623" stroke-width="2"/>
+      <path d="M0.0,162.2 L9.1,170.1 L18.2,169.1 L27.3,169.1 L36.4,154.3 L45.5,166.3 L54.7,170.4 L63.8,163.9 L72.9,141.6 L82.0,152.3 L91.1,166.7 L100.2,164.3 L109.3,171.1 L118.4,172.5 L127.5,172.2 L136.6,170.8 L146.7,160.5 L154.9,162.5 L164.0,165.3 L173.1,152.6 L182.2,166.0 L191.3,162.9 L200.4,155.0 L209.5,153.6 L218.6,150.5 L227.7,141.3 L238.7,151.9 L246.0,157.4 L255.1,162.5 L264.2,163.6 L272.4,162.9 L281.5,167.4 L290.6,163.9 L300.6,161.2 L308.8,158.4 L317.9,139.2 L327.0,162.2 L336.1,151.9 L345.2,163.9 L354.4,172.2 L363.5,156.0 L372.6,138.5 L381.7,166.3 L390.8,172.8 L399.9,173.9 L409.0,174.6 L418.1,175.2 L428.1,170.1 L436.3,151.9 L445.4,153.3 L454.6,147.5 L463.7,169.8 L472.8,156.0 L481.9,170.8 L491.0,165.6 L500.1,166.0 L509.2,166.0 L519.2,171.5 L527.4,164.6 L536.5,172.5 L545.6,171.8 L554.8,166.0 L563.9,166.7 L573.0,154.7 L582.1,157.1 L591.2,158.4 L600.3,148.5 L608.5,154.7 L618.5,164.6 L626.7,169.8 L636.7,168.0 L645.9,169.8 L655.0,145.0 L664.1,145.7 L672.3,162.5 L681.4,163.9 L690.5,159.8 L701.4,149.2 L708.7,150.9 L717.8,139.6 L726.9,135.4 L736.0,125.8 L745.1,108.3 L754.3,75.7 L763.4,50.0 L772.5,42.5 L781.6,69.2 L790.7,89.8 L799.8,100.1 L808.9,86.4 L818.0,92.5 L827.1,76.1 L836.2,86.4 L845.3,78.8 L854.5,72.3 L863.6,102.2 L872.7,114.9 L881.8,138.2 L891.8,160.1 L900.0,157.7" fill="none" stroke="#f5a623" stroke-width="2"/>
       <!-- Start -->
-      <circle cx="0" cy="166.2" r="5" fill="#4f9cf9"/>
-      <text x="4" y="207" fill="#4f9cf9" font-size="8" font-weight="700">0km</text>
+      <circle cx="0" cy="162.2" r="5" fill="#4f9cf9"/>
+      <text x="4" y="207" fill="#4f9cf9" font-size="8" font-weight="700">0km · 887m</text>
       <!-- PC1 30km -->
-      <line x1="273.4" y1="167.0" x2="273.4" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="273.4" cy="167.0" r="4" fill="#3ecf8e"/>
-      <text x="255" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC1 30k</text>
+      <line x1="272.4" y1="162.9" x2="272.4" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="272.4" cy="162.9" r="4" fill="#3ecf8e"/>
+      <text x="254" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC1 30k</text>
       <!-- PC2 50km -->
-      <line x1="455.6" y1="148.6" x2="455.6" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="455.6" cy="148.6" r="4" fill="#3ecf8e"/>
-      <text x="437" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC2 50k</text>
+      <line x1="454.6" y1="147.5" x2="454.6" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="454.6" cy="147.5" r="4" fill="#3ecf8e"/>
+      <text x="436" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC2 50k</text>
       <!-- PC3 70km -->
-      <line x1="637.9" y1="173.2" x2="637.9" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="637.9" cy="173.2" r="4" fill="#3ecf8e"/>
-      <text x="619" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC3 70k</text>
-      <!-- Summit + PC4 ~85km -->
-      <circle cx="772.9" cy="23.2" r="5" fill="#f5a623"/>
-      <text x="720" y="18" fill="#f5a623" font-size="9" font-weight="800">~1.260m (SRTM)</text>
-      <line x1="772.9" y1="23.2" x2="772.9" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="636.7" y1="168.0" x2="636.7" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="636.7" cy="168.0" r="4" fill="#3ecf8e"/>
+      <text x="618" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC3 70k</text>
+      <!-- Summit / PC4 ~85km · 1.298m official -->
+      <circle cx="772.5" cy="42.5" r="5" fill="#f5a623"/>
+      <text x="718" y="38" fill="#f5a623" font-size="9" font-weight="800">1.298m · km85</text>
+      <line x1="772.5" y1="42.5" x2="772.5" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
       <text x="754" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC4 85k</text>
       <!-- Finish -->
-      <circle cx="900" cy="160.9" r="5" fill="#e05c5c"/>
-      <text x="874" y="207" fill="#e05c5c" font-size="8" font-weight="700">100km</text>
+      <circle cx="900" cy="157.7" r="5" fill="#e05c5c"/>
+      <text x="860" y="207" fill="#e05c5c" font-size="8" font-weight="700">100km · 924m</text>
       </svg>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)">
       <span><span style="color:#4f9cf9">●</span> Largada Baependi</span>
-      <span><span style="color:#f5a623">●</span> Pico ~1.260m SRTM (~km85)</span>
+      <span><span style="color:#f5a623">●</span> Pico 1.298m (~km85)</span>
       <span><span style="color:#3ecf8e">●</span> Postos de controle</span>
       <span><span style="color:#e05c5c">●</span> Chegada Passa Quatro</span>
     </div>
@@ -2027,49 +2029,51 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     <svg viewBox="0 0 900 210" style="width:100%;height:210px;display:block" preserveAspectRatio="none">
       <defs>
         <linearGradient id="raceElevGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#f5a623" stop-opacity=".5"/>
+          <stop offset="0%" stop-color="#f5a623" stop-opacity=".45"/>
           <stop offset="100%" stop-color="#f5a623" stop-opacity=".04"/>
         </linearGradient>
       </defs>
-      <!-- Grid lines (SRTM real data) -->
-      <line x1="0" y1="48" x2="900" y2="48" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="130" x2="900" y2="130" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="171" x2="900" y2="171" stroke="#242a38" stroke-width="1"/>
+      <!-- Grid lines — scale matches official altimetry (848–1.323m) -->
+      <line x1="0" y1="20.8" x2="900" y2="20.8" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="75.0" x2="900" y2="75.0" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="129.6" x2="900" y2="129.6" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="183.8" x2="900" y2="183.8" stroke="#242a38" stroke-width="1"/>
       <!-- Elev labels -->
-      <text x="6" y="46" fill="#8892a4" font-size="9" font-family="monospace">1.200m</text>
-      <text x="6" y="128" fill="#8892a4" font-size="9" font-family="monospace">1.000m</text>
-      <text x="6" y="169" fill="#8892a4" font-size="9" font-family="monospace">900m</text>
+      <text x="6" y="19" fill="#8892a4" font-size="9" font-family="monospace">1.323m</text>
+      <text x="6" y="73" fill="#8892a4" font-size="9" font-family="monospace">1.165m</text>
+      <text x="6" y="128" fill="#8892a4" font-size="9" font-family="monospace">1.006m</text>
+      <text x="6" y="182" fill="#8892a4" font-size="9" font-family="monospace">848m</text>
       <!-- Elevation fill -->
-      <path d="M0.0,166.2 L9.2,175.7 L18.5,174.4 L27.4,174.4 L36.4,156.8 L45.5,171.1 L54.6,176.1 L63.9,168.3 L72.9,141.6 L82.0,154.3 L90.9,171.6 L100.4,168.7 L109.1,176.9 L118.2,178.5 L127.4,178.1 L136.5,176.5 L146.8,164.2 L154.6,166.6 L164.3,169.9 L172.8,154.8 L182.0,170.7 L191.1,167.0 L200.4,157.6 L209.4,156.0 L218.5,152.3 L227.6,141.2 L238.6,153.9 L246.3,160.5 L254.8,166.6 L263.9,167.9 L272.9,167.0 L281.9,172.4 L291.0,168.3 L300.9,165.0 L309.1,161.7 L318.5,138.8 L327.5,166.2 L336.4,153.9 L345.8,168.3 L354.6,178.1 L363.8,158.9 L372.8,138.0 L382.0,171.1 L391.2,178.9 L400.2,180.2 L409.5,181.0 L418.3,181.8 L428.0,175.7 L436.4,153.9 L445.8,155.6 L454.6,148.6 L463.9,175.2 L472.8,158.9 L481.9,176.5 L491.2,170.3 L500.3,170.7 L509.1,170.7 L519.1,177.3 L527.3,169.1 L536.4,178.5 L545.6,177.7 L554.6,170.7 L563.8,171.6 L573.1,157.2 L582.4,160.1 L591.3,161.7 L600.1,149.8 L609.1,157.2 L618.5,169.1 L627.4,175.2 L636.8,173.2 L646.3,175.2 L655.2,145.7 L663.9,146.6 L672.8,166.6 L682.0,168.3 L690.9,163.4 L701.3,150.7 L709.4,152.7 L718.3,139.2 L727.5,134.3 L736.4,122.8 L745.6,101.9 L754.6,63.0 L763.7,32.2 L772.9,23.2 L781.9,55.2 L791.0,79.8 L800.2,92.0 L809.1,75.7 L818.3,83.0 L827.3,63.4 L836.4,75.7 L845.5,66.6 L854.6,58.9 L863.7,94.5 L872.9,109.7 L881.9,137.5 L892.4,163.8 L900.0,160.9 L900.0,190 L0.0,190 Z" fill="url(#raceElevGrad)"/>
+      <path d="M0.0,162.2 L9.1,170.1 L18.2,169.1 L27.3,169.1 L36.4,154.3 L45.5,166.3 L54.7,170.4 L63.8,163.9 L72.9,141.6 L82.0,152.3 L91.1,166.7 L100.2,164.3 L109.3,171.1 L118.4,172.5 L127.5,172.2 L136.6,170.8 L146.7,160.5 L154.9,162.5 L164.0,165.3 L173.1,152.6 L182.2,166.0 L191.3,162.9 L200.4,155.0 L209.5,153.6 L218.6,150.5 L227.7,141.3 L238.7,151.9 L246.0,157.4 L255.1,162.5 L264.2,163.6 L272.4,162.9 L281.5,167.4 L290.6,163.9 L300.6,161.2 L308.8,158.4 L317.9,139.2 L327.0,162.2 L336.1,151.9 L345.2,163.9 L354.4,172.2 L363.5,156.0 L372.6,138.5 L381.7,166.3 L390.8,172.8 L399.9,173.9 L409.0,174.6 L418.1,175.2 L428.1,170.1 L436.3,151.9 L445.4,153.3 L454.6,147.5 L463.7,169.8 L472.8,156.0 L481.9,170.8 L491.0,165.6 L500.1,166.0 L509.2,166.0 L519.2,171.5 L527.4,164.6 L536.5,172.5 L545.6,171.8 L554.8,166.0 L563.9,166.7 L573.0,154.7 L582.1,157.1 L591.2,158.4 L600.3,148.5 L608.5,154.7 L618.5,164.6 L626.7,169.8 L636.7,168.0 L645.9,169.8 L655.0,145.0 L664.1,145.7 L672.3,162.5 L681.4,163.9 L690.5,159.8 L701.4,149.2 L708.7,150.9 L717.8,139.6 L726.9,135.4 L736.0,125.8 L745.1,108.3 L754.3,75.7 L763.4,50.0 L772.5,42.5 L781.6,69.2 L790.7,89.8 L799.8,100.1 L808.9,86.4 L818.0,92.5 L827.1,76.1 L836.2,86.4 L845.3,78.8 L854.5,72.3 L863.6,102.2 L872.7,114.9 L881.8,138.2 L891.8,160.1 L900.0,157.7 L900.0,190 L0.0,190 Z" fill="url(#raceElevGrad)"/>
       <!-- Elevation line -->
-      <path d="M0.0,166.2 L9.2,175.7 L18.5,174.4 L27.4,174.4 L36.4,156.8 L45.5,171.1 L54.6,176.1 L63.9,168.3 L72.9,141.6 L82.0,154.3 L90.9,171.6 L100.4,168.7 L109.1,176.9 L118.2,178.5 L127.4,178.1 L136.5,176.5 L146.8,164.2 L154.6,166.6 L164.3,169.9 L172.8,154.8 L182.0,170.7 L191.1,167.0 L200.4,157.6 L209.4,156.0 L218.5,152.3 L227.6,141.2 L238.6,153.9 L246.3,160.5 L254.8,166.6 L263.9,167.9 L272.9,167.0 L281.9,172.4 L291.0,168.3 L300.9,165.0 L309.1,161.7 L318.5,138.8 L327.5,166.2 L336.4,153.9 L345.8,168.3 L354.6,178.1 L363.8,158.9 L372.8,138.0 L382.0,171.1 L391.2,178.9 L400.2,180.2 L409.5,181.0 L418.3,181.8 L428.0,175.7 L436.4,153.9 L445.8,155.6 L454.6,148.6 L463.9,175.2 L472.8,158.9 L481.9,176.5 L491.2,170.3 L500.3,170.7 L509.1,170.7 L519.1,177.3 L527.3,169.1 L536.4,178.5 L545.6,177.7 L554.6,170.7 L563.8,171.6 L573.1,157.2 L582.4,160.1 L591.3,161.7 L600.1,149.8 L609.1,157.2 L618.5,169.1 L627.4,175.2 L636.8,173.2 L646.3,175.2 L655.2,145.7 L663.9,146.6 L672.8,166.6 L682.0,168.3 L690.9,163.4 L701.3,150.7 L709.4,152.7 L718.3,139.2 L727.5,134.3 L736.4,122.8 L745.6,101.9 L754.6,63.0 L763.7,32.2 L772.9,23.2 L781.9,55.2 L791.0,79.8 L800.2,92.0 L809.1,75.7 L818.3,83.0 L827.3,63.4 L836.4,75.7 L845.5,66.6 L854.6,58.9 L863.7,94.5 L872.9,109.7 L881.9,137.5 L892.4,163.8 L900.0,160.9" fill="none" stroke="#f5a623" stroke-width="2"/>
+      <path d="M0.0,162.2 L9.1,170.1 L18.2,169.1 L27.3,169.1 L36.4,154.3 L45.5,166.3 L54.7,170.4 L63.8,163.9 L72.9,141.6 L82.0,152.3 L91.1,166.7 L100.2,164.3 L109.3,171.1 L118.4,172.5 L127.5,172.2 L136.6,170.8 L146.7,160.5 L154.9,162.5 L164.0,165.3 L173.1,152.6 L182.2,166.0 L191.3,162.9 L200.4,155.0 L209.5,153.6 L218.6,150.5 L227.7,141.3 L238.7,151.9 L246.0,157.4 L255.1,162.5 L264.2,163.6 L272.4,162.9 L281.5,167.4 L290.6,163.9 L300.6,161.2 L308.8,158.4 L317.9,139.2 L327.0,162.2 L336.1,151.9 L345.2,163.9 L354.4,172.2 L363.5,156.0 L372.6,138.5 L381.7,166.3 L390.8,172.8 L399.9,173.9 L409.0,174.6 L418.1,175.2 L428.1,170.1 L436.3,151.9 L445.4,153.3 L454.6,147.5 L463.7,169.8 L472.8,156.0 L481.9,170.8 L491.0,165.6 L500.1,166.0 L509.2,166.0 L519.2,171.5 L527.4,164.6 L536.5,172.5 L545.6,171.8 L554.8,166.0 L563.9,166.7 L573.0,154.7 L582.1,157.1 L591.2,158.4 L600.3,148.5 L608.5,154.7 L618.5,164.6 L626.7,169.8 L636.7,168.0 L645.9,169.8 L655.0,145.0 L664.1,145.7 L672.3,162.5 L681.4,163.9 L690.5,159.8 L701.4,149.2 L708.7,150.9 L717.8,139.6 L726.9,135.4 L736.0,125.8 L745.1,108.3 L754.3,75.7 L763.4,50.0 L772.5,42.5 L781.6,69.2 L790.7,89.8 L799.8,100.1 L808.9,86.4 L818.0,92.5 L827.1,76.1 L836.2,86.4 L845.3,78.8 L854.5,72.3 L863.6,102.2 L872.7,114.9 L881.8,138.2 L891.8,160.1 L900.0,157.7" fill="none" stroke="#f5a623" stroke-width="2"/>
       <!-- Start -->
-      <circle cx="0" cy="166.2" r="5" fill="#4f9cf9"/>
-      <text x="4" y="207" fill="#4f9cf9" font-size="8" font-weight="700">0km</text>
+      <circle cx="0" cy="162.2" r="5" fill="#4f9cf9"/>
+      <text x="4" y="207" fill="#4f9cf9" font-size="8" font-weight="700">0km · 887m</text>
       <!-- PC1 30km -->
-      <line x1="273.4" y1="167.0" x2="273.4" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="273.4" cy="167.0" r="4" fill="#3ecf8e"/>
-      <text x="255" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC1 30k</text>
+      <line x1="272.4" y1="162.9" x2="272.4" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="272.4" cy="162.9" r="4" fill="#3ecf8e"/>
+      <text x="254" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC1 30k</text>
       <!-- PC2 50km -->
-      <line x1="455.6" y1="148.6" x2="455.6" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="455.6" cy="148.6" r="4" fill="#3ecf8e"/>
-      <text x="437" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC2 50k</text>
+      <line x1="454.6" y1="147.5" x2="454.6" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="454.6" cy="147.5" r="4" fill="#3ecf8e"/>
+      <text x="436" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC2 50k</text>
       <!-- PC3 70km -->
-      <line x1="637.9" y1="173.2" x2="637.9" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="637.9" cy="173.2" r="4" fill="#3ecf8e"/>
-      <text x="619" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC3 70k</text>
-      <!-- Summit + PC4 ~85km -->
-      <circle cx="772.9" cy="23.2" r="5" fill="#f5a623"/>
-      <text x="720" y="18" fill="#f5a623" font-size="9" font-weight="800">~1.260m (SRTM)</text>
-      <line x1="772.9" y1="23.2" x2="772.9" y2="192" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="636.7" y1="168.0" x2="636.7" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="636.7" cy="168.0" r="4" fill="#3ecf8e"/>
+      <text x="618" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC3 70k</text>
+      <!-- Summit / PC4 ~85km · 1.298m official -->
+      <circle cx="772.5" cy="42.5" r="5" fill="#f5a623"/>
+      <text x="718" y="38" fill="#f5a623" font-size="9" font-weight="800">1.298m · km85</text>
+      <line x1="772.5" y1="42.5" x2="772.5" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
       <text x="754" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC4 85k</text>
       <!-- Finish -->
-      <circle cx="900" cy="160.9" r="5" fill="#e05c5c"/>
-      <text x="874" y="207" fill="#e05c5c" font-size="8" font-weight="700">100km</text>
+      <circle cx="900" cy="157.7" r="5" fill="#e05c5c"/>
+      <text x="860" y="207" fill="#e05c5c" font-size="8" font-weight="700">100km · 924m</text>
       </svg>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)">
       <span><span style="color:#4f9cf9">●</span> Largada Baependi</span>
-      <span><span style="color:#f5a623">●</span> Pico ~1.260m SRTM (~km85)</span>
+      <span><span style="color:#f5a623">●</span> Pico 1.298m (~km85)</span>
       <span><span style="color:#3ecf8e">●</span> Postos de controle</span>
       <span><span style="color:#e05c5c">●</span> Chegada Passa Quatro</span>
     </div>
