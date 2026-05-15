@@ -1537,6 +1537,84 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       </div>
     </div>
 
+    <!-- HRV + RHR CHART -->
+    <div style="grid-column:1/-1;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:4px">VFC &amp; FC de Repouso — últimos 15 dias (Mai/2026)</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:12px">HRV noturno (lastNightAvg) e FC de repouso diária · Garmin Connect</div>
+      <canvas id="hrvRhrChart" style="display:block;width:100%;height:200px"></canvas>
+      <script>
+      (function(){
+        const canvas = document.getElementById('hrvRhrChart');
+        if(!canvas) return;
+        const hrv = [32,27,29,31,31,32,29,null,32,31,35,34,36,30,30];
+        const rhr = [54,57,53,51,54,54,58,58,56,55,54,51,53,56,55];
+        const lbs = ['01/05','02/05','03/05','04/05','05/05','06/05','07/05','08/05','09/05','10/05','11/05','12/05','13/05','14/05','15/05'];
+        function draw(){
+          const W = canvas.offsetWidth || 800;
+          const H = 200;
+          canvas.width = W; canvas.height = H;
+          const ctx = canvas.getContext('2d');
+          const pL=54,pR=54,pT=24,pB=34;
+          const cW=W-pL-pR, cH=H-pT-pB, n=lbs.length;
+          const hMin=24,hMax=38, rMin=49,rMax=62;
+          const xOf=i=>pL+(i/(n-1))*cW;
+          const yH=v=>pT+(1-(v-hMin)/(hMax-hMin))*cH;
+          const yR=v=>pT+(1-(v-rMin)/(rMax-rMin))*cH;
+          ctx.clearRect(0,0,W,H);
+          // Grid
+          ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=1;
+          for(let v=26;v<=36;v+=2){const y=yH(v);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(pL+cW,y);ctx.stroke();}
+          // X labels
+          ctx.fillStyle='#8892a4'; ctx.font='10px Segoe UI,system-ui,sans-serif'; ctx.textAlign='center';
+          for(let i=0;i<n;i+=2) ctx.fillText(lbs[i],xOf(i),H-6);
+          // Left Y axis (HRV)
+          ctx.fillStyle='#4f9cf9'; ctx.textAlign='right'; ctx.font='10px Segoe UI,system-ui,sans-serif';
+          for(let v=26;v<=36;v+=2) ctx.fillText(v,pL-5,yH(v)+3);
+          ctx.save(); ctx.translate(11,H/2); ctx.rotate(-Math.PI/2); ctx.textAlign='center';
+          ctx.fillStyle='#4f9cf9'; ctx.font='10px Segoe UI,system-ui,sans-serif';
+          ctx.fillText('HRV (ms)',0,0); ctx.restore();
+          // Right Y axis (RHR)
+          ctx.fillStyle='#e05c5c'; ctx.textAlign='left';
+          for(let v=50;v<=60;v+=2) ctx.fillText(v,pL+cW+6,yR(v)+3);
+          ctx.save(); ctx.translate(W-8,H/2); ctx.rotate(Math.PI/2); ctx.textAlign='center';
+          ctx.fillStyle='#e05c5c'; ctx.font='10px Segoe UI,system-ui,sans-serif';
+          ctx.fillText('RHR (bpm)',0,0); ctx.restore();
+          // HRV line (blue solid)
+          ctx.strokeStyle='#4f9cf9'; ctx.lineWidth=2; ctx.setLineDash([]);
+          ctx.beginPath(); let f=true;
+          for(let i=0;i<n;i++){if(hrv[i]==null){f=true;continue;} if(f){ctx.moveTo(xOf(i),yH(hrv[i]));f=false;}else ctx.lineTo(xOf(i),yH(hrv[i]));}
+          ctx.stroke();
+          // HRV dots
+          for(let i=0;i<n;i++){if(hrv[i]==null)continue; ctx.beginPath();ctx.arc(xOf(i),yH(hrv[i]),3.5,0,Math.PI*2);ctx.fillStyle='#4f9cf9';ctx.fill();ctx.strokeStyle='#1b2030';ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.stroke();}
+          // RHR line (red dashed)
+          ctx.strokeStyle='#e05c5c'; ctx.lineWidth=2; ctx.setLineDash([5,3]);
+          ctx.beginPath();
+          for(let i=0;i<n;i++){if(i===0)ctx.moveTo(xOf(i),yR(rhr[i]));else ctx.lineTo(xOf(i),yR(rhr[i]));}
+          ctx.stroke(); ctx.setLineDash([]);
+          // RHR squares
+          for(let i=0;i<n;i++){const x=xOf(i),y=yR(rhr[i]);ctx.fillStyle='#e05c5c';ctx.fillRect(x-3.5,y-3.5,7,7);}
+          // Legend
+          const ly=pT-9;
+          ctx.strokeStyle='#4f9cf9'; ctx.lineWidth=2; ctx.setLineDash([]);
+          ctx.beginPath();ctx.moveTo(pL,ly);ctx.lineTo(pL+20,ly);ctx.stroke();
+          ctx.beginPath();ctx.arc(pL+10,ly,3,0,Math.PI*2);ctx.fillStyle='#4f9cf9';ctx.fill();
+          ctx.fillStyle='#8892a4';ctx.font='10px Segoe UI,system-ui,sans-serif';ctx.textAlign='left';
+          ctx.fillText('HRV (ms)',pL+26,ly+3);
+          const lx2=pL+105;
+          ctx.strokeStyle='#e05c5c'; ctx.setLineDash([5,3]);
+          ctx.beginPath();ctx.moveTo(lx2,ly);ctx.lineTo(lx2+20,ly);ctx.stroke();ctx.setLineDash([]);
+          ctx.fillStyle='#e05c5c';ctx.fillRect(lx2+7,ly-3,7,7);
+          ctx.fillStyle='#8892a4';ctx.fillText('RHR (bpm)',lx2+20,ly+3);
+        }
+        draw(); window.addEventListener('resize',draw);
+      })();
+      </script>
+      <div style="margin-top:10px;padding:10px;background:rgba(79,156,249,.07);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
+        Baseline VFC: 30–35 ms (equilibrado) · Pico 13/mai: <strong style="color:#7be27b">36 ms</strong> · FCR mín: <strong style="color:#7be27b">51 bpm</strong> (04 e 12/mai). Tendência geral estável com boa recuperação pós-treinos.
+      </div>
+    </div>
+    <div style="grid-column:1/-1;font-size:10px;color:var(--muted);text-align:right;margin-top:-12px">Fonte: Garmin Connect · dados até 15/Mai/2026</div>
+
     <!-- CARD 4: HR Zone Distribution -->
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
       <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:4px">Distribuição de Zonas de FC por Sessão</div>
@@ -1668,84 +1746,6 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 
   </div><!-- end grid -->
 
-  <!-- HRV + RHR CHART -->
-  <div style="margin-top:24px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
-    <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:4px">VFC &amp; FC de Repouso — últimos 15 dias (Mai/2026)</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:12px">HRV noturno (lastNightAvg) e FC de repouso diária · Garmin Connect</div>
-    <canvas id="hrvRhrChart" style="display:block;width:100%;height:200px"></canvas>
-    <script>
-    (function(){
-      const canvas = document.getElementById('hrvRhrChart');
-      if(!canvas) return;
-      const hrv = [32,27,29,31,31,32,29,null,32,31,35,34,36,30,30];
-      const rhr = [54,57,53,51,54,54,58,58,56,55,54,51,53,56,55];
-      const lbs = ['01/05','02/05','03/05','04/05','05/05','06/05','07/05','08/05','09/05','10/05','11/05','12/05','13/05','14/05','15/05'];
-      function draw(){
-        const W = canvas.offsetWidth || 800;
-        const H = 200;
-        canvas.width = W; canvas.height = H;
-        const ctx = canvas.getContext('2d');
-        const pL=54,pR=54,pT=24,pB=34;
-        const cW=W-pL-pR, cH=H-pT-pB, n=lbs.length;
-        const hMin=24,hMax=38, rMin=49,rMax=62;
-        const xOf=i=>pL+(i/(n-1))*cW;
-        const yH=v=>pT+(1-(v-hMin)/(hMax-hMin))*cH;
-        const yR=v=>pT+(1-(v-rMin)/(rMax-rMin))*cH;
-        ctx.clearRect(0,0,W,H);
-        // Grid
-        ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=1;
-        for(let v=26;v<=36;v+=2){const y=yH(v);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(pL+cW,y);ctx.stroke();}
-        // X labels
-        ctx.fillStyle='#8892a4'; ctx.font='10px Segoe UI,system-ui,sans-serif'; ctx.textAlign='center';
-        for(let i=0;i<n;i+=2) ctx.fillText(lbs[i],xOf(i),H-6);
-        // Left Y axis (HRV)
-        ctx.fillStyle='#4f9cf9'; ctx.textAlign='right'; ctx.font='10px Segoe UI,system-ui,sans-serif';
-        for(let v=26;v<=36;v+=2) ctx.fillText(v,pL-5,yH(v)+3);
-        ctx.save(); ctx.translate(11,H/2); ctx.rotate(-Math.PI/2); ctx.textAlign='center';
-        ctx.fillStyle='#4f9cf9'; ctx.font='10px Segoe UI,system-ui,sans-serif';
-        ctx.fillText('HRV (ms)',0,0); ctx.restore();
-        // Right Y axis (RHR)
-        ctx.fillStyle='#e05c5c'; ctx.textAlign='left';
-        for(let v=50;v<=60;v+=2) ctx.fillText(v,pL+cW+6,yR(v)+3);
-        ctx.save(); ctx.translate(W-8,H/2); ctx.rotate(Math.PI/2); ctx.textAlign='center';
-        ctx.fillStyle='#e05c5c'; ctx.font='10px Segoe UI,system-ui,sans-serif';
-        ctx.fillText('RHR (bpm)',0,0); ctx.restore();
-        // HRV line (blue solid)
-        ctx.strokeStyle='#4f9cf9'; ctx.lineWidth=2; ctx.setLineDash([]);
-        ctx.beginPath(); let f=true;
-        for(let i=0;i<n;i++){if(hrv[i]==null){f=true;continue;} if(f){ctx.moveTo(xOf(i),yH(hrv[i]));f=false;}else ctx.lineTo(xOf(i),yH(hrv[i]));}
-        ctx.stroke();
-        // HRV dots
-        for(let i=0;i<n;i++){if(hrv[i]==null)continue; ctx.beginPath();ctx.arc(xOf(i),yH(hrv[i]),3.5,0,Math.PI*2);ctx.fillStyle='#4f9cf9';ctx.fill();ctx.strokeStyle='#1b2030';ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.stroke();}
-        // RHR line (red dashed)
-        ctx.strokeStyle='#e05c5c'; ctx.lineWidth=2; ctx.setLineDash([5,3]);
-        ctx.beginPath();
-        for(let i=0;i<n;i++){if(i===0)ctx.moveTo(xOf(i),yR(rhr[i]));else ctx.lineTo(xOf(i),yR(rhr[i]));}
-        ctx.stroke(); ctx.setLineDash([]);
-        // RHR squares
-        for(let i=0;i<n;i++){const x=xOf(i),y=yR(rhr[i]);ctx.fillStyle='#e05c5c';ctx.fillRect(x-3.5,y-3.5,7,7);}
-        // Legend
-        const ly=pT-9;
-        ctx.strokeStyle='#4f9cf9'; ctx.lineWidth=2; ctx.setLineDash([]);
-        ctx.beginPath();ctx.moveTo(pL,ly);ctx.lineTo(pL+20,ly);ctx.stroke();
-        ctx.beginPath();ctx.arc(pL+10,ly,3,0,Math.PI*2);ctx.fillStyle='#4f9cf9';ctx.fill();
-        ctx.fillStyle='#8892a4';ctx.font='10px Segoe UI,system-ui,sans-serif';ctx.textAlign='left';
-        ctx.fillText('HRV (ms)',pL+26,ly+3);
-        const lx2=pL+105;
-        ctx.strokeStyle='#e05c5c'; ctx.setLineDash([5,3]);
-        ctx.beginPath();ctx.moveTo(lx2,ly);ctx.lineTo(lx2+20,ly);ctx.stroke();ctx.setLineDash([]);
-        ctx.fillStyle='#e05c5c';ctx.fillRect(lx2+7,ly-3,7,7);
-        ctx.fillStyle='#8892a4';ctx.fillText('RHR (bpm)',lx2+20,ly+3);
-      }
-      draw(); window.addEventListener('resize',draw);
-    })();
-    </script>
-    <div style="margin-top:10px;padding:10px;background:rgba(79,156,249,.07);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
-      Baseline VFC: 30–35 ms (equilibrado) · Pico 13/mai: <strong style="color:#7be27b">36 ms</strong> · FCR mín: <strong style="color:#7be27b">51 bpm</strong> (04 e 12/mai). Tendência geral estável com boa recuperação pós-treinos.
-    </div>
-  </div>
-
-  <div style="font-size:10px;color:var(--muted);text-align:right;margin-top:8px">Fonte: Garmin Connect · dados até 15/Mai/2026</div>
 </div>
 </div>
 
