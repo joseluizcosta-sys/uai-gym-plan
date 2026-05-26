@@ -978,10 +978,171 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
   <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border)">
     <div class="ph" style="font-size:17px;margin-bottom:4px">⚖️ Peso Corporal — Monitoramento Diário</div>
     <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Medição matinal em jejum · Meta: 84–86 kg · &lt;15% gordura até Jul/2026 (composição ideal para trail 100K)</p>
+    <div style="background:rgba(255,255,255,0.03);border-radius:12px;padding:16px 16px 8px;margin-bottom:18px;border:1px solid var(--border)">
+      <canvas id="weightChart" style="width:100%;height:200px;display:block"></canvas>
+    </div>
+    <script>
+    (function(){
+      function drawWeightChart(){
+        var canvas = document.getElementById('weightChart');
+        if(!canvas) return;
+        var dpr = window.devicePixelRatio || 1;
+        var W = canvas.clientWidth || canvas.offsetWidth || 700;
+        var H = 200;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        var ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+
+        var pad = {t:24, r:48, b:36, l:44};
+        var cw = W - pad.l - pad.r;
+        var ch = H - pad.t - pad.b;
+
+        var dates  = ['15/mai','16/mai','17/mai','18/mai','19/mai','20/mai','21/mai','22/mai','23/mai','24/mai','25/mai','26/mai'];
+        var weights= [86.9, 87.0, 85.6, 86.1, 86.6, 87.6, 86.6, 86.8, 87.3, 86.3, 87.1, 86.7];
+        var fats   = [16.7, 17.2, 16.4, 16.6, 17.0, 17.3, 16.5, 16.9, 17.3, 16.7, 17.2, 17.0];
+        var n = dates.length;
+        var wMin=84.5, wMax=88.5;
+        var fMin=15.5, fMax=18.5;
+
+        function wx(i){ return pad.l + (i/(n-1))*cw; }
+        function wy(v){ return pad.t + ch - ((v-wMin)/(wMax-wMin))*ch; }
+        function fy(v){ return pad.t + ch - ((v-fMin)/(fMax-fMin))*ch; }
+
+        // Goal zone band 84–86 kg
+        var grad = ctx.createLinearGradient(0, wy(86), 0, wy(84));
+        grad.addColorStop(0,'rgba(76,175,130,0.04)');
+        grad.addColorStop(1,'rgba(76,175,130,0.12)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(pad.l, wy(86), cw, wy(84)-wy(86));
+
+        // Goal zone border lines
+        ctx.strokeStyle = 'rgba(76,175,130,0.25)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4,4]);
+        [86].forEach(function(v){
+          ctx.beginPath(); ctx.moveTo(pad.l,wy(v)); ctx.lineTo(pad.l+cw,wy(v)); ctx.stroke();
+        });
+        ctx.setLineDash([]);
+
+        // Grid lines
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+        ctx.lineWidth = 1;
+        [85,86,87,88].forEach(function(v){
+          ctx.beginPath(); ctx.moveTo(pad.l,wy(v)); ctx.lineTo(pad.l+cw,wy(v)); ctx.stroke();
+        });
+
+        // Left Y-axis (weight)
+        ctx.fillStyle = 'rgba(255,255,255,0.3)';
+        ctx.font = '10px monospace';
+        ctx.textAlign = 'right';
+        [85,86,87,88].forEach(function(v){
+          ctx.fillText(v, pad.l-6, wy(v)+4);
+        });
+
+        // Right Y-axis (fat%)
+        ctx.fillStyle = 'rgba(245,166,35,0.45)';
+        ctx.textAlign = 'left';
+        [16,17,18].forEach(function(v){
+          ctx.fillText(v+'%', pad.l+cw+6, fy(v)+4);
+        });
+
+        // Weight area fill
+        ctx.beginPath();
+        weights.forEach(function(v,i){
+          i===0 ? ctx.moveTo(wx(i),wy(v)) : ctx.lineTo(wx(i),wy(v));
+        });
+        ctx.lineTo(wx(n-1), pad.t+ch);
+        ctx.lineTo(wx(0), pad.t+ch);
+        ctx.closePath();
+        var areaGrad = ctx.createLinearGradient(0, pad.t, 0, pad.t+ch);
+        areaGrad.addColorStop(0,'rgba(76,175,130,0.18)');
+        areaGrad.addColorStop(1,'rgba(76,175,130,0.01)');
+        ctx.fillStyle = areaGrad;
+        ctx.fill();
+
+        // Fat% line (dashed)
+        ctx.strokeStyle = 'rgba(245,166,35,0.55)';
+        ctx.lineWidth = 1.5;
+        ctx.lineJoin = 'round';
+        ctx.setLineDash([3,4]);
+        ctx.beginPath();
+        fats.forEach(function(v,i){
+          i===0 ? ctx.moveTo(wx(i),fy(v)) : ctx.lineTo(wx(i),fy(v));
+        });
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Weight line
+        ctx.strokeStyle = '#4caf82';
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        weights.forEach(function(v,i){
+          i===0 ? ctx.moveTo(wx(i),wy(v)) : ctx.lineTo(wx(i),wy(v));
+        });
+        ctx.stroke();
+
+        // Dots
+        weights.forEach(function(v,i){
+          ctx.beginPath();
+          ctx.arc(wx(i),wy(v),3.5,0,Math.PI*2);
+          ctx.fillStyle = '#4caf82';
+          ctx.fill();
+          ctx.strokeStyle = '#12121f';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        });
+
+        // X-axis labels
+        ctx.fillStyle = 'rgba(255,255,255,0.28)';
+        ctx.font = '9px monospace';
+        ctx.textAlign = 'center';
+        dates.forEach(function(d,i){
+          ctx.fillText(d, wx(i), H-6);
+        });
+
+        // Legend
+        var lx = pad.l, ly = 11;
+        ctx.fillStyle = '#4caf82';
+        ctx.fillRect(lx, ly-3, 16, 3);
+        ctx.fillStyle = 'rgba(255,255,255,0.45)';
+        ctx.font = '10px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText('Peso (kg)', lx+20, ly+1);
+        ctx.strokeStyle = 'rgba(245,166,35,0.55)';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([3,4]);
+        ctx.beginPath();
+        ctx.moveTo(lx+100, ly-1); ctx.lineTo(lx+116, ly-1);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = 'rgba(245,166,35,0.7)';
+        ctx.fillText('% Gordura', lx+120, ly+1);
+
+        // Goal label
+        ctx.fillStyle = 'rgba(76,175,130,0.5)';
+        ctx.textAlign = 'right';
+        ctx.font = '9px monospace';
+        ctx.fillText('zona meta', pad.l-2, wy(85.5)+3);
+      }
+
+      if(document.readyState==='loading'){
+        document.addEventListener('DOMContentLoaded', drawWeightChart);
+      } else {
+        drawWeightChart();
+      }
+      window.addEventListener('resize', function(){
+        var c = document.getElementById('weightChart');
+        if(c){ c.width=0; c.height=0; drawWeightChart(); }
+      });
+    })();
+    </script>
     <table class="ptable">
       <thead>
         <tr>
           <th>Data</th>
+          <th>Dia</th>
           <th>Peso (kg)</th>
           <th>% Gordura</th>
           <th>Massa Gorda (kg)</th>
@@ -992,6 +1153,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       <tbody>
         <tr>
           <td><strong>15/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Sex</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,9</td>
           <td style="text-align:center">16,7%</td>
           <td style="text-align:center">14,5</td>
@@ -1000,6 +1162,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>16/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Sáb</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">87,0</td>
           <td style="text-align:center">17,2%</td>
           <td style="text-align:center">15,0</td>
@@ -1008,6 +1171,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>17/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Dom</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">85,6</td>
           <td style="text-align:center">16,4%</td>
           <td style="text-align:center">14,0</td>
@@ -1016,6 +1180,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>18/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Seg</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,1</td>
           <td style="text-align:center">16,6%</td>
           <td style="text-align:center">14,3</td>
@@ -1024,6 +1189,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>19/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Ter</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,6</td>
           <td style="text-align:center">17,0%</td>
           <td style="text-align:center">14,7</td>
@@ -1032,6 +1198,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>20/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Qua</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">87,6</td>
           <td style="text-align:center">17,3%</td>
           <td style="text-align:center">15,2</td>
@@ -1040,6 +1207,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>21/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Qui</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,6</td>
           <td style="text-align:center">16,5%</td>
           <td style="text-align:center">14,3</td>
@@ -1048,6 +1216,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>22/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Sex</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,8</td>
           <td style="text-align:center">16,9%</td>
           <td style="text-align:center">14,7</td>
@@ -1056,6 +1225,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>23/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Sáb</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">87,3</td>
           <td style="text-align:center">17,3%</td>
           <td style="text-align:center">15,1</td>
@@ -1064,6 +1234,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>24/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Dom</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,3</td>
           <td style="text-align:center">16,7%</td>
           <td style="text-align:center">14,4</td>
@@ -1072,6 +1243,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>25/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Seg</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">87,1</td>
           <td style="text-align:center">17,2%</td>
           <td style="text-align:center">15,0</td>
@@ -1080,6 +1252,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         </tr>
         <tr>
           <td><strong>26/05/2026</strong></td>
+          <td style="text-align:center;color:var(--muted);font-size:11px">Ter</td>
           <td style="text-align:center;font-weight:800;color:var(--accent)">86,7</td>
           <td style="text-align:center">17,0%</td>
           <td style="text-align:center">14,7</td>
