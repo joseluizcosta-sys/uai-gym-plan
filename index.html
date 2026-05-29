@@ -2201,6 +2201,14 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     <!-- CARD 4: HR Zone Distribution -->
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
       <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:4px">Distribuição de Zonas de FC por Sessão</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;font-size:10px">
+        <span style="background:rgba(79,156,249,.15);border:1px solid rgba(79,156,249,.4);border-radius:6px;padding:2px 8px;color:#4f9cf9;font-weight:700">Z1 &lt;107 bpm</span>
+        <span style="background:rgba(123,226,123,.15);border:1px solid rgba(123,226,123,.4);border-radius:6px;padding:2px 8px;color:#7be27b;font-weight:700">Z2 107–122 bpm · VT1</span>
+        <span style="background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);border-radius:6px;padding:2px 8px;color:var(--accent);font-weight:700">Z3 122–133 bpm</span>
+        <span style="background:rgba(224,92,92,.15);border:1px solid rgba(224,92,92,.4);border-radius:6px;padding:2px 8px;color:var(--red);font-weight:700">Z4 133–145 bpm · VT2</span>
+        <span style="background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.5);border-radius:6px;padding:2px 8px;color:#c0392b;font-weight:700">Z5 145–157 bpm · VO2máx</span>
+        <span style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);border-radius:6px;padding:2px 8px;color:var(--purple);font-size:9px">calibrado CPET 29/Mai/2026</span>
+      </div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:14px">Meta 80/20: 80% fácil (Z1+Z2) · 20% duro (Z4+Z5) · Atual: <strong style="color:var(--red)">25% easy / 40% hard ⚠️</strong></div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <!-- Session rows -->
@@ -2428,12 +2436,12 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           </div>
         </div>
       </div>
-      <div style="display:flex;gap:12px;margin-top:12px;font-size:10px;color:var(--muted)">
-        <span><span style="display:inline-block;width:10px;height:10px;background:#4f9cf9;border-radius:2px;margin-right:4px"></span>Z1</span>
-        <span><span style="display:inline-block;width:10px;height:10px;background:#7be27b;border-radius:2px;margin-right:4px"></span>Z2</span>
-        <span><span style="display:inline-block;width:10px;height:10px;background:#f5a623;border-radius:2px;margin-right:4px"></span>Z3</span>
-        <span><span style="display:inline-block;width:10px;height:10px;background:#e05c5c;border-radius:2px;margin-right:4px"></span>Z4</span>
-        <span><span style="display:inline-block;width:10px;height:10px;background:#c0392b;border-radius:2px;margin-right:4px"></span>Z5</span>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:10px;color:var(--muted)">
+        <span><span style="display:inline-block;width:10px;height:10px;background:#4f9cf9;border-radius:2px;margin-right:4px"></span>Z1 &lt;107</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#7be27b;border-radius:2px;margin-right:4px"></span>Z2 107–122 (VT1)</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#f5a623;border-radius:2px;margin-right:4px"></span>Z3 122–133</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#e05c5c;border-radius:2px;margin-right:4px"></span>Z4 133–145 (VT2)</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#c0392b;border-radius:2px;margin-right:4px"></span>Z5 145–157 (VO2máx)</span>
       </div>
       <div style="margin-top:12px;padding:10px;background:rgba(224,92,92,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
         ✅ SEM 3 (18–21/mai): sessões moderadas após trail 32.5km — natação e CCL curto dentro de Z2–Z3. ⚠️ 5 de 16 sessões classificadas como DURO (pico: Mai 16 trail, 48% Z4+Z5).<br>
