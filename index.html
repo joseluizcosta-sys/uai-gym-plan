@@ -1541,8 +1541,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         var dlt = fmtDelta(c.delta), sld = fmtDelta(c.saldo);
         return c.display+' ('+c.day+')  '+fmtNum(e.w,1)+'kg  '+fmtNum(e.f,1)+'%  MG:'+fmtNum(c.fatMass,1)+'  Δ:'+dlt.str+'  Saldo:'+sld.str;
       });
-      pre.textContent = lines.join('
-');
+      pre.textContent = lines.join('\n');
       box.style.display = 'block';
     };
 
