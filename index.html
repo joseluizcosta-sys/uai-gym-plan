@@ -983,6 +983,20 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     </div>
     <script>
     (function(){
+      var _ls=[];
+      try{_ls=JSON.parse(localStorage.getItem('uai_weight')||'[]');}catch(e){}
+      var _mm={1:'jan',2:'fev',3:'mar',4:'abr',5:'mai',6:'jun',7:'jul',8:'ago',9:'set',10:'out',11:'nov',12:'dez'};
+      window._wExtra={dates:[],weights:[],fats:[]};
+      _ls.forEach(function(e){
+        var p=e.d.split('-');
+        window._wExtra.dates.push(parseInt(p[2])+'/'+_mm[parseInt(p[1])]);
+        window._wExtra.weights.push(e.w);
+        window._wExtra.fats.push(typeof e.f==='number'?e.f:null);
+      });
+    })();
+    </script>
+    <script>
+    (function(){
       function drawWeightChart(){
         var canvas = document.getElementById('weightChart');
         if(!canvas) return;
@@ -998,9 +1012,10 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         var cw = W - pad.l - pad.r;
         var ch = H - pad.t - pad.b;
 
-        var dates  = ['15/mai','16/mai','17/mai','18/mai','19/mai','20/mai','21/mai','22/mai','23/mai','24/mai','25/mai','26/mai','27/mai','28/mai','29/mai'];
-        var weights= [86.9, 87.0, 85.6, 86.1, 86.6, 87.6, 86.6, 86.8, 87.3, 86.3, 87.1, 86.7, 86.6, 86.7, 86.1];
-        var fats   = [16.7, 17.2, 16.4, 16.6, 17.0, 17.3, 16.5, 16.9, 17.3, 16.7, 17.2, 17.0, 17.0, 16.8];
+        var _x=window._wExtra||{dates:[],weights:[],fats:[]};
+        var dates=['15/mai','16/mai','17/mai','18/mai','19/mai','20/mai','21/mai','22/mai','23/mai','24/mai','25/mai','26/mai','27/mai','28/mai','29/mai'].concat(_x.dates);
+        var weights=[86.9,87.0,85.6,86.1,86.6,87.6,86.6,86.8,87.3,86.3,87.1,86.7,86.6,86.7,86.1].concat(_x.weights);
+        var fats=[16.7,17.2,16.4,16.6,17.0,17.3,16.5,16.9,17.3,16.7,17.2,17.0,17.0,16.8,16.4].concat(_x.fats.map(function(v){return typeof v==='number'?v:null;}));
         var n = dates.length;
         var wMin=84.5, wMax=88.5;
         var fMin=15.5, fMax=18.5;
@@ -1136,9 +1151,49 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         var c = document.getElementById('weightChart');
         if(c){ c.width=0; c.height=0; drawWeightChart(); }
       });
+      window.drawWeightChart = drawWeightChart;
     })();
     </script>
-    <table class="ptable">
+    <!-- WEIGHT FORM -->
+    <div id="wf-panel" style="background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden">
+      <div onclick="wfToggle()" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:11px 16px;user-select:none">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:13px">⚖️</span>
+          <span style="font-size:12px;font-weight:700;color:var(--green)">Registrar Peso</span>
+          <span id="wf-badge" style="display:none;font-size:10px;padding:1px 8px;background:rgba(245,166,35,.15);color:var(--accent);border-radius:20px;font-weight:700"></span>
+        </div>
+        <span id="wf-icon" style="font-size:11px;color:var(--muted);transition:transform .2s">▼</span>
+      </div>
+      <div id="wf-body" style="display:none;border-top:1px solid var(--border);padding:14px 16px">
+        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">DATA</label>
+            <input id="wf-date" type="date" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:7px 10px;outline:none;box-sizing:border-box">
+          </div>
+          <div>
+            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">PESO (kg)</label>
+            <input id="wf-weight" type="number" step="0.1" min="70" max="120" placeholder="86.1" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
+          </div>
+          <div>
+            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">% GORDURA</label>
+            <input id="wf-fat" type="number" step="0.1" min="5" max="50" placeholder="16.4" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
+          </div>
+        </div>
+        <div id="wf-preview" style="display:none;background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.18);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--sub);line-height:1.8"></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <button onclick="wfSubmit()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:8px;padding:7px 18px;font-size:12px;font-weight:700;cursor:pointer">✅ Registrar</button>
+          <button onclick="wfShowPending()" id="wf-sync-btn" style="display:none;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer">📋 Ver pendentes</button>
+          <button onclick="wfClearAll()" id="wf-clear-btn" style="display:none;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer">🗑 Limpar</button>
+        </div>
+        <div id="wf-msg" style="margin-top:10px;font-size:11px;min-height:16px"></div>
+        <div id="wf-pending-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:10px;color:var(--muted)">
+          <div style="font-weight:700;color:var(--sub);margin-bottom:6px">Entradas pendentes (não salvas no arquivo):</div>
+          <pre id="wf-pending-pre" style="margin:0;white-space:pre-wrap;word-break:break-all;font-size:10px;color:var(--text);line-height:1.6"></pre>
+          <div style="margin-top:8px;color:var(--muted)">Cole no Claude Code: <code style="color:var(--green)">sync peso localStorage</code></div>
+        </div>
+      </div>
+    </div>
+        <table class="ptable">
       <thead>
         <tr>
           <th>Data</th>
@@ -1287,11 +1342,229 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <td style="text-align:center;font-weight:700;color:#4caf82">−0,8</td>
         </tr>
       </tbody>
+      <tbody id="wt-dynamic"></tbody>
     </table>
     <div style="margin-top:10px;padding:10px;background:rgba(245,166,35,.08);border-radius:8px;font-size:11px;color:var(--muted);line-height:1.6">
       🎯 Redução gradual de ~0,5 kg/semana sem comprometer performance aeróbica. Priorizar composição sobre peso absoluto.
     </div>
   </div>
+
+  <script>
+  // ── Weight Form ────────────────────────────────────────────────
+  (function(){
+    var BASE_W = 86.9, BASE_DATE = '2026-05-15';
+    var DAYS = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+    var MONTHS_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+    var MONTHS_LABEL = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+
+    function getEntries(){
+      try{ return JSON.parse(localStorage.getItem('uai_weight')||'[]'); }
+      catch(e){ return []; }
+    }
+    function saveEntries(arr){ localStorage.setItem('uai_weight', JSON.stringify(arr)); }
+
+    // Find weight just before a given ISO date from static table + localStorage
+    function prevWeight(isoDate){
+      var all = [];
+      // Static tbody rows
+      var rows = document.querySelectorAll('.ptable tbody:not(#wt-dynamic) tr');
+      rows.forEach(function(r){
+        var c = r.querySelectorAll('td');
+        if(c.length<3) return;
+        var raw = c[0].textContent.trim(); // "29/05/2026"
+        var parts = raw.split('/');
+        if(parts.length<3) return;
+        var iso = parts[2]+'-'+parts[1]+'-'+parts[0];
+        var w = parseFloat(c[2].textContent.replace(',','.'));
+        if(!isNaN(w)) all.push({d:iso, w:w});
+      });
+      // localStorage entries
+      getEntries().forEach(function(e){ all.push({d:e.d, w:e.w}); });
+      // Sort desc, find first that is < isoDate
+      all.sort(function(a,b){ return b.d.localeCompare(a.d); });
+      for(var i=0;i<all.length;i++){
+        if(all[i].d < isoDate) return all[i].w;
+      }
+      return BASE_W;
+    }
+
+    function fmtNum(v, dec){
+      return v.toFixed(dec).replace('.',',');
+    }
+    function fmtDelta(v){
+      var s = (v>=0?'+':'−') + fmtNum(Math.abs(v),1);
+      return {str:s, color: v<=0 ? '#4caf82' : '#f5a623'};
+    }
+
+    function calcEntry(isoDate, weight, fat){
+      var fatMass = parseFloat((weight * fat / 100).toFixed(1));
+      var prev = prevWeight(isoDate);
+      var delta = parseFloat((weight - prev).toFixed(1));
+      var saldo = parseFloat((weight - BASE_W).toFixed(1));
+      var parts = isoDate.split('-');
+      var jsDate = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
+      var day = DAYS[jsDate.getDay()];
+      var display = parts[2]+'/'+parts[1]+'/'+parts[0];
+      var chartLabel = parseInt(parts[2])+'/'+MONTHS_LABEL[parseInt(parts[1])-1];
+      return {isoDate, display, day, weight, fat, fatMass, delta, saldo, chartLabel};
+    }
+
+    function renderRow(calc){
+      var d = fmtDelta(calc.delta), s = fmtDelta(calc.saldo);
+      return '<tr style="border-left:2px solid rgba(62,207,142,.4)">'
+        +'<td><strong>'+calc.display+'</strong></td>'
+        +'<td style="text-align:center;color:var(--muted);font-size:11px">'+calc.day+'</td>'
+        +'<td style="text-align:center;font-weight:800;color:var(--accent)">'+fmtNum(calc.weight,1)+'</td>'
+        +'<td style="text-align:center">'+fmtNum(calc.fat,1)+'%</td>'
+        +'<td style="text-align:center">'+fmtNum(calc.fatMass,1)+'</td>'
+        +'<td style="text-align:center;font-weight:700;color:'+d.color+'">'+d.str+'</td>'
+        +'<td style="text-align:center;font-weight:700;color:'+s.color+'">'+s.str+'</td>'
+        +'</tr>';
+    }
+
+    function refreshDynamic(){
+      var tbody = document.getElementById('wt-dynamic');
+      if(!tbody) return;
+      var entries = getEntries();
+      tbody.innerHTML = entries.map(function(e){
+        var c = calcEntry(e.d, e.w, e.f);
+        return renderRow(c);
+      }).join('');
+    }
+
+    function refreshChart(){
+      var entries = getEntries();
+      var mm = {1:'jan',2:'fev',3:'mar',4:'abr',5:'mai',6:'jun',7:'jul',8:'ago',9:'set',10:'out',11:'nov',12:'dez'};
+      window._wExtra = {dates:[], weights:[], fats:[]};
+      entries.forEach(function(e){
+        var p=e.d.split('-');
+        window._wExtra.dates.push(parseInt(p[2])+'/'+mm[parseInt(p[1])]);
+        window._wExtra.weights.push(e.w);
+        window._wExtra.fats.push(typeof e.f==='number'?e.f:null);
+      });
+      if(typeof window.drawWeightChart === 'function'){
+        var c = document.getElementById('weightChart');
+        if(c){ c.width=0; c.height=0; }
+        window.drawWeightChart();
+      }
+    }
+
+    function updateBadge(){
+      var n = getEntries().length;
+      var badge = document.getElementById('wf-badge');
+      var syncBtn = document.getElementById('wf-sync-btn');
+      var clearBtn = document.getElementById('wf-clear-btn');
+      if(badge){
+        if(n>0){ badge.style.display='inline'; badge.textContent = n+' pendente'+(n>1?'s':''); }
+        else { badge.style.display='none'; }
+      }
+      if(syncBtn) syncBtn.style.display = n>0 ? 'inline-block' : 'none';
+      if(clearBtn) clearBtn.style.display = n>0 ? 'inline-block' : 'none';
+    }
+
+    // ── Public functions ──
+
+    window.wfToggle = function(){
+      var body = document.getElementById('wf-body');
+      var icon = document.getElementById('wf-icon');
+      if(!body) return;
+      var open = body.style.display !== 'none';
+      body.style.display = open ? 'none' : 'block';
+      if(icon) icon.style.transform = open ? '' : 'rotate(180deg)';
+      if(!open){
+        // Set default date to today
+        var d = document.getElementById('wf-date');
+        if(d && !d.value){
+          var now = new Date();
+          var iso = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+          d.value = iso;
+        }
+      }
+    };
+
+    window.wfPreview = function(){
+      var w = parseFloat(document.getElementById('wf-weight').value);
+      var f = parseFloat(document.getElementById('wf-fat').value);
+      var d = document.getElementById('wf-date').value;
+      var box = document.getElementById('wf-preview');
+      if(!box) return;
+      if(!w || !f || !d){ box.style.display='none'; return; }
+      var c = calcEntry(d, w, f);
+      var dlt = fmtDelta(c.delta), sld = fmtDelta(c.saldo);
+      box.style.display = 'block';
+      box.innerHTML = '<strong style="color:var(--green)">Preview —</strong> '
+        + c.display+' ('+c.day+') &nbsp;·&nbsp; '
+        + '<strong>'+fmtNum(w,1)+'kg</strong> &nbsp;·&nbsp; '
+        + fmtNum(f,1)+'% &nbsp;·&nbsp; '
+        + 'Massa Gorda <strong>'+fmtNum(c.fatMass,1)+'kg</strong> &nbsp;·&nbsp; '
+        + 'Δ <strong style="color:'+dlt.color+'">'+dlt.str+'</strong> &nbsp;·&nbsp; '
+        + 'Saldo <strong style="color:'+sld.color+'">'+sld.str+'</strong>';
+    };
+
+    window.wfSubmit = function(){
+      var w = parseFloat(document.getElementById('wf-weight').value);
+      var f = parseFloat(document.getElementById('wf-fat').value);
+      var d = document.getElementById('wf-date').value;
+      var msg = document.getElementById('wf-msg');
+      if(!w||isNaN(w)||!f||isNaN(f)||!d){
+        if(msg) msg.innerHTML='<span style="color:var(--red)">Preencha data, peso e gordura.</span>';
+        return;
+      }
+      var entries = getEntries();
+      // Remove duplicate for same date
+      entries = entries.filter(function(e){ return e.d !== d; });
+      entries.push({d:d, w:w, f:f});
+      entries.sort(function(a,b){ return a.d.localeCompare(b.d); });
+      saveEntries(entries);
+      refreshDynamic();
+      refreshChart();
+      updateBadge();
+      // Clear inputs
+      document.getElementById('wf-weight').value='';
+      document.getElementById('wf-fat').value='';
+      document.getElementById('wf-preview').style.display='none';
+      var parts = d.split('-');
+      var label = parts[2]+'/'+parts[1]+'/'+parts[0];
+      if(msg) msg.innerHTML='<span style="color:var(--green)">✅ '+label+' registrado — '+w.toFixed(1).replace('.',',')+'kg / '+f.toFixed(1).replace('.',',')+'%</span>';
+    };
+
+    window.wfShowPending = function(){
+      var box = document.getElementById('wf-pending-box');
+      var pre = document.getElementById('wf-pending-pre');
+      if(!box||!pre) return;
+      var visible = box.style.display !== 'none';
+      if(visible){ box.style.display='none'; return; }
+      var entries = getEntries();
+      if(!entries.length){ box.style.display='none'; return; }
+      var lines = entries.map(function(e){
+        var c = calcEntry(e.d, e.w, e.f);
+        var dlt = fmtDelta(c.delta), sld = fmtDelta(c.saldo);
+        return c.display+' ('+c.day+')  '+fmtNum(e.w,1)+'kg  '+fmtNum(e.f,1)+'%  MG:'+fmtNum(c.fatMass,1)+'  Δ:'+dlt.str+'  Saldo:'+sld.str;
+      });
+      pre.textContent = lines.join('
+');
+      box.style.display = 'block';
+    };
+
+    window.wfClearAll = function(){
+      if(!confirm('Limpar todos os registros pendentes?')) return;
+      localStorage.removeItem('uai_weight');
+      document.getElementById('wt-dynamic').innerHTML='';
+      refreshChart();
+      updateBadge();
+      var msg = document.getElementById('wf-msg');
+      if(msg) msg.innerHTML='<span style="color:var(--muted)">Registros pendentes removidos.</span>';
+      var box = document.getElementById('wf-pending-box');
+      if(box) box.style.display='none';
+    };
+
+    // Init on load
+    document.addEventListener('DOMContentLoaded', function(){
+      refreshDynamic();
+      updateBadge();
+    });
+  })();
+  </script>
 
   <!-- NUTRIÇÃO -->
   <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border);margin-bottom:28px">
@@ -2478,7 +2751,46 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
   <div style="margin-bottom:28px">
     <div style="font-size:15px;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px">⏱️ Pace por Segmento</div>
     <div style="overflow-x:auto">
-      <table class="ptable">
+      <!-- WEIGHT FORM -->
+    <div id="wf-panel" style="background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden">
+      <div onclick="wfToggle()" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:11px 16px;user-select:none">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:13px">⚖️</span>
+          <span style="font-size:12px;font-weight:700;color:var(--green)">Registrar Peso</span>
+          <span id="wf-badge" style="display:none;font-size:10px;padding:1px 8px;background:rgba(245,166,35,.15);color:var(--accent);border-radius:20px;font-weight:700"></span>
+        </div>
+        <span id="wf-icon" style="font-size:11px;color:var(--muted);transition:transform .2s">▼</span>
+      </div>
+      <div id="wf-body" style="display:none;border-top:1px solid var(--border);padding:14px 16px">
+        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">DATA</label>
+            <input id="wf-date" type="date" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:7px 10px;outline:none;box-sizing:border-box">
+          </div>
+          <div>
+            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">PESO (kg)</label>
+            <input id="wf-weight" type="number" step="0.1" min="70" max="120" placeholder="86.1" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
+          </div>
+          <div>
+            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">% GORDURA</label>
+            <input id="wf-fat" type="number" step="0.1" min="5" max="50" placeholder="16.4" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
+          </div>
+        </div>
+        <div id="wf-preview" style="display:none;background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.18);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--sub);line-height:1.8"></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <button onclick="wfSubmit()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:8px;padding:7px 18px;font-size:12px;font-weight:700;cursor:pointer">✅ Registrar</button>
+          <button onclick="wfShowPending()" id="wf-sync-btn" style="display:none;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer">📋 Ver pendentes</button>
+          <button onclick="wfClearAll()" id="wf-clear-btn" style="display:none;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer">🗑 Limpar</button>
+        </div>
+        <div id="wf-msg" style="margin-top:10px;font-size:11px;min-height:16px"></div>
+        <div id="wf-pending-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:10px;color:var(--muted)">
+          <div style="font-weight:700;color:var(--sub);margin-bottom:6px">Entradas pendentes (não salvas no arquivo):</div>
+          <pre id="wf-pending-pre" style="margin:0;white-space:pre-wrap;word-break:break-all;font-size:10px;color:var(--text);line-height:1.6"></pre>
+          <div style="margin-top:8px;color:var(--muted)">Cole no Claude Code: <code style="color:var(--green)">sync peso localStorage</code></div>
+        </div>
+      </div>
+    </div>
+        <table class="ptable">
         <thead>
           <tr>
             <th>Segmento</th>
