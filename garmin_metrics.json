@@ -1,0 +1,55 @@
+{
+  "last_updated": "2026-05-29",
+  "entries": [
+    {
+      "date": "2026-05-29",
+      "hrv": 26,
+      "rhr": 57,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": null,
+      "body_battery_end": null,
+      "steps": null,
+      "weight": 86.1,
+      "body_fat": 16.4,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {"z1_sec": 0, "z2_sec": 0, "z3_sec": 0, "z4_sec": 0, "z5_sec": 0}
+        }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "hrv": null,
+      "rhr": null,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": null,
+      "body_battery_end": null,
+      "steps": null,
+      "weight": 86.7,
+      "body_fat": 16.8,
+      "activities": [
+        {
+          "type": "run",
+          "name": "CCR",
+          "distance_km": 8.0,
+          "duration_min": null,
+          "pace_min_per_km": "4:54",
+          "hr_avg": 144,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": null
+        }
+      ]
+    }
+  ]
+}
