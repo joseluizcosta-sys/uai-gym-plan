@@ -1709,18 +1709,21 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         <div class="grun" style="color:var(--blue)">Natação?</div>
         <div class="ggym">Cadeia Post. −1 série<br>RDL 3x · Hip 3x</div>
       </div>
-      <div class="gday hiit">
+      <div class="gday hiit done">
         <div class="gdn">QUI</div>
         <div class="gdate">28/mai</div>
         <div class="gi">🏃‍♂️</div>
         <div class="grun">CCR 8km<br>Mod→Rápido</div>
         <div class="ggym">Potência normal<br>Sem acréscimo · 40min</div>
+        <div class="gdone">✅ 8.0km · 4:54/km · HR144</div>
+        <div style="display:flex;height:4px;border-radius:2px;overflow:hidden;gap:1px;margin-top:5px"><div style="flex:125;background:#4f9cf9" title="Z1"></div><div style="flex:651;background:#7be27b" title="Z2"></div><div style="flex:1969;background:#f5a623" title="Z3"></div><div style="flex:1362;background:#e05c5c" title="Z4"></div><div style="flex:352;background:#c0392b" title="Z5"></div></div>
       </div>
-      <div class="gday rest">
+      <div class="gday rest done">
         <div class="gdn">SEX</div>
         <div class="gdate">29/mai</div>
         <div class="gi">😴</div>
         <div class="grun" style="color:var(--muted)">Descanso<br>Mobilidade</div>
+        <div class="gdone">✅ Descanso</div>
       </div>
       <div class="gday trail" style="border-color:var(--red);background:rgba(224,92,92,.1)">
         <div class="gdn" style="color:var(--red)">SÁB</div>
@@ -1792,6 +1795,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <tr><td style="padding:5px 6px">Mai 25</td><td style="text-align:center;color:#7be27b">79</td><td style="text-align:center">6.8h</td><td style="text-align:center;font-weight:700;color:var(--accent)">62</td><td style="color:var(--muted);font-size:10px">♻️ pós-trail</td></tr>
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 26</td><td style="text-align:center">69</td><td style="text-align:center">5.5h</td><td style="text-align:center;font-weight:700;color:var(--accent)">60</td><td style="color:var(--accent);font-size:10px">🏃 CCL 12km</td></tr>
           <tr><td style="padding:5px 6px">Mai 27</td><td style="text-align:center">68</td><td style="text-align:center">5.2h</td><td style="text-align:center;font-weight:700;color:var(--accent)">55</td><td style="color:var(--muted);font-size:10px">😴 descanso</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 28</td><td style="text-align:center">—</td><td style="text-align:center">6.0h</td><td style="text-align:center;font-weight:700;color:var(--accent)">—</td><td style="color:var(--accent);font-size:10px">🏃 CCR 8km</td></tr>
+          <tr><td style="padding:5px 6px">Mai 29</td><td style="text-align:center;color:#7be27b">77</td><td style="text-align:center">6.8h</td><td style="text-align:center;font-weight:700;color:var(--red)">44</td><td style="color:var(--muted);font-size:10px">😴 descanso</td></tr>
         </tbody>
       </table>
       <div style="margin-top:12px;padding:10px;background:rgba(245,166,35,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
@@ -1833,6 +1838,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 21 · CCL 5.2km 🏃</td><td style="text-align:center">43</td><td style="text-align:center">120</td><td style="text-align:center">30</td><td style="text-align:center">35</td><td style="text-align:center;color:#7be27b">+5</td></tr>
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Mai 23 · Trail 30km 🏔️</td><td style="text-align:center;font-weight:700;color:var(--red)">267</td><td style="text-align:center">135</td><td style="text-align:center">36</td><td style="text-align:center">29</td><td style="text-align:center;color:var(--red)">−7</td></tr>
           <tr><td style="padding:5px 6px">Mai 26 · CCL 12km 🏃</td><td style="text-align:center;font-weight:700;color:var(--accent)">144</td><td style="text-align:center">134</td><td style="text-align:center">30</td><td style="text-align:center;color:#7be27b">32</td><td style="text-align:center;color:#7be27b">+2</td></tr>
+          <tr><td style="padding:5px 6px">Mai 28 · CCR 8km 🏃</td><td style="text-align:center;font-weight:700;color:var(--red)">231</td><td style="text-align:center;color:var(--accent)">133</td><td style="text-align:center">32</td><td style="text-align:center">30</td><td style="text-align:center;color:var(--red)">−2</td></tr>
         </tbody>
       </table>
       <div style="margin-top:12px;padding:10px;background:rgba(79,156,249,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
@@ -1851,9 +1857,9 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       (function(){
         const canvas = document.getElementById('hrvRhrChart');
         if(!canvas) return;
-        const hrv = [32,27,29,31,31,32,29,null,32,31,35,34,36,30,30,31,30,31,31,30,null,35,36,29,29,30,32];
-        const rhr = [54,57,53,51,54,54,58,58,56,55,54,51,53,56,55,56,53,51,56,57,58,56,59,56,56,56,54];
-        const lbs = ['01/05','02/05','03/05','04/05','05/05','06/05','07/05','08/05','09/05','10/05','11/05','12/05','13/05','14/05','15/05','16/05','17/05','18/05','19/05','20/05','21/05','22/05','23/05','24/05','25/05','26/05','27/05'];
+        const hrv = [32,27,29,31,31,32,29,null,32,31,35,34,36,30,30,31,30,31,31,30,null,35,36,29,29,30,32,30,26];
+        const rhr = [54,57,53,51,54,54,58,58,56,55,54,51,53,56,55,56,53,51,56,57,58,56,59,56,56,56,54,57,57];
+        const lbs = ['01/05','02/05','03/05','04/05','05/05','06/05','07/05','08/05','09/05','10/05','11/05','12/05','13/05','14/05','15/05','16/05','17/05','18/05','19/05','20/05','21/05','22/05','23/05','24/05','25/05','26/05','27/05','28/05','29/05'];
         function draw(){
           const W = canvas.offsetWidth || 800;
           const H = 200;
@@ -1918,7 +1924,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         Baseline VFC: 30–35 ms (equilibrado) · Pico 13/mai: <strong style="color:#7be27b">36 ms</strong> · FCR mín: <strong style="color:#7be27b">51 bpm</strong> (04 e 12/mai) · Pós-trail 16/mai: VFC 31→30 (−1), estável. Recuperação sólida.
       </div>
     </div>
-    <div style="grid-column:1/-1;font-size:10px;color:var(--muted);text-align:right;margin-top:-12px">Fonte: Garmin Connect · dados até 27/Mai/2026</div>
+    <div style="grid-column:1/-1;font-size:10px;color:var(--muted);text-align:right;margin-top:-12px">Fonte: Garmin Connect · dados até 29/Mai/2026</div>
 
     <!-- CARD 4: HR Zone Distribution -->
     <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
@@ -2135,6 +2141,18 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
             <div style="flex:2313;background:#f5a623;opacity:.7"></div>
             <div style="flex:1428;background:#e05c5c;opacity:.7"></div>
             <div style="flex:1;background:#c0392b;opacity:0"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px">
+            <span style="color:var(--red);font-weight:700">Mai 28 · 13.4km 🏃 · load 231 · FC 133</span><span style="color:var(--red)">🔴 DURO · Easy 17% Hard 38%</span>
+          </div>
+          <div style="display:flex;height:14px;border-radius:4px;overflow:hidden;gap:1px">
+            <div style="flex:125;background:#4f9cf9;opacity:.6"></div>
+            <div style="flex:651;background:#7be27b;opacity:.7"></div>
+            <div style="flex:1969;background:#f5a623;opacity:.7"></div>
+            <div style="flex:1362;background:#e05c5c;opacity:.7"></div>
+            <div style="flex:352;background:#c0392b"></div>
           </div>
         </div>
       </div>
