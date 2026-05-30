@@ -1389,12 +1389,19 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       try{ localStorage.setItem(GH.cacheKey, JSON.stringify(arr)); }catch(e){}
     }
 
-    // Pull the shared file (public, no auth). Keeps local cache if remote is unreachable.
+    // Pull the shared file via the Contents API (reflects the latest commit
+    // immediately — unlike raw.githubusercontent.com, which has a 5-min CDN
+    // cache that ignores query-string busting). Token used if present (higher
+    // rate limit), but reads work unauthenticated on this public repo too.
+    // Keeps local cache if remote is unreachable.
     function loadRemote(){
-      var url = 'https://raw.githubusercontent.com/'+GH.owner+'/'+GH.repo+'/'+GH.branch+'/'+GH.path+'?t='+Date.now();
-      return fetch(url, {cache:'no-store'})
-        .then(function(r){ if(!r.ok) throw new Error('remote '+r.status); return r.json(); })
-        .then(function(data){
+      var api = 'https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+GH.path+'?ref='+GH.branch+'&t='+Date.now();
+      var hdr = {'Accept':'application/vnd.github.raw+json'};
+      var tk = ghToken(); if(tk) hdr['Authorization'] = 'Bearer '+tk;
+      return fetch(api, {headers:hdr, cache:'no-store'})
+        .then(function(r){ if(!r.ok) throw new Error('remote '+r.status); return r.text(); })
+        .then(function(txt){
+          var data = JSON.parse(txt);
           if(Array.isArray(data)){
             saveEntries(data);
             refreshDynamic(); refreshChart(); updateBadge();
@@ -1536,6 +1543,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           var iso = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
           d.value = iso;
         }
+        // Pull latest entries from the repo when opening the form
+        loadRemote();
       }
     };
 
@@ -1679,6 +1688,17 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       wfTokenRefresh();
       loadRemote();
     });
+    // Re-pull when returning to this tab/device so entries made elsewhere appear
+    // without a full reload (throttled to once per 15s).
+    var _lastPull = 0;
+    function maybePull(){
+      var now = Date.now();
+      if(now - _lastPull < 15000) return;
+      _lastPull = now;
+      loadRemote();
+    }
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden) maybePull(); });
+    window.addEventListener('focus', maybePull);
   })();
   </script>
 
