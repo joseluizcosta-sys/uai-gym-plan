@@ -1182,14 +1182,24 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         <div id="wf-preview" style="display:none;background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.18);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--sub);line-height:1.8"></div>
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <button onclick="wfSubmit()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:8px;padding:7px 18px;font-size:12px;font-weight:700;cursor:pointer">✅ Registrar</button>
-          <button onclick="wfShowPending()" id="wf-sync-btn" style="display:none;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer">📋 Ver pendentes</button>
+          <button onclick="wfShowPending()" id="wf-sync-btn" style="display:none;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer">📋 Ver registros</button>
           <button onclick="wfClearAll()" id="wf-clear-btn" style="display:none;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer">🗑 Limpar</button>
+          <button onclick="wfTokenToggle()" id="wf-token-pill" style="margin-left:auto;background:none;border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-size:11px;color:var(--muted);cursor:pointer">🔑 configurar token</button>
         </div>
         <div id="wf-msg" style="margin-top:10px;font-size:11px;min-height:16px"></div>
+        <div id="wf-token-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px">
+          <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:6px">🔗 Sincronização entre dispositivos</div>
+          <p style="font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:10px">Cole um <strong>fine-grained Personal Access Token</strong> do GitHub com permissão <em>Contents: Read and write</em> apenas no repo <code style="color:var(--green)">uai-gym-plan</code>. Fica salvo só neste aparelho (faça uma vez por dispositivo). Criar em: <code style="color:var(--accent)">github.com/settings/personal-access-tokens</code></p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <input id="wf-token-input" type="password" placeholder="github_pat_…" autocomplete="off" style="flex:1;min-width:180px;background:#000;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:7px 10px;outline:none;box-sizing:border-box">
+            <button onclick="wfTokenSave()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:7px;padding:7px 14px;font-size:11px;font-weight:700;cursor:pointer">Salvar</button>
+            <button onclick="wfTokenClear()" style="background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:7px;padding:7px 12px;font-size:11px;cursor:pointer">Remover</button>
+          </div>
+          <div id="wf-token-status" style="margin-top:8px;font-size:10px;min-height:14px"></div>
+        </div>
         <div id="wf-pending-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:10px;color:var(--muted)">
-          <div style="font-weight:700;color:var(--sub);margin-bottom:6px">Entradas pendentes (não salvas no arquivo):</div>
+          <div style="font-weight:700;color:var(--sub);margin-bottom:6px">Registros salvos em weight_data.json (sincronizados):</div>
           <pre id="wf-pending-pre" style="margin:0;white-space:pre-wrap;word-break:break-all;font-size:10px;color:var(--text);line-height:1.6"></pre>
-          <div style="margin-top:8px;color:var(--muted)">Cole no Claude Code: <code style="color:var(--green)">sync peso localStorage</code></div>
         </div>
       </div>
     </div>
@@ -1357,11 +1367,58 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     var MONTHS_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
     var MONTHS_LABEL = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 
-    function getEntries(){
-      try{ return JSON.parse(localStorage.getItem('uai_weight')||'[]'); }
-      catch(e){ return []; }
+    // ── GitHub sync config ──
+    // Entries persist to weight_data.json in the repo so the form syncs across
+    // phone + computer. Reads are public (raw URL, no auth). Writes need a
+    // fine-grained Personal Access Token (Contents: read/write on this repo),
+    // entered once per device and kept only in this device's localStorage.
+    var GH = {
+      owner:'joseluizcosta-sys', repo:'uai-gym-plan',
+      path:'weight_data.json', branch:'main',
+      tokenKey:'uai_gh_token', cacheKey:'uai_weight'
+    };
+    function ghToken(){ try{ return localStorage.getItem(GH.tokenKey)||''; }catch(e){ return ''; } }
+
+    // In-memory source of truth (mirrored to localStorage for instant/offline render)
+    var _entries = [];
+    (function(){ try{ _entries = JSON.parse(localStorage.getItem(GH.cacheKey)||'[]')||[]; }catch(e){ _entries=[]; } })();
+
+    function getEntries(){ return _entries; }
+    function saveEntries(arr){
+      _entries = arr;
+      try{ localStorage.setItem(GH.cacheKey, JSON.stringify(arr)); }catch(e){}
     }
-    function saveEntries(arr){ localStorage.setItem('uai_weight', JSON.stringify(arr)); }
+
+    // Pull the shared file (public, no auth). Keeps local cache if remote is unreachable.
+    function loadRemote(){
+      var url = 'https://raw.githubusercontent.com/'+GH.owner+'/'+GH.repo+'/'+GH.branch+'/'+GH.path+'?t='+Date.now();
+      return fetch(url, {cache:'no-store'})
+        .then(function(r){ if(!r.ok) throw new Error('remote '+r.status); return r.json(); })
+        .then(function(data){
+          if(Array.isArray(data)){
+            saveEntries(data);
+            refreshDynamic(); refreshChart(); updateBadge();
+          }
+        })
+        .catch(function(){ /* offline / file missing — keep local cache */ });
+    }
+
+    // Commit the full entries array to the repo via the Contents API.
+    function pushRemote(arr){
+      var token = ghToken();
+      if(!token){ return Promise.reject({code:'NO_TOKEN'}); }
+      var api = 'https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+GH.path;
+      var hdr = {'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json'};
+      return fetch(api+'?ref='+GH.branch+'&t='+Date.now(), {headers:hdr, cache:'no-store'})
+        .then(function(r){ if(r.status===404) return null; if(!r.ok) return r.json().then(function(e){ e._http=r.status; throw e; }); return r.json(); })
+        .then(function(meta){
+          var content = btoa(unescape(encodeURIComponent(JSON.stringify(arr, null, 2)+'\n')));
+          var body = {message:'weight: update via dashboard '+new Date().toISOString().slice(0,10), content:content, branch:GH.branch};
+          if(meta && meta.sha) body.sha = meta.sha;
+          return fetch(api, {method:'PUT', headers:hdr, body:JSON.stringify(body)});
+        })
+        .then(function(r){ if(!r.ok) return r.json().then(function(e){ e._http=r.status; throw e; }); return r.json(); });
+    }
 
     // Find weight just before a given ISO date from static table + localStorage
     function prevWeight(isoDate){
@@ -1455,7 +1512,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       var syncBtn = document.getElementById('wf-sync-btn');
       var clearBtn = document.getElementById('wf-clear-btn');
       if(badge){
-        if(n>0){ badge.style.display='inline'; badge.textContent = n+' pendente'+(n>1?'s':''); }
+        if(n>0){ badge.style.display='inline'; badge.textContent = n+' registro'+(n>1?'s':''); }
         else { badge.style.display='none'; }
       }
       if(syncBtn) syncBtn.style.display = n>0 ? 'inline-block' : 'none';
@@ -1525,7 +1582,19 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       document.getElementById('wf-preview').style.display='none';
       var parts = d.split('-');
       var label = parts[2]+'/'+parts[1]+'/'+parts[0];
-      if(msg) msg.innerHTML='<span style="color:var(--green)">✅ '+label+' registrado — '+w.toFixed(1).replace('.',',')+'kg / '+f.toFixed(1).replace('.',',')+'%</span>';
+      // Persist to GitHub so it syncs across devices
+      if(msg) msg.innerHTML='<span style="color:var(--accent)">⏳ '+label+' '+w.toFixed(1).replace('.',',')+'kg — salvando no GitHub…</span>';
+      pushRemote(entries).then(function(){
+        if(msg) msg.innerHTML='<span style="color:var(--green)">✅ '+label+' salvo e sincronizado — visível em todos os dispositivos.</span>';
+      }).catch(function(err){
+        if(err && err.code==='NO_TOKEN'){
+          if(msg) msg.innerHTML='<span style="color:var(--accent)">⚠️ '+label+' salvo só neste aparelho. Configure o token GitHub abaixo para sincronizar entre dispositivos.</span>';
+          wfTokenToggle(true);
+        } else {
+          var detail = (err && (err.message || (err._http===401?'token inválido':err._http===403?'sem permissão':err._http===409?'conflito — recarregue a página':'')))||'erro';
+          if(msg) msg.innerHTML='<span style="color:var(--red)">⚠️ '+label+' salvo localmente, mas falhou ao sincronizar ('+detail+').</span>';
+        }
+      });
     };
 
     window.wfShowPending = function(){
@@ -1546,21 +1615,69 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     };
 
     window.wfClearAll = function(){
-      if(!confirm('Limpar todos os registros pendentes?')) return;
-      localStorage.removeItem('uai_weight');
+      if(!confirm('Apagar TODOS os registros do formulário (em todos os dispositivos)?')) return;
+      saveEntries([]);
       document.getElementById('wt-dynamic').innerHTML='';
       refreshChart();
       updateBadge();
       var msg = document.getElementById('wf-msg');
-      if(msg) msg.innerHTML='<span style="color:var(--muted)">Registros pendentes removidos.</span>';
       var box = document.getElementById('wf-pending-box');
       if(box) box.style.display='none';
+      pushRemote([]).then(function(){
+        if(msg) msg.innerHTML='<span style="color:var(--muted)">Registros removidos e sincronizados.</span>';
+      }).catch(function(err){
+        if(msg) msg.innerHTML='<span style="color:var(--muted)">Registros removidos localmente'+(err&&err.code==='NO_TOKEN'?' (configure o token para sincronizar)':'')+'.</span>';
+      });
     };
+
+    // ── GitHub token UI ──
+    window.wfTokenToggle = function(forceOpen){
+      var box = document.getElementById('wf-token-box');
+      if(!box) return;
+      var open = box.style.display !== 'none';
+      box.style.display = (forceOpen===true ? false : open) ? 'none' : 'block';
+      if(box.style.display==='block'){
+        var inp = document.getElementById('wf-token-input');
+        if(inp && ghToken()) inp.placeholder = 'Token configurado — cole um novo para substituir';
+      }
+    };
+    window.wfTokenSave = function(){
+      var inp = document.getElementById('wf-token-input');
+      var st = document.getElementById('wf-token-status');
+      var t = (inp && inp.value || '').trim();
+      if(!t){ if(st) st.innerHTML='<span style="color:var(--red)">Cole um token válido.</span>'; return; }
+      try{ localStorage.setItem(GH.tokenKey, t); }catch(e){}
+      if(inp) inp.value='';
+      wfTokenRefresh();
+      if(st) st.innerHTML='<span style="color:var(--green)">✅ Token salvo neste aparelho. Verificando…</span>';
+      // Verify by pushing current entries (a no-op content commit only if changed)
+      pushRemote(getEntries()).then(function(){
+        if(st) st.innerHTML='<span style="color:var(--green)">✅ Token válido — sincronização ativa.</span>';
+      }).catch(function(err){
+        var detail = (err && (err._http===401?'token inválido ou expirado':err._http===403?'sem permissão de escrita neste repo':err.message))||'erro';
+        if(st) st.innerHTML='<span style="color:var(--red)">⚠️ '+detail+'.</span>';
+      });
+    };
+    window.wfTokenClear = function(){
+      try{ localStorage.removeItem(GH.tokenKey); }catch(e){}
+      wfTokenRefresh();
+      var st = document.getElementById('wf-token-status');
+      if(st) st.innerHTML='<span style="color:var(--muted)">Token removido deste aparelho (leitura continua funcionando).</span>';
+    };
+    function wfTokenRefresh(){
+      var pill = document.getElementById('wf-token-pill');
+      if(pill){
+        if(ghToken()){ pill.textContent='🔑 sincronizado'; pill.style.color='var(--green)'; }
+        else { pill.textContent='🔑 configurar token'; pill.style.color='var(--muted)'; }
+      }
+    }
 
     // Init on load
     document.addEventListener('DOMContentLoaded', function(){
       refreshDynamic();
       updateBadge();
+      wfTokenRefresh();
+      loadRemote();
     });
   })();
   </script>
@@ -2758,45 +2875,6 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
   <div style="margin-bottom:28px">
     <div style="font-size:15px;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px">⏱️ Pace por Segmento</div>
     <div style="overflow-x:auto">
-      <!-- WEIGHT FORM -->
-    <div id="wf-panel" style="background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden">
-      <div onclick="wfToggle()" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:11px 16px;user-select:none">
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:13px">⚖️</span>
-          <span style="font-size:12px;font-weight:700;color:var(--green)">Registrar Peso</span>
-          <span id="wf-badge" style="display:none;font-size:10px;padding:1px 8px;background:rgba(245,166,35,.15);color:var(--accent);border-radius:20px;font-weight:700"></span>
-        </div>
-        <span id="wf-icon" style="font-size:11px;color:var(--muted);transition:transform .2s">▼</span>
-      </div>
-      <div id="wf-body" style="display:none;border-top:1px solid var(--border);padding:14px 16px">
-        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:12px">
-          <div>
-            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">DATA</label>
-            <input id="wf-date" type="date" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:7px 10px;outline:none;box-sizing:border-box">
-          </div>
-          <div>
-            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">PESO (kg)</label>
-            <input id="wf-weight" type="number" step="0.1" min="70" max="120" placeholder="86.1" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
-          </div>
-          <div>
-            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">% GORDURA</label>
-            <input id="wf-fat" type="number" step="0.1" min="5" max="50" placeholder="16.4" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
-          </div>
-        </div>
-        <div id="wf-preview" style="display:none;background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.18);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--sub);line-height:1.8"></div>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-          <button onclick="wfSubmit()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:8px;padding:7px 18px;font-size:12px;font-weight:700;cursor:pointer">✅ Registrar</button>
-          <button onclick="wfShowPending()" id="wf-sync-btn" style="display:none;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer">📋 Ver pendentes</button>
-          <button onclick="wfClearAll()" id="wf-clear-btn" style="display:none;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer">🗑 Limpar</button>
-        </div>
-        <div id="wf-msg" style="margin-top:10px;font-size:11px;min-height:16px"></div>
-        <div id="wf-pending-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:10px;color:var(--muted)">
-          <div style="font-weight:700;color:var(--sub);margin-bottom:6px">Entradas pendentes (não salvas no arquivo):</div>
-          <pre id="wf-pending-pre" style="margin:0;white-space:pre-wrap;word-break:break-all;font-size:10px;color:var(--text);line-height:1.6"></pre>
-          <div style="margin-top:8px;color:var(--muted)">Cole no Claude Code: <code style="color:var(--green)">sync peso localStorage</code></div>
-        </div>
-      </div>
-    </div>
         <table class="ptable">
         <thead>
           <tr>
