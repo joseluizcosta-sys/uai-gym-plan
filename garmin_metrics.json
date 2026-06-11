@@ -1,6 +1,68 @@
 {
-  "last_updated": "2026-05-29",
+  "last_updated": "2026-06-11",
   "entries": [
+    {
+      "date": "2026-06-11",
+      "hrv": 30,
+      "rhr": 57,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": null,
+      "body_battery_end": null,
+      "steps": null,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "CCR 10km (esteira)",
+          "distance_km": 10.0,
+          "duration_min": 56.6,
+          "pace_min_per_km": "5:39",
+          "hr_avg": 143,
+          "elevation_gain_m": null,
+          "training_load": 191.0,
+          "hr_zones": {
+            "z1_sec": 17,
+            "z2_sec": 88,
+            "z3_sec": 692,
+            "z4_sec": 2087,
+            "z5_sec": 507
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-06-09",
+      "hrv": null,
+      "rhr": null,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": null,
+      "body_battery_end": null,
+      "steps": null,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "CCL 10km SP",
+          "distance_km": 10.0,
+          "duration_min": 57.2,
+          "pace_min_per_km": "5:43",
+          "hr_avg": 134,
+          "elevation_gain_m": 55,
+          "training_load": 138.0,
+          "hr_zones": {
+            "z1_sec": 19,
+            "z2_sec": 165,
+            "z3_sec": 1779,
+            "z4_sec": 1464,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-05-29",
       "hrv": 26,
@@ -22,7 +84,13 @@
           "hr_avg": null,
           "elevation_gain_m": null,
           "training_load": null,
-          "hr_zones": {"z1_sec": 0, "z2_sec": 0, "z3_sec": 0, "z4_sec": 0, "z5_sec": 0}
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
         }
       ]
     },
