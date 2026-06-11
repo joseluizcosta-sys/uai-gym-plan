@@ -1663,8 +1663,17 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       pushRemote(getEntries()).then(function(){
         if(st) st.innerHTML='<span style="color:var(--green)">✅ Token válido — sincronização ativa.</span>';
       }).catch(function(err){
-        var detail = (err && (err._http===401?'token inválido ou expirado':err._http===403?'sem permissão de escrita neste repo':err.message))||'erro';
-        if(st) st.innerHTML='<span style="color:var(--red)">⚠️ '+detail+'.</span>';
+        var pill = document.getElementById('wf-token-pill');
+        if(err && err._http===403){
+          if(pill){ pill.textContent='⚠️ sem permissão'; pill.style.color='var(--red)'; }
+          if(st) st.innerHTML='<span style="color:var(--red)">⚠️ sem permissão de escrita neste repo. Crie um novo token em <code style="color:var(--accent)">github.com/settings/personal-access-tokens</code> com permissão <em>Contents: Read and write</em> apenas no repo <code style="color:var(--green)">uai-gym-plan</code>.</span>';
+        } else if(err && err._http===401){
+          if(pill){ pill.textContent='⚠️ token inválido'; pill.style.color='var(--red)'; }
+          if(st) st.innerHTML='<span style="color:var(--red)">⚠️ token inválido ou expirado.</span>';
+        } else {
+          var detail = (err && err.message)||'erro';
+          if(st) st.innerHTML='<span style="color:var(--red)">⚠️ '+detail+'.</span>';
+        }
       });
     };
     window.wfTokenClear = function(){
