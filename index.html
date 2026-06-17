@@ -2408,12 +2408,20 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <div style="flex:1;background:#c0392b;opacity:0" title="Z5"></div>
         </div>
       </div>
-      <div class="gday gymonly">
+      <div class="gday gymonly done">
         <div class="gdn">QUA</div>
         <div class="gdate">17/jun</div>
         <div class="gi">🏊</div>
         <div class="grun" style="color:var(--blue)">Natação?</div>
         <div class="ggym">Cadeia Post.<br>RDL 4×8 · Hip 4×12</div>
+        <div class="gdone">✅ Natação 1.3km · 52min · HR110</div>
+        <div style="display:flex;height:4px;border-radius:2px;overflow:hidden;gap:1px;margin-top:5px">
+          <div style="flex:1311;background:#4f9cf9" title="Z1"></div>
+          <div style="flex:756;background:#7be27b" title="Z2"></div>
+          <div style="flex:950;background:#f5a623" title="Z3"></div>
+          <div style="flex:69;background:#e05c5c" title="Z4"></div>
+          <div style="flex:1;background:#c0392b;opacity:0" title="Z5"></div>
+        </div>
       </div>
       <div class="gday leve">
         <div class="gdn">QUI</div>
@@ -2697,6 +2705,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Jun 15</td><td style="text-align:center">62</td><td style="text-align:center;color:var(--red)">4.9h</td><td style="text-align:center;font-weight:700;color:var(--accent)">52</td><td style="color:var(--blue);font-size:10px">🏊 natação</td></tr>
         
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Jun 16</td><td style="text-align:center">71</td><td style="text-align:center;color:var(--red)">5.7h</td><td style="text-align:center;font-weight:700;color:var(--accent)">60</td><td style="color:var(--accent);font-size:10px">🏃 7.8km</td></tr>
+        
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Jun 17</td><td style="text-align:center;color:#7be27b">77</td><td style="text-align:center;color:var(--red)">5.6h</td><td style="text-align:center;font-weight:700;color:#7be27b">75</td><td style="color:var(--blue);font-size:10px">🏊 natação</td></tr>
         </tbody>
       </table>
       <div style="margin-top:12px;padding:10px;background:rgba(245,166,35,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
@@ -2750,6 +2760,8 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Jun 15 · natação 🏊</td><td style="text-align:center">57</td><td style="text-align:center">112</td><td style="text-align:center;color:var(--muted)">—</td><td style="text-align:center">29</td><td style="text-align:center;color:var(--muted)">—</td></tr>
         
           <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Jun 16 · 7.8km 🏃</td><td style="text-align:center">112</td><td style="text-align:center">130</td><td style="text-align:center">29</td><td style="text-align:center">35</td><td style="text-align:center;color:#7be27b">+6</td></tr>
+        
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:5px 6px">Jun 17 · natação 🏊</td><td style="text-align:center">57</td><td style="text-align:center">110</td><td style="text-align:center">35</td><td style="text-align:center">33</td><td style="text-align:center;color:var(--red)">−2</td></tr>
         </tbody>
       </table>
       <div style="margin-top:12px;padding:10px;background:rgba(79,156,249,.08);border-radius:8px;font-size:10px;color:var(--muted);line-height:1.6">
@@ -2769,9 +2781,9 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       (function(){
         const canvas = document.getElementById('hrvRhrChart');
         if(!canvas) return;
-        const hrv = [32,27,29,31,31,32,29,null,32,31,35,34,36,30,30,31,30,31,31,30,null,35,36,29,29,30,32,30,26,29,33,30,null,33,34,30,30,24,27,31,25,30,27,30,null,29,35];
-        const rhr = [54,57,53,51,54,54,58,58,56,55,54,51,53,56,55,56,53,51,56,57,58,56,59,56,56,56,54,57,57,60,55,57,60,54,58,59,61,59,59,57,61,57,61,63,59,55,57];
-        const lbs = ['01/05','02/05','03/05','04/05','05/05','06/05','07/05','08/05','09/05','10/05','11/05','12/05','13/05','14/05','15/05','16/05','17/05','18/05','19/05','20/05','21/05','22/05','23/05','24/05','25/05','26/05','27/05','28/05','29/05','30/05','31/05','01/06','02/06','03/06','04/06','05/06','06/06','07/06','08/06','09/06','10/06','11/06','12/06','13/06','14/06','15/06','16/06'];
+        const hrv = [32,27,29,31,31,32,29,null,32,31,35,34,36,30,30,31,30,31,31,30,null,35,36,29,29,30,32,30,26,29,33,30,null,33,34,30,30,24,27,31,25,30,27,30,null,29,35,33];
+        const rhr = [54,57,53,51,54,54,58,58,56,55,54,51,53,56,55,56,53,51,56,57,58,56,59,56,56,56,54,57,57,60,55,57,60,54,58,59,61,59,59,57,61,57,61,63,59,55,57,55];
+        const lbs = ['01/05','02/05','03/05','04/05','05/05','06/05','07/05','08/05','09/05','10/05','11/05','12/05','13/05','14/05','15/05','16/05','17/05','18/05','19/05','20/05','21/05','22/05','23/05','24/05','25/05','26/05','27/05','28/05','29/05','30/05','31/05','01/06','02/06','03/06','04/06','05/06','06/06','07/06','08/06','09/06','10/06','11/06','12/06','13/06','14/06','15/06','16/06','17/06'];
         function draw(){
           const W = canvas.offsetWidth || 800;
           const H = 200;
