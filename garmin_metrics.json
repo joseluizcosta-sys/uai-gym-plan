@@ -1,15 +1,46 @@
 {
-  "last_updated": "2026-06-18",
+  "last_updated": "2026-06-19",
   "entries": [
+    {
+      "date": "2026-06-19",
+      "hrv": 30,
+      "rhr": 55,
+      "sleep_score": 72,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 61,
+      "body_battery_end": 56,
+      "steps": 648,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-06-18",
       "hrv": 31,
-      "rhr": 57,
+      "rhr": 54,
       "sleep_score": 71,
       "sleep_hours": 5.7,
       "body_battery_peak": 64,
-      "body_battery_end": 25,
-      "steps": 10985,
+      "body_battery_end": 19,
+      "steps": 11508,
       "weight": null,
       "body_fat": null,
       "activities": [
