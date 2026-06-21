@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-06-20",
+  "last_updated": "2026-06-21",
   "entries": [
+    {
+      "date": "2026-06-21",
+      "hrv": 26,
+      "rhr": 56,
+      "sleep_score": 65,
+      "sleep_hours": 8.85,
+      "body_battery_peak": 71,
+      "body_battery_end": 71,
+      "steps": 201,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Recuperação Ativa",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-06-20",
       "hrv": 29,
@@ -8,8 +39,8 @@
       "sleep_score": 68,
       "sleep_hours": 5.5,
       "body_battery_peak": 58,
-      "body_battery_end": 25,
-      "steps": 25713,
+      "body_battery_end": 12,
+      "steps": 26828,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -21,7 +52,7 @@
           "pace_min_per_km": "5:32",
           "hr_avg": 138,
           "elevation_gain_m": 154,
-          "training_load": 276.5,
+          "training_load": 277,
           "hr_zones": {
             "z1_sec": 76,
             "z2_sec": 416,
