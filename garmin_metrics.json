@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-06-21",
+  "last_updated": "2026-06-22",
   "entries": [
+    {
+      "date": "2026-06-22",
+      "hrv": 31,
+      "rhr": 57,
+      "sleep_score": 66,
+      "sleep_hours": 5.2,
+      "body_battery_peak": 75,
+      "body_battery_end": 75,
+      "steps": 398,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "swim",
+          "name": "Natação em piscina",
+          "distance_km": 1.55,
+          "duration_min": 60.0,
+          "pace_min_per_km": null,
+          "hr_avg": 114,
+          "elevation_gain_m": null,
+          "training_load": 76.3,
+          "hr_zones": {
+            "z1_sec": 652,
+            "z2_sec": 1457,
+            "z3_sec": 1164,
+            "z4_sec": 224,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-06-21",
       "hrv": 26,
@@ -8,8 +39,8 @@
       "sleep_score": 65,
       "sleep_hours": 8.8,
       "body_battery_peak": 71,
-      "body_battery_end": 53,
-      "steps": 707,
+      "body_battery_end": 49,
+      "steps": 1523,
       "weight": null,
       "body_fat": null,
       "activities": [
