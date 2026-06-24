@@ -1,15 +1,63 @@
 {
-  "last_updated": "2026-06-22",
+  "last_updated": "2026-06-23",
   "entries": [
+    {
+      "date": "2026-06-23",
+      "hrv": 29,
+      "rhr": 50,
+      "sleep_score": 66,
+      "sleep_hours": 4.7,
+      "body_battery_peak": 64,
+      "body_battery_end": 34,
+      "steps": 15548,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "São Paulo Corrida",
+          "distance_km": 9.22,
+          "duration_min": 52.8,
+          "pace_min_per_km": "5:43",
+          "hr_avg": 132,
+          "elevation_gain_m": 39,
+          "training_load": 110.9,
+          "hr_zones": {
+            "z1_sec": 46,
+            "z2_sec": 195,
+            "z3_sec": 2149,
+            "z4_sec": 778,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "run",
+          "name": "Corrida 23/06/2026",
+          "distance_km": 2.93,
+          "duration_min": 18.5,
+          "pace_min_per_km": "6:18",
+          "hr_avg": 126,
+          "elevation_gain_m": null,
+          "training_load": 47.6,
+          "hr_zones": {
+            "z1_sec": 27,
+            "z2_sec": 97,
+            "z3_sec": 989,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-06-22",
       "hrv": 31,
-      "rhr": 57,
+      "rhr": 50,
       "sleep_score": 66,
       "sleep_hours": 5.2,
       "body_battery_peak": 75,
-      "body_battery_end": 32,
-      "steps": 3249,
+      "body_battery_end": 31,
+      "steps": 3512,
       "weight": null,
       "body_fat": null,
       "activities": [
