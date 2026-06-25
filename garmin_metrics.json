@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-06-24",
+  "last_updated": "2026-06-25",
   "entries": [
+    {
+      "date": "2026-06-25",
+      "hrv": 32,
+      "rhr": 57,
+      "sleep_score": 60,
+      "sleep_hours": 4.5,
+      "body_battery_peak": 63,
+      "body_battery_end": 43,
+      "steps": 12114,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 25/06/2026",
+          "distance_km": 10.01,
+          "duration_min": 55.2,
+          "pace_min_per_km": "5:30",
+          "hr_avg": 132,
+          "elevation_gain_m": 78,
+          "training_load": 161.9,
+          "hr_zones": {
+            "z1_sec": 108,
+            "z2_sec": 486,
+            "z3_sec": 1372,
+            "z4_sec": 1113,
+            "z5_sec": 232
+          }
+        }
+      ]
+    },
     {
       "date": "2026-06-24",
       "hrv": 31,
@@ -8,8 +39,8 @@
       "sleep_score": 83,
       "sleep_hours": 7.2,
       "body_battery_peak": 76,
-      "body_battery_end": 47,
-      "steps": 5242,
+      "body_battery_end": 26,
+      "steps": 8302,
       "weight": null,
       "body_fat": null,
       "activities": [
