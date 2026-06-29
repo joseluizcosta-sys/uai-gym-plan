@@ -3,13 +3,13 @@
   "entries": [
     {
       "date": "2026-06-29",
-      "hrv": null,
+      "hrv": 35,
       "rhr": 56,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": 69,
-      "body_battery_end": 69,
-      "steps": 28,
+      "sleep_score": 59,
+      "sleep_hours": 6.8,
+      "body_battery_peak": 70,
+      "body_battery_end": 66,
+      "steps": 97,
       "weight": null,
       "body_fat": null,
       "activities": [
