@@ -1,6 +1,350 @@
 {
-  "last_updated": "2026-07-02",
+  "last_updated": "2026-07-13",
   "entries": [
+    {
+      "date": "2026-07-13",
+      "hrv": null,
+      "rhr": 47,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": 80,
+      "body_battery_end": 40,
+      "steps": 7284,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-12",
+      "hrv": 27,
+      "rhr": 56,
+      "sleep_score": 71,
+      "sleep_hours": 5.7,
+      "body_battery_peak": 59,
+      "body_battery_end": 21,
+      "steps": 24087,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "City of Westminster Corrida",
+          "distance_km": 10.15,
+          "duration_min": 50.8,
+          "pace_min_per_km": "5:00",
+          "hr_avg": 143,
+          "elevation_gain_m": 52,
+          "training_load": 229.1,
+          "hr_zones": {
+            "z1_sec": 15,
+            "z2_sec": 18,
+            "z3_sec": 550,
+            "z4_sec": 1660,
+            "z5_sec": 753
+          }
+        },
+        {
+          "type": "run",
+          "name": "Lambeth Corrida",
+          "distance_km": 4.0,
+          "duration_min": 27.3,
+          "pace_min_per_km": "6:49",
+          "hr_avg": 122,
+          "elevation_gain_m": 33,
+          "training_load": 46.4,
+          "hr_zones": {
+            "z1_sec": 76,
+            "z2_sec": 430,
+            "z3_sec": 889,
+            "z4_sec": 226,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-11",
+      "hrv": 28,
+      "rhr": 53,
+      "sleep_score": 70,
+      "sleep_hours": 5.4,
+      "body_battery_peak": 60,
+      "body_battery_end": 12,
+      "steps": 34554,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Lambeth Corrida",
+          "distance_km": 14.85,
+          "duration_min": 90.5,
+          "pace_min_per_km": "6:05",
+          "hr_avg": 124,
+          "elevation_gain_m": 93,
+          "training_load": 138.3,
+          "hr_zones": {
+            "z1_sec": 300,
+            "z2_sec": 686,
+            "z3_sec": 4181,
+            "z4_sec": 228,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "hrv": 30,
+      "rhr": 53,
+      "sleep_score": 75,
+      "sleep_hours": 6.5,
+      "body_battery_peak": 54,
+      "body_battery_end": 11,
+      "steps": 34024,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 10/07/2026",
+          "distance_km": 8.82,
+          "duration_min": 50.6,
+          "pace_min_per_km": "5:44",
+          "hr_avg": 130,
+          "elevation_gain_m": 44,
+          "training_load": 120.4,
+          "hr_zones": {
+            "z1_sec": 21,
+            "z2_sec": 95,
+            "z3_sec": 2346,
+            "z4_sec": 569,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "hrv": 27,
+      "rhr": 56,
+      "sleep_score": 62,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 36,
+      "body_battery_end": 5,
+      "steps": 28546,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Paris Corrida",
+          "distance_km": 10.51,
+          "duration_min": 65.4,
+          "pace_min_per_km": "6:13",
+          "hr_avg": 121,
+          "elevation_gain_m": 67,
+          "training_load": 103.9,
+          "hr_zones": {
+            "z1_sec": 280,
+            "z2_sec": 853,
+            "z3_sec": 2747,
+            "z4_sec": 11,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "hrv": 28,
+      "rhr": 57,
+      "sleep_score": 63,
+      "sleep_hours": 4.9,
+      "body_battery_peak": 43,
+      "body_battery_end": 5,
+      "steps": 34954,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "swim",
+          "name": "Paris Natação em alto mar",
+          "distance_km": 0.14,
+          "duration_min": 2.5,
+          "pace_min_per_km": null,
+          "hr_avg": 131,
+          "elevation_gain_m": null,
+          "training_load": 29.0,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 22,
+            "z3_sec": 102,
+            "z4_sec": 28,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "run",
+          "name": "Paris Corrida",
+          "distance_km": 7.03,
+          "duration_min": 41.5,
+          "pace_min_per_km": "5:54",
+          "hr_avg": 122,
+          "elevation_gain_m": 62,
+          "training_load": 83.7,
+          "hr_zones": {
+            "z1_sec": 166,
+            "z2_sec": 437,
+            "z3_sec": 1816,
+            "z4_sec": 52,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "hrv": 40,
+      "rhr": 51,
+      "sleep_score": 74,
+      "sleep_hours": 5.7,
+      "body_battery_peak": 91,
+      "body_battery_end": 20,
+      "steps": 23427,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "hrv": 31,
+      "rhr": 55,
+      "sleep_score": 72,
+      "sleep_hours": 5.8,
+      "body_battery_peak": 64,
+      "body_battery_end": 32,
+      "steps": 26988,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Lambeth Corrida",
+          "distance_km": 6.01,
+          "duration_min": 34.2,
+          "pace_min_per_km": "5:41",
+          "hr_avg": 127,
+          "elevation_gain_m": 35,
+          "training_load": 84.8,
+          "hr_zones": {
+            "z1_sec": 14,
+            "z2_sec": 213,
+            "z3_sec": 1621,
+            "z4_sec": 188,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "hrv": 31,
+      "rhr": 53,
+      "sleep_score": 64,
+      "sleep_hours": 5.3,
+      "body_battery_peak": 59,
+      "body_battery_end": 11,
+      "steps": 18379,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "hrv": null,
+      "rhr": 59,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": 40,
+      "body_battery_end": 5,
+      "steps": 36147,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Lambeth Corrida",
+          "distance_km": 14.3,
+          "duration_min": 84.4,
+          "pace_min_per_km": "5:54",
+          "hr_avg": 128,
+          "elevation_gain_m": 113,
+          "training_load": 148.3,
+          "hr_zones": {
+            "z1_sec": 283,
+            "z2_sec": 508,
+            "z3_sec": 2837,
+            "z4_sec": 1393,
+            "z5_sec": 16
+          }
+        }
+      ]
+    },
     {
       "date": "2026-07-02",
       "hrv": 34,
