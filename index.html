@@ -4,13 +4,28 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UAI 100K — Plano de Força | José Costa</title>
+<title>Treino &amp; Provas | José Costa</title>
 <script>
 function show(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('a'));
   document.querySelectorAll('.nav button').forEach(b => b.classList.remove('a'));
   document.getElementById('p-' + id).classList.add('a');
   btn.classList.add('a');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function showForcaDay(day) {
+  document.querySelectorAll('.forca-day').forEach(d => d.classList.remove('a'));
+  document.getElementById('fd-' + day).classList.add('a');
+}
+function showProva(id) {
+  document.querySelectorAll('.prova-detail').forEach(d => d.classList.remove('a'));
+  document.getElementById('pd-' + id).classList.add('a');
+  document.getElementById('provas-list-view').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function showProvasList() {
+  document.querySelectorAll('.prova-detail').forEach(d => d.classList.remove('a'));
+  document.getElementById('provas-list-view').style.display = '';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
@@ -48,6 +63,26 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 /* LAYOUT */
 .page{display:none;max-width:1160px;margin:0 auto;padding:36px 16px 72px}
 .page.a{display:block}
+
+/* FORCA — day sub-panel toggle (select-driven, lives inside #p-forca) */
+.forca-day{display:none}
+.forca-day.a{display:block}
+.forca-daypicker{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.forca-daypicker label{font-size:13px;color:var(--muted);font-weight:700}
+.forca-daypicker select{background:var(--card,#161a22);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;cursor:pointer}
+
+/* PROVAS — race list + detail sub-panel toggle (lives inside #p-provas) */
+.prova-detail{display:none}
+.prova-detail.a{display:block}
+.provas-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-bottom:8px}
+.prova-card{background:var(--card,#161a22);border:1px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;transition:border-color .15s}
+.prova-card:hover{border-color:var(--accent)}
+.prova-card .pc-name{font-weight:900;font-size:15px;margin-bottom:2px}
+.prova-card .pc-date{color:var(--accent);font-size:12px;font-weight:700;margin-bottom:12px}
+.prova-card .pc-stats{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.prova-card .pc-stats b{color:var(--text);display:block;font-size:14px}
+.prova-back{background:none;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:20px}
+.prova-back:hover{border-color:var(--accent);color:var(--accent)}
 .ph{font-size:20px;font-weight:900;margin-bottom:4px;display:flex;align-items:center;gap:10px}
 .ps{color:var(--muted);font-size:13px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 
@@ -218,9 +253,9 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 
 <!-- ═══ HERO ═══ -->
 <div class="hero">
-  <div class="race-badge">🏔️ UAI Ultra dos Anjos Internacional · 100KM</div>
-  <h1>Plano de <em>Força</em><br>para Ultra Runner</h1>
-  <p>Programa periodizado de musculação integrado à rotina de corrida e natação de José Costa — calibrado para o perfil de altimetria e clima da UAI 100K.</p>
+  <div class="race-badge">🎯 Próxima prova: UAI 100K · 25/07/2026</div>
+  <h1>Painel de <em>Treino</em><br>Ultra Runner</h1>
+  <p>Treino, recuperação e nutrição de José Costa rumo a 4 provas em 2026/27 — UAI 100K, A Muralha Up and Down, Paraty Brazil by UTMB e Brazil135. Veja o calendário completo na aba Provas.</p>
   <div class="hero-stats" style="background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden">
     <div class="hstat"><span class="v" style="color:var(--accent)">100K</span><span class="l">Distância</span></div>
     <div class="hstat"><span class="v" style="color:var(--green)">+1.733m</span><span class="l">Ganho de altitude</span></div>
@@ -232,18 +267,27 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav" id="mainNav">
-  <button class="a" onclick="show('race',this)">🏁 UAI Race</button>
-  <button onclick="show('periodization',this)">📈 Periodização</button>
-  <button onclick="show('garmin',this)">🗓️ Plano Branca</button>
-  <button onclick="show('strategy',this)">🧭 Estratégia</button>
-  <button onclick="show('monday',this)">Segunda · Tronco+Core</button>
-  <button onclick="show('tuesday',this)">Terça · Ativação</button>
-  <button onclick="show('wednesday',this)">Quarta · Cadeia Post.</button>
-  <button onclick="show('thursday',this)">Quinta · Potência</button>
+  <button class="a" onclick="show('garmin',this)">🗓️ Plano Branca</button>
+  <button onclick="show('forca',this)">💪 Força</button>
+  <button onclick="show('nutricao',this)">🥗 Nutrição</button>
+  <button onclick="show('provas',this)">🏅 Provas</button>
 </nav>
 
+<!-- ═══════════════ FORCA (dia da semana) ═══════════════ -->
+<div class="page" id="p-forca">
+  <div class="ph">💪 Força — treino da semana</div>
+  <div class="ps">Selecione o dia para ver o treino de força/mobilidade daquele dia.</div>
+  <div class="forca-daypicker">
+    <label for="forca-day-select">Dia:</label>
+    <select id="forca-day-select" onchange="showForcaDay(this.value)">
+      <option value="monday">Segunda · Tronco+Core</option>
+      <option value="tuesday">Terça · Ativação</option>
+      <option value="wednesday">Quarta · Cadeia Post.</option>
+      <option value="thursday">Quinta · Potência</option>
+    </select>
+  </div>
 <!-- ═══════════════ MONDAY ═══════════════ -->
-<div class="page" id="p-monday">
+<div class="forca-day a" id="fd-monday">
   <div class="day-hdr">
     <div class="day-dot" style="background:var(--mon)"></div>
     <h2>Segunda-feira</h2>
@@ -429,7 +473,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 </div>
 
 <!-- ═══════════════ TUESDAY ═══════════════ -->
-<div class="page" id="p-tuesday">
+<div class="forca-day" id="fd-tuesday">
   <div class="day-hdr">
     <div class="day-dot" style="background:var(--tue)"></div>
     <h2>Terça-feira</h2>
@@ -574,7 +618,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 </div>
 
 <!-- ═══════════════ WEDNESDAY ═══════════════ -->
-<div class="page" id="p-wednesday">
+<div class="forca-day" id="fd-wednesday">
   <div class="day-hdr">
     <div class="day-dot" style="background:var(--wed)"></div>
     <h2>Quarta-feira</h2>
@@ -741,7 +785,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 </div>
 
 <!-- ═══════════════ THURSDAY ═══════════════ -->
-<div class="page" id="p-thursday">
+<div class="forca-day" id="fd-thursday">
   <div class="day-hdr">
     <div class="day-dot" style="background:var(--thu)"></div>
     <h2>Quinta-feira</h2>
@@ -885,824 +929,11 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
   </div>
 </div>
 
-<!-- ═══════════════ PERIODIZATION ═══════════════ -->
-<div class="page" id="p-periodization">
-  <div class="ph">📈 Periodização — 12 Semanas para UAI 100K</div>
-  <p class="ps">Progresso alinhado com o volume de corrida. Força cede espaço para especificidade nas últimas semanas.</p>
+</div>
 
-  <div class="phase-grid">
-    <div class="pcard">
-      <div class="pbar" style="background:linear-gradient(90deg,var(--green),var(--blue))"></div>
-      <h3 style="color:var(--green)">Fase 1 — Base</h3>
-      <div class="pw">Semanas 1–4 (atual)</div>
-      <ul>
-        <li>Domínio dos padrões de movimento</li>
-        <li>Carga 60–65% 1RM · RPE 6–7</li>
-        <li>Controle excêntrico (4s) em tudo</li>
-        <li>3 séries por exercício</li>
-        <li>Atenção: CPK 317 pós-Patagônia — progrida conservador</li>
-        <li>Box Jump: caixa 35cm, 4×4</li>
-      </ul>
-    </div>
-    <div class="pcard">
-      <div class="pbar" style="background:linear-gradient(90deg,var(--blue),var(--accent))"></div>
-      <h3 style="color:var(--blue)">Fase 2 — Construção</h3>
-      <div class="pw">Semanas 5–8</div>
-      <ul>
-        <li>+5–10% carga por semana nos principais</li>
-        <li>Carga 70–80% 1RM · RPE 7–8</li>
-        <li>4 séries nos exercícios principais</li>
-        <li>Nordic Curl: 3×6–8 (excêntrico 3s)</li>
-        <li>Box Jump: caixa 45cm, 4×5</li>
-        <li>Adicionar carga no Hip Thrust e RDL</li>
-      </ul>
-    </div>
-    <div class="pcard">
-      <div class="pbar" style="background:linear-gradient(90deg,var(--accent),var(--red))"></div>
-      <h3 style="color:var(--accent)">Fase 3 — Pico</h3>
-      <div class="pw">Semanas 9–11</div>
-      <ul>
-        <li>Manter carga — não aumentar</li>
-        <li>Carga 75% 1RM · RPE 7</li>
-        <li>Reduzir 1 série por exercício (3→2)</li>
-        <li>Ênfase em potência e velocidade</li>
-        <li>Box Jump: máxima altura individual</li>
-        <li>Alinhar com pico do volume de corrida</li>
-      </ul>
-    </div>
-    <div class="pcard">
-      <div class="pbar" style="background:linear-gradient(90deg,var(--red),#888)"></div>
-      <h3 style="color:var(--red)">Fase 4 — Taper</h3>
-      <div class="pw">Semana 12 (pré-prova)</div>
-      <ul>
-        <li>Volume −50%, intensidade mantida</li>
-        <li>Apenas Seg e Ter (2 sessões)</li>
-        <li>Nenhum exercício novo</li>
-        <li>Última sessão: 10 dias antes</li>
-        <li>Foco: mobilidade e ativação de glúteo</li>
-        <li>Prioridade: sono + carboidratos + hidratação</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="ph" style="margin-top:36px;font-size:17px">📊 Progressão de Carga por Exercício</div>
-  <table class="ptable">
-    <thead>
-      <tr>
-        <th>Exercício</th>
-        <th>Semanas 1–4</th>
-        <th>Semanas 5–8</th>
-        <th>Semanas 9–11</th>
-        <th>RPE</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>RDL (Quarta)</strong></td><td>3×10 — 60kg</td><td>4×8 — 70–80kg</td><td>3×8 — 80kg</td><td><span class="rpe mid">RPE 7–8</span></td></tr>
-      <tr><td><strong>Hip Thrust Barra</strong></td><td>3×12 — 40kg</td><td>4×12 — 70–90kg</td><td>3×12 — 90kg</td><td><span class="rpe mid">RPE 7</span></td></tr>
-      <tr><td><strong>Bulgarian Split Squat</strong></td><td>3×10 — DB 10kg</td><td>3×10 — DB 16–20kg</td><td>3×10 — DB 20kg</td><td><span class="rpe mid">RPE 7–8</span></td></tr>
-      <tr><td><strong>Nordic Curl</strong></td><td>3×4 — excênt. 5s</td><td>3×6 — excênt. 4s</td><td>3×8 — excênt. 3s</td><td><span class="rpe hi">RPE 8–9</span></td></tr>
-      <tr><td><strong>Box Jump</strong></td><td>4×4 — caixa 35cm</td><td>4×5 — caixa 45cm</td><td>4×5 — caixa 50cm (máx. intenção)</td><td><span class="rpe hi">Máx. velocidade</span></td></tr>
-      <tr><td><strong>Step-Down Excêntrico</strong></td><td>4×8 — excênt. 5s</td><td>4×10 — excênt. 4s</td><td>4×12 — excênt. 3s</td><td><span class="rpe mid">RPE 7–8</span></td></tr>
-      <tr><td><strong>Puxada Frontal</strong></td><td>3×12 — 45kg</td><td>4×10 — 55kg</td><td>3×10 — 55kg</td><td><span class="rpe low">RPE 6–7</span></td></tr>
-      <tr><td><strong>Farmer's Carry</strong></td><td>3×20m — DB 22kg</td><td>3×30m — DB 26kg</td><td>3×30m — DB 30kg</td><td><span class="rpe mid">RPE 7–8</span></td></tr>
-      <tr><td><strong>Calf Raise Unilateral</strong></td><td>3×12/pé</td><td>3×15/pé — DB 8kg</td><td>3×20/pé — DB 10kg</td><td><span class="rpe mid">RPE 7</span></td></tr>
-      <tr><td><strong>Pallof Press</strong></td><td>3×10 — 8kg</td><td>3×12 — 12kg</td><td>3×12 — 14kg</td><td><span class="rpe low">RPE 6</span></td></tr>
-      <tr><td><strong>Prancha Frontal Dinâmica</strong></td><td>3×30s — 1 pé por vez</td><td>3×45s</td><td>3×60s</td><td><span class="rpe low">RPE 6</span></td></tr>
-      <tr><td><strong>Prancha Lateral c/ Elevação de Quadril</strong></td><td>3×10 cada lado</td><td>3×12 cada lado</td><td>3×12 cada lado — pausa 2s</td><td><span class="rpe low">RPE 6–7</span></td></tr>
-      <tr><td><strong>Remada Curvada / Barra Fixa</strong></td><td>3×10 — 40kg</td><td>3×10 — 50kg</td><td>3×10 — 55kg</td><td><span class="rpe mid">RPE 7</span></td></tr>
-      <tr><td><strong>Flexão de Braço (Push-up)</strong></td><td>3× até falha — pausa 2min</td><td>3× até falha — pausa 90s</td><td>3× até falha — pausa 60s</td><td><span class="rpe mid">RPE 7–8</span></td></tr>
-    </tbody>
-  </table>
-
-  <!-- PESO CORPORAL -->
-  <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border)">
-    <div class="ph" style="font-size:17px;margin-bottom:4px">⚖️ Peso Corporal — Monitoramento Diário</div>
-    <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Medição matinal em jejum · Meta: 84–86 kg · &lt;15% gordura até Jul/2026 (composição ideal para trail 100K)</p>
-    <div style="background:rgba(255,255,255,0.03);border-radius:12px;padding:16px 16px 8px;margin-bottom:18px;border:1px solid var(--border)">
-      <canvas id="weightChart" style="width:100%;height:200px;display:block"></canvas>
-    </div>
-    <script>
-    (function(){
-      var _ls=[];
-      try{_ls=JSON.parse(localStorage.getItem('uai_weight')||'[]');}catch(e){}
-      var _mm={1:'jan',2:'fev',3:'mar',4:'abr',5:'mai',6:'jun',7:'jul',8:'ago',9:'set',10:'out',11:'nov',12:'dez'};
-      window._wExtra={dates:[],weights:[],fats:[]};
-      _ls.forEach(function(e){
-        var p=e.d.split('-');
-        window._wExtra.dates.push(parseInt(p[2])+'/'+_mm[parseInt(p[1])]);
-        window._wExtra.weights.push(e.w);
-        window._wExtra.fats.push(typeof e.f==='number'?e.f:null);
-      });
-    })();
-    </script>
-    <script>
-    (function(){
-      function drawWeightChart(){
-        var canvas = document.getElementById('weightChart');
-        if(!canvas) return;
-        var dpr = window.devicePixelRatio || 1;
-        var W = canvas.clientWidth || canvas.offsetWidth || 700;
-        var H = 200;
-        canvas.width = W * dpr;
-        canvas.height = H * dpr;
-        var ctx = canvas.getContext('2d');
-        ctx.scale(dpr, dpr);
-
-        var pad = {t:24, r:48, b:36, l:44};
-        var cw = W - pad.l - pad.r;
-        var ch = H - pad.t - pad.b;
-
-        var _x=window._wExtra||{dates:[],weights:[],fats:[]};
-        var dates=['15/mai','16/mai','17/mai','18/mai','19/mai','20/mai','21/mai','22/mai','23/mai','24/mai','25/mai','26/mai','27/mai','28/mai','29/mai'].concat(_x.dates);
-        var weights=[86.9,87.0,85.6,86.1,86.6,87.6,86.6,86.8,87.3,86.3,87.1,86.7,86.6,86.7,86.1].concat(_x.weights);
-        var fats=[16.7,17.2,16.4,16.6,17.0,17.3,16.5,16.9,17.3,16.7,17.2,17.0,17.0,16.8,16.4].concat(_x.fats.map(function(v){return typeof v==='number'?v:null;}));
-        var n = dates.length;
-        var wMin=84.5, wMax=88.5;
-        var fMin=15.5, fMax=18.5;
-
-        function wx(i){ return pad.l + (i/(n-1))*cw; }
-        function wy(v){ return pad.t + ch - ((v-wMin)/(wMax-wMin))*ch; }
-        function fy(v){ return pad.t + ch - ((v-fMin)/(fMax-fMin))*ch; }
-
-        // Goal zone band 84–86 kg
-        var grad = ctx.createLinearGradient(0, wy(86), 0, wy(84));
-        grad.addColorStop(0,'rgba(76,175,130,0.04)');
-        grad.addColorStop(1,'rgba(76,175,130,0.12)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(pad.l, wy(86), cw, wy(84)-wy(86));
-
-        // Goal zone border lines
-        ctx.strokeStyle = 'rgba(76,175,130,0.25)';
-        ctx.lineWidth = 1;
-        ctx.setLineDash([4,4]);
-        [86].forEach(function(v){
-          ctx.beginPath(); ctx.moveTo(pad.l,wy(v)); ctx.lineTo(pad.l+cw,wy(v)); ctx.stroke();
-        });
-        ctx.setLineDash([]);
-
-        // Grid lines
-        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-        ctx.lineWidth = 1;
-        [85,86,87,88].forEach(function(v){
-          ctx.beginPath(); ctx.moveTo(pad.l,wy(v)); ctx.lineTo(pad.l+cw,wy(v)); ctx.stroke();
-        });
-
-        // Left Y-axis (weight)
-        ctx.fillStyle = 'rgba(255,255,255,0.3)';
-        ctx.font = '10px monospace';
-        ctx.textAlign = 'right';
-        [85,86,87,88].forEach(function(v){
-          ctx.fillText(v, pad.l-6, wy(v)+4);
-        });
-
-        // Right Y-axis (fat%)
-        ctx.fillStyle = 'rgba(245,166,35,0.45)';
-        ctx.textAlign = 'left';
-        [16,17,18].forEach(function(v){
-          ctx.fillText(v+'%', pad.l+cw+6, fy(v)+4);
-        });
-
-        // Weight area fill
-        ctx.beginPath();
-        weights.forEach(function(v,i){
-          i===0 ? ctx.moveTo(wx(i),wy(v)) : ctx.lineTo(wx(i),wy(v));
-        });
-        ctx.lineTo(wx(n-1), pad.t+ch);
-        ctx.lineTo(wx(0), pad.t+ch);
-        ctx.closePath();
-        var areaGrad = ctx.createLinearGradient(0, pad.t, 0, pad.t+ch);
-        areaGrad.addColorStop(0,'rgba(76,175,130,0.18)');
-        areaGrad.addColorStop(1,'rgba(76,175,130,0.01)');
-        ctx.fillStyle = areaGrad;
-        ctx.fill();
-
-        // Fat% line (dashed)
-        ctx.strokeStyle = 'rgba(245,166,35,0.55)';
-        ctx.lineWidth = 1.5;
-        ctx.lineJoin = 'round';
-        ctx.setLineDash([3,4]);
-        ctx.beginPath();
-        fats.forEach(function(v,i){
-          i===0 ? ctx.moveTo(wx(i),fy(v)) : ctx.lineTo(wx(i),fy(v));
-        });
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        // Weight line
-        ctx.strokeStyle = '#4caf82';
-        ctx.lineWidth = 2.5;
-        ctx.lineJoin = 'round';
-        ctx.beginPath();
-        weights.forEach(function(v,i){
-          i===0 ? ctx.moveTo(wx(i),wy(v)) : ctx.lineTo(wx(i),wy(v));
-        });
-        ctx.stroke();
-
-        // Dots
-        weights.forEach(function(v,i){
-          ctx.beginPath();
-          ctx.arc(wx(i),wy(v),3.5,0,Math.PI*2);
-          ctx.fillStyle = '#4caf82';
-          ctx.fill();
-          ctx.strokeStyle = '#12121f';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-        });
-
-        // X-axis labels
-        ctx.fillStyle = 'rgba(255,255,255,0.28)';
-        ctx.font = '9px monospace';
-        ctx.textAlign = 'center';
-        dates.forEach(function(d,i){
-          ctx.fillText(d, wx(i), H-6);
-        });
-
-        // Legend
-        var lx = pad.l, ly = 11;
-        ctx.fillStyle = '#4caf82';
-        ctx.fillRect(lx, ly-3, 16, 3);
-        ctx.fillStyle = 'rgba(255,255,255,0.45)';
-        ctx.font = '10px monospace';
-        ctx.textAlign = 'left';
-        ctx.fillText('Peso (kg)', lx+20, ly+1);
-        ctx.strokeStyle = 'rgba(245,166,35,0.55)';
-        ctx.lineWidth = 1.5;
-        ctx.setLineDash([3,4]);
-        ctx.beginPath();
-        ctx.moveTo(lx+100, ly-1); ctx.lineTo(lx+116, ly-1);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.fillStyle = 'rgba(245,166,35,0.7)';
-        ctx.fillText('% Gordura', lx+120, ly+1);
-
-        // Goal label
-        ctx.fillStyle = 'rgba(76,175,130,0.5)';
-        ctx.textAlign = 'right';
-        ctx.font = '9px monospace';
-        ctx.fillText('zona meta', pad.l-2, wy(85.5)+3);
-      }
-
-      if(document.readyState==='loading'){
-        document.addEventListener('DOMContentLoaded', drawWeightChart);
-      } else {
-        drawWeightChart();
-      }
-      window.addEventListener('resize', function(){
-        var c = document.getElementById('weightChart');
-        if(c){ c.width=0; c.height=0; drawWeightChart(); }
-      });
-      window.drawWeightChart = drawWeightChart;
-    })();
-    </script>
-    <!-- WEIGHT FORM -->
-    <div id="wf-panel" style="background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden">
-      <div onclick="wfToggle()" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:11px 16px;user-select:none">
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:13px">⚖️</span>
-          <span style="font-size:12px;font-weight:700;color:var(--green)">Registrar Peso</span>
-          <span id="wf-badge" style="display:none;font-size:10px;padding:1px 8px;background:rgba(245,166,35,.15);color:var(--accent);border-radius:20px;font-weight:700"></span>
-        </div>
-        <span id="wf-icon" style="font-size:11px;color:var(--muted);transition:transform .2s">▼</span>
-      </div>
-      <div id="wf-body" style="display:none;border-top:1px solid var(--border);padding:14px 16px">
-        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:12px">
-          <div>
-            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">DATA</label>
-            <input id="wf-date" type="date" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:7px 10px;outline:none;box-sizing:border-box">
-          </div>
-          <div>
-            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">PESO (kg)</label>
-            <input id="wf-weight" type="number" step="0.1" min="70" max="120" placeholder="86.1" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
-          </div>
-          <div>
-            <label style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:5px">% GORDURA</label>
-            <input id="wf-fat" type="number" step="0.1" min="5" max="50" placeholder="16.4" oninput="wfPreview()" style="width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:13px;font-weight:700;padding:7px 10px;outline:none;box-sizing:border-box">
-          </div>
-        </div>
-        <div id="wf-preview" style="display:none;background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.18);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--sub);line-height:1.8"></div>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-          <button onclick="wfSubmit()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:8px;padding:7px 18px;font-size:12px;font-weight:700;cursor:pointer">✅ Registrar</button>
-          <button onclick="wfShowPending()" id="wf-sync-btn" style="display:none;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:var(--accent);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer">📋 Ver registros</button>
-          <button onclick="wfClearAll()" id="wf-clear-btn" style="display:none;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer">🗑 Limpar</button>
-          <button onclick="wfTokenToggle()" id="wf-token-pill" style="margin-left:auto;background:none;border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-size:11px;color:var(--muted);cursor:pointer">🔑 configurar token</button>
-        </div>
-        <div id="wf-msg" style="margin-top:10px;font-size:11px;min-height:16px"></div>
-        <div id="wf-token-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px">
-          <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:6px">🔗 Sincronização entre dispositivos</div>
-          <p style="font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:10px">Cole um <strong>fine-grained Personal Access Token</strong> do GitHub com permissão <em>Contents: Read and write</em> apenas no repo <code style="color:var(--green)">uai-gym-plan</code>. Fica salvo só neste aparelho (faça uma vez por dispositivo). Criar em: <code style="color:var(--accent)">github.com/settings/personal-access-tokens</code></p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-            <input id="wf-token-input" type="password" placeholder="github_pat_…" autocomplete="off" style="flex:1;min-width:180px;background:#000;border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:7px 10px;outline:none;box-sizing:border-box">
-            <button onclick="wfTokenSave()" style="background:rgba(62,207,142,.15);border:1px solid rgba(62,207,142,.3);color:var(--green);border-radius:7px;padding:7px 14px;font-size:11px;font-weight:700;cursor:pointer">Salvar</button>
-            <button onclick="wfTokenClear()" style="background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:var(--red);border-radius:7px;padding:7px 12px;font-size:11px;cursor:pointer">Remover</button>
-          </div>
-          <div id="wf-token-status" style="margin-top:8px;font-size:10px;min-height:14px"></div>
-        </div>
-        <div id="wf-pending-box" style="display:none;margin-top:12px;background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:10px;color:var(--muted)">
-          <div style="font-weight:700;color:var(--sub);margin-bottom:6px">Registros salvos em weight_data.json (sincronizados):</div>
-          <pre id="wf-pending-pre" style="margin:0;white-space:pre-wrap;word-break:break-all;font-size:10px;color:var(--text);line-height:1.6"></pre>
-        </div>
-      </div>
-    </div>
-        <table class="ptable">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Dia</th>
-          <th>Peso (kg)</th>
-          <th>% Gordura</th>
-          <th>Massa Gorda (kg)</th>
-          <th>Δ Peso (kg)</th>
-          <th>Saldo Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>15/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Sex</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,9</td>
-          <td style="text-align:center">16,7%</td>
-          <td style="text-align:center">14,5</td>
-          <td style="text-align:center;color:var(--muted);font-size:12px">—</td>
-          <td style="text-align:center;color:var(--muted);font-size:12px">—</td>
-        </tr>
-        <tr>
-          <td><strong>16/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Sáb</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">87,0</td>
-          <td style="text-align:center">17,2%</td>
-          <td style="text-align:center">15,0</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,1</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,1</td>
-        </tr>
-        <tr>
-          <td><strong>17/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Dom</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">85,6</td>
-          <td style="text-align:center">16,4%</td>
-          <td style="text-align:center">14,0</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−1,4</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−1,3</td>
-        </tr>
-        <tr>
-          <td><strong>18/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Seg</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,1</td>
-          <td style="text-align:center">16,6%</td>
-          <td style="text-align:center">14,3</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,5</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,8</td>
-        </tr>
-        <tr>
-          <td><strong>19/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Ter</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,6</td>
-          <td style="text-align:center">17,0%</td>
-          <td style="text-align:center">14,7</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,5</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,3</td>
-        </tr>
-        <tr>
-          <td><strong>20/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Qua</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">87,6</td>
-          <td style="text-align:center">17,3%</td>
-          <td style="text-align:center">15,2</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+1,0</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,7</td>
-        </tr>
-        <tr>
-          <td><strong>21/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Qui</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,6</td>
-          <td style="text-align:center">16,5%</td>
-          <td style="text-align:center">14,3</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−1,0</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,3</td>
-        </tr>
-        <tr>
-          <td><strong>22/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Sex</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,8</td>
-          <td style="text-align:center">16,9%</td>
-          <td style="text-align:center">14,7</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,2</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,1</td>
-        </tr>
-        <tr>
-          <td><strong>23/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Sáb</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">87,3</td>
-          <td style="text-align:center">17,3%</td>
-          <td style="text-align:center">15,1</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,5</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,4</td>
-        </tr>
-        <tr>
-          <td><strong>24/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Dom</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,3</td>
-          <td style="text-align:center">16,7%</td>
-          <td style="text-align:center">14,4</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−1,0</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,6</td>
-        </tr>
-        <tr>
-          <td><strong>25/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Seg</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">87,1</td>
-          <td style="text-align:center">17,2%</td>
-          <td style="text-align:center">15,0</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,8</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,2</td>
-        </tr>
-        <tr>
-          <td><strong>26/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Ter</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,7</td>
-          <td style="text-align:center">17,0%</td>
-          <td style="text-align:center">14,7</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,4</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,2</td>
-        </tr>
-        <tr>
-          <td><strong>27/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Qua</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,6</td>
-          <td style="text-align:center">17,0%</td>
-          <td style="text-align:center">14,7</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,1</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,3</td>
-        </tr>
-        <tr>
-          <td><strong>28/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Qui</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,7</td>
-          <td style="text-align:center">16,8%</td>
-          <td style="text-align:center">14,6</td>
-          <td style="text-align:center;font-weight:700;color:#f5a623">+0,1</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,2</td>
-        </tr>
-        <tr>
-          <td><strong>29/05/2026</strong></td>
-          <td style="text-align:center;color:var(--muted);font-size:11px">Sex</td>
-          <td style="text-align:center;font-weight:800;color:var(--accent)">86,1</td>
-          <td style="text-align:center">16,4%</td>
-          <td style="text-align:center">14,1</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,6</td>
-          <td style="text-align:center;font-weight:700;color:#4caf82">−0,8</td>
-        </tr>
-      </tbody>
-      <tbody id="wt-dynamic"></tbody>
-    </table>
-    <div style="margin-top:10px;padding:10px;background:rgba(245,166,35,.08);border-radius:8px;font-size:11px;color:var(--muted);line-height:1.6">
-      🎯 Redução gradual de ~0,5 kg/semana sem comprometer performance aeróbica. Priorizar composição sobre peso absoluto.
-    </div>
-  </div>
-
-  <script>
-  // ── Weight Form ────────────────────────────────────────────────
-  (function(){
-    var BASE_W = 86.9, BASE_DATE = '2026-05-15';
-    var DAYS = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
-    var MONTHS_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-    var MONTHS_LABEL = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
-
-    // ── GitHub sync config ──
-    // Entries persist to weight_data.json in the repo so the form syncs across
-    // phone + computer. Reads are public (raw URL, no auth). Writes need a
-    // fine-grained Personal Access Token (Contents: read/write on this repo),
-    // entered once per device and kept only in this device's localStorage.
-    var GH = {
-      owner:'joseluizcosta-sys', repo:'uai-gym-plan',
-      path:'weight_data.json', branch:'main',
-      tokenKey:'uai_gh_token', cacheKey:'uai_weight'
-    };
-    function ghToken(){ try{ return localStorage.getItem(GH.tokenKey)||''; }catch(e){ return ''; } }
-
-    // In-memory source of truth (mirrored to localStorage for instant/offline render)
-    var _entries = [];
-    (function(){ try{ _entries = JSON.parse(localStorage.getItem(GH.cacheKey)||'[]')||[]; }catch(e){ _entries=[]; } })();
-
-    function getEntries(){ return _entries; }
-    function saveEntries(arr){
-      _entries = arr;
-      try{ localStorage.setItem(GH.cacheKey, JSON.stringify(arr)); }catch(e){}
-    }
-
-    // Pull the shared file via the Contents API (reflects the latest commit
-    // immediately — unlike raw.githubusercontent.com, which has a 5-min CDN
-    // cache that ignores query-string busting). Token used if present (higher
-    // rate limit), but reads work unauthenticated on this public repo too.
-    // Keeps local cache if remote is unreachable.
-    function loadRemote(){
-      var api = 'https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+GH.path+'?ref='+GH.branch+'&t='+Date.now();
-      var hdr = {'Accept':'application/vnd.github.raw+json'};
-      var tk = ghToken(); if(tk) hdr['Authorization'] = 'Bearer '+tk;
-      return fetch(api, {headers:hdr, cache:'no-store'})
-        .then(function(r){ if(!r.ok) throw new Error('remote '+r.status); return r.text(); })
-        .then(function(txt){
-          var data = JSON.parse(txt);
-          if(Array.isArray(data)){
-            saveEntries(data);
-            refreshDynamic(); refreshChart(); updateBadge();
-          }
-        })
-        .catch(function(){ /* offline / file missing — keep local cache */ });
-    }
-
-    // Commit the full entries array to the repo via the Contents API.
-    function pushRemote(arr){
-      var token = ghToken();
-      if(!token){ return Promise.reject({code:'NO_TOKEN'}); }
-      var api = 'https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+GH.path;
-      var hdr = {'Authorization':'Bearer '+token, 'Accept':'application/vnd.github+json'};
-      return fetch(api+'?ref='+GH.branch+'&t='+Date.now(), {headers:hdr, cache:'no-store'})
-        .then(function(r){ if(r.status===404) return null; if(!r.ok) return r.json().then(function(e){ e._http=r.status; throw e; }); return r.json(); })
-        .then(function(meta){
-          var content = btoa(unescape(encodeURIComponent(JSON.stringify(arr, null, 2)+'\n')));
-          var body = {message:'weight: update via dashboard '+new Date().toISOString().slice(0,10), content:content, branch:GH.branch};
-          if(meta && meta.sha) body.sha = meta.sha;
-          return fetch(api, {method:'PUT', headers:hdr, body:JSON.stringify(body)});
-        })
-        .then(function(r){ if(!r.ok) return r.json().then(function(e){ e._http=r.status; throw e; }); return r.json(); });
-    }
-
-    // Find weight just before a given ISO date from static table + localStorage
-    function prevWeight(isoDate){
-      var all = [];
-      // Static tbody rows
-      var rows = document.querySelectorAll('.ptable tbody:not(#wt-dynamic) tr');
-      rows.forEach(function(r){
-        var c = r.querySelectorAll('td');
-        if(c.length<3) return;
-        var raw = c[0].textContent.trim(); // "29/05/2026"
-        var parts = raw.split('/');
-        if(parts.length<3) return;
-        var iso = parts[2]+'-'+parts[1]+'-'+parts[0];
-        var w = parseFloat(c[2].textContent.replace(',','.'));
-        if(!isNaN(w)) all.push({d:iso, w:w});
-      });
-      // localStorage entries
-      getEntries().forEach(function(e){ all.push({d:e.d, w:e.w}); });
-      // Sort desc, find first that is < isoDate
-      all.sort(function(a,b){ return b.d.localeCompare(a.d); });
-      for(var i=0;i<all.length;i++){
-        if(all[i].d < isoDate) return all[i].w;
-      }
-      return BASE_W;
-    }
-
-    function fmtNum(v, dec){
-      return v.toFixed(dec).replace('.',',');
-    }
-    function fmtDelta(v){
-      var s = (v>=0?'+':'−') + fmtNum(Math.abs(v),1);
-      return {str:s, color: v<=0 ? '#4caf82' : '#f5a623'};
-    }
-
-    function calcEntry(isoDate, weight, fat){
-      var fatMass = parseFloat((weight * fat / 100).toFixed(1));
-      var prev = prevWeight(isoDate);
-      var delta = parseFloat((weight - prev).toFixed(1));
-      var saldo = parseFloat((weight - BASE_W).toFixed(1));
-      var parts = isoDate.split('-');
-      var jsDate = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
-      var day = DAYS[jsDate.getDay()];
-      var display = parts[2]+'/'+parts[1]+'/'+parts[0];
-      var chartLabel = parseInt(parts[2])+'/'+MONTHS_LABEL[parseInt(parts[1])-1];
-      return {isoDate, display, day, weight, fat, fatMass, delta, saldo, chartLabel};
-    }
-
-    function renderRow(calc){
-      var d = fmtDelta(calc.delta), s = fmtDelta(calc.saldo);
-      return '<tr style="border-left:2px solid rgba(62,207,142,.4)">'
-        +'<td><strong>'+calc.display+'</strong></td>'
-        +'<td style="text-align:center;color:var(--muted);font-size:11px">'+calc.day+'</td>'
-        +'<td style="text-align:center;font-weight:800;color:var(--accent)">'+fmtNum(calc.weight,1)+'</td>'
-        +'<td style="text-align:center">'+fmtNum(calc.fat,1)+'%</td>'
-        +'<td style="text-align:center">'+fmtNum(calc.fatMass,1)+'</td>'
-        +'<td style="text-align:center;font-weight:700;color:'+d.color+'">'+d.str+'</td>'
-        +'<td style="text-align:center;font-weight:700;color:'+s.color+'">'+s.str+'</td>'
-        +'</tr>';
-    }
-
-    function refreshDynamic(){
-      var tbody = document.getElementById('wt-dynamic');
-      if(!tbody) return;
-      var entries = getEntries();
-      tbody.innerHTML = entries.map(function(e){
-        var c = calcEntry(e.d, e.w, e.f);
-        return renderRow(c);
-      }).join('');
-    }
-
-    function refreshChart(){
-      var entries = getEntries();
-      var mm = {1:'jan',2:'fev',3:'mar',4:'abr',5:'mai',6:'jun',7:'jul',8:'ago',9:'set',10:'out',11:'nov',12:'dez'};
-      window._wExtra = {dates:[], weights:[], fats:[]};
-      entries.forEach(function(e){
-        var p=e.d.split('-');
-        window._wExtra.dates.push(parseInt(p[2])+'/'+mm[parseInt(p[1])]);
-        window._wExtra.weights.push(e.w);
-        window._wExtra.fats.push(typeof e.f==='number'?e.f:null);
-      });
-      if(typeof window.drawWeightChart === 'function'){
-        var c = document.getElementById('weightChart');
-        if(c){ c.width=0; c.height=0; }
-        window.drawWeightChart();
-      }
-    }
-
-    function updateBadge(){
-      var n = getEntries().length;
-      var badge = document.getElementById('wf-badge');
-      var syncBtn = document.getElementById('wf-sync-btn');
-      var clearBtn = document.getElementById('wf-clear-btn');
-      if(badge){
-        if(n>0){ badge.style.display='inline'; badge.textContent = n+' registro'+(n>1?'s':''); }
-        else { badge.style.display='none'; }
-      }
-      if(syncBtn) syncBtn.style.display = n>0 ? 'inline-block' : 'none';
-      if(clearBtn) clearBtn.style.display = n>0 ? 'inline-block' : 'none';
-    }
-
-    // ── Public functions ──
-
-    window.wfToggle = function(){
-      var body = document.getElementById('wf-body');
-      var icon = document.getElementById('wf-icon');
-      if(!body) return;
-      var open = body.style.display !== 'none';
-      body.style.display = open ? 'none' : 'block';
-      if(icon) icon.style.transform = open ? '' : 'rotate(180deg)';
-      if(!open){
-        // Set default date to today
-        var d = document.getElementById('wf-date');
-        if(d && !d.value){
-          var now = new Date();
-          var iso = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
-          d.value = iso;
-        }
-        // Pull latest entries from the repo when opening the form
-        loadRemote();
-      }
-    };
-
-    window.wfPreview = function(){
-      var w = parseFloat(document.getElementById('wf-weight').value);
-      var f = parseFloat(document.getElementById('wf-fat').value);
-      var d = document.getElementById('wf-date').value;
-      var box = document.getElementById('wf-preview');
-      if(!box) return;
-      if(!w || !f || !d){ box.style.display='none'; return; }
-      var c = calcEntry(d, w, f);
-      var dlt = fmtDelta(c.delta), sld = fmtDelta(c.saldo);
-      box.style.display = 'block';
-      box.innerHTML = '<strong style="color:var(--green)">Preview —</strong> '
-        + c.display+' ('+c.day+') &nbsp;·&nbsp; '
-        + '<strong>'+fmtNum(w,1)+'kg</strong> &nbsp;·&nbsp; '
-        + fmtNum(f,1)+'% &nbsp;·&nbsp; '
-        + 'Massa Gorda <strong>'+fmtNum(c.fatMass,1)+'kg</strong> &nbsp;·&nbsp; '
-        + 'Δ <strong style="color:'+dlt.color+'">'+dlt.str+'</strong> &nbsp;·&nbsp; '
-        + 'Saldo <strong style="color:'+sld.color+'">'+sld.str+'</strong>';
-    };
-
-    window.wfSubmit = function(){
-      var w = parseFloat(document.getElementById('wf-weight').value);
-      var f = parseFloat(document.getElementById('wf-fat').value);
-      var d = document.getElementById('wf-date').value;
-      var msg = document.getElementById('wf-msg');
-      if(!w||isNaN(w)||!f||isNaN(f)||!d){
-        if(msg) msg.innerHTML='<span style="color:var(--red)">Preencha data, peso e gordura.</span>';
-        return;
-      }
-      var entries = getEntries();
-      // Remove duplicate for same date
-      entries = entries.filter(function(e){ return e.d !== d; });
-      entries.push({d:d, w:w, f:f});
-      entries.sort(function(a,b){ return a.d.localeCompare(b.d); });
-      saveEntries(entries);
-      refreshDynamic();
-      refreshChart();
-      updateBadge();
-      // Clear inputs
-      document.getElementById('wf-weight').value='';
-      document.getElementById('wf-fat').value='';
-      document.getElementById('wf-preview').style.display='none';
-      var parts = d.split('-');
-      var label = parts[2]+'/'+parts[1]+'/'+parts[0];
-      // Persist to GitHub so it syncs across devices
-      if(msg) msg.innerHTML='<span style="color:var(--accent)">⏳ '+label+' '+w.toFixed(1).replace('.',',')+'kg — salvando no GitHub…</span>';
-      pushRemote(entries).then(function(){
-        if(msg) msg.innerHTML='<span style="color:var(--green)">✅ '+label+' salvo e sincronizado — visível em todos os dispositivos.</span>';
-      }).catch(function(err){
-        if(err && err.code==='NO_TOKEN'){
-          if(msg) msg.innerHTML='<span style="color:var(--accent)">⚠️ '+label+' salvo só neste aparelho. Configure o token GitHub abaixo para sincronizar entre dispositivos.</span>';
-          wfTokenToggle(true);
-        } else {
-          var detail = (err && (err.message || (err._http===401?'token inválido':err._http===403?'sem permissão':err._http===409?'conflito — recarregue a página':'')))||'erro';
-          if(msg) msg.innerHTML='<span style="color:var(--red)">⚠️ '+label+' salvo localmente, mas falhou ao sincronizar ('+detail+').</span>';
-        }
-      });
-    };
-
-    window.wfShowPending = function(){
-      var box = document.getElementById('wf-pending-box');
-      var pre = document.getElementById('wf-pending-pre');
-      if(!box||!pre) return;
-      var visible = box.style.display !== 'none';
-      if(visible){ box.style.display='none'; return; }
-      var entries = getEntries();
-      if(!entries.length){ box.style.display='none'; return; }
-      var lines = entries.map(function(e){
-        var c = calcEntry(e.d, e.w, e.f);
-        var dlt = fmtDelta(c.delta), sld = fmtDelta(c.saldo);
-        return c.display+' ('+c.day+')  '+fmtNum(e.w,1)+'kg  '+fmtNum(e.f,1)+'%  MG:'+fmtNum(c.fatMass,1)+'  Δ:'+dlt.str+'  Saldo:'+sld.str;
-      });
-      pre.textContent = lines.join('\n');
-      box.style.display = 'block';
-    };
-
-    window.wfClearAll = function(){
-      if(!confirm('Apagar TODOS os registros do formulário (em todos os dispositivos)?')) return;
-      saveEntries([]);
-      document.getElementById('wt-dynamic').innerHTML='';
-      refreshChart();
-      updateBadge();
-      var msg = document.getElementById('wf-msg');
-      var box = document.getElementById('wf-pending-box');
-      if(box) box.style.display='none';
-      pushRemote([]).then(function(){
-        if(msg) msg.innerHTML='<span style="color:var(--muted)">Registros removidos e sincronizados.</span>';
-      }).catch(function(err){
-        if(msg) msg.innerHTML='<span style="color:var(--muted)">Registros removidos localmente'+(err&&err.code==='NO_TOKEN'?' (configure o token para sincronizar)':'')+'.</span>';
-      });
-    };
-
-    // ── GitHub token UI ──
-    window.wfTokenToggle = function(forceOpen){
-      var box = document.getElementById('wf-token-box');
-      if(!box) return;
-      var open = box.style.display !== 'none';
-      box.style.display = (forceOpen===true ? false : open) ? 'none' : 'block';
-      if(box.style.display==='block'){
-        var inp = document.getElementById('wf-token-input');
-        if(inp && ghToken()) inp.placeholder = 'Token configurado — cole um novo para substituir';
-      }
-    };
-    window.wfTokenSave = function(){
-      var inp = document.getElementById('wf-token-input');
-      var st = document.getElementById('wf-token-status');
-      var t = (inp && inp.value || '').trim();
-      if(!t){ if(st) st.innerHTML='<span style="color:var(--red)">Cole um token válido.</span>'; return; }
-      try{ localStorage.setItem(GH.tokenKey, t); }catch(e){}
-      if(inp) inp.value='';
-      wfTokenRefresh();
-      if(st) st.innerHTML='<span style="color:var(--green)">✅ Token salvo neste aparelho. Verificando…</span>';
-      // Verify by pushing current entries (a no-op content commit only if changed)
-      pushRemote(getEntries()).then(function(){
-        if(st) st.innerHTML='<span style="color:var(--green)">✅ Token válido — sincronização ativa.</span>';
-      }).catch(function(err){
-        var detail = (err && (err._http===401?'token inválido ou expirado':err._http===403?'sem permissão de escrita neste repo':err.message))||'erro';
-        if(st) st.innerHTML='<span style="color:var(--red)">⚠️ '+detail+'.</span>';
-      });
-    };
-    window.wfTokenClear = function(){
-      try{ localStorage.removeItem(GH.tokenKey); }catch(e){}
-      wfTokenRefresh();
-      var st = document.getElementById('wf-token-status');
-      if(st) st.innerHTML='<span style="color:var(--muted)">Token removido deste aparelho (leitura continua funcionando).</span>';
-    };
-    function wfTokenRefresh(){
-      var pill = document.getElementById('wf-token-pill');
-      if(pill){
-        if(ghToken()){ pill.textContent='🔑 sincronizado'; pill.style.color='var(--green)'; }
-        else { pill.textContent='🔑 configurar token'; pill.style.color='var(--muted)'; }
-      }
-    }
-
-    // Init on load
-    document.addEventListener('DOMContentLoaded', function(){
-      refreshDynamic();
-      updateBadge();
-      wfTokenRefresh();
-      loadRemote();
-    });
-    // Re-pull when returning to this tab/device so entries made elsewhere appear
-    // without a full reload (throttled to once per 15s).
-    var _lastPull = 0;
-    function maybePull(){
-      var now = Date.now();
-      if(now - _lastPull < 15000) return;
-      _lastPull = now;
-      loadRemote();
-    }
-    document.addEventListener('visibilitychange', function(){ if(!document.hidden) maybePull(); });
-    window.addEventListener('focus', maybePull);
-  })();
-  </script>
-
-  <!-- NUTRIÇÃO -->
+<!-- ═══════════════ NUTRIÇÃO ═══════════════ -->
+<div class="page" id="p-nutricao">
+<!-- NUTRIÇÃO -->
   <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border);margin-bottom:28px">
     <div class="ph" style="font-size:17px;margin-bottom:14px">🍌 Plano Nutricional — UAI 100K</div>
     <div class="profile-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:16px">
@@ -1810,13 +1041,17 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- ═══════════════ GARMIN PLAN ═══════════════ -->
-<div class="page" id="p-garmin">
+<div class="page a" id="p-garmin">
   <div class="ph">🗓️ Plano de Corrida — Garmin · Treino Online</div>
   <p class="ps">Treinos importados do Garmin (Treino Online, sync 04/mai/2026). Apenas corridas de 05/mai em diante. Musculação calibrada sobre esta base real.</p>
+  <div style="background:var(--card,#1b2030);border:1px solid var(--accent);border-radius:10px;padding:12px 16px;margin-bottom:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:13px;font-weight:900;color:var(--accent)">🎯 Prova-alvo atual:</span>
+    <span style="font-size:13px;font-weight:700">UAI 100K — 25/07/2026</span>
+    <span style="font-size:12px;color:var(--muted)">Este plano semanal segue a periodização da UAI. Depois da prova, este bloco é atualizado para mirar a próxima (A Muralha Up and Down, 16/08/2026). Veja detalhes de cada prova na aba Provas.</span>
+  </div>
 
   <!-- WEEKLY VOLUME CHART -->
   <div class="trail-chart">
@@ -3299,8 +2534,56 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 </div>
 
 
-<!-- ═══════════════ UAI RACE ═══════════════ -->
-<div class="page a" id="p-race">
+<!-- ═══════════════ PROVAS ═══════════════ -->
+<div class="page" id="p-provas">
+  <div class="ph">🏅 Provas — Calendário 2026/27</div>
+  <p class="ps">4 provas no horizonte, cada uma com periodização própria. Clique em uma prova para ver o detalhe completo.</p>
+
+  <div class="provas-list" id="provas-list-view">
+    <div class="prova-card" onclick="showProva('uai')">
+      <div class="pc-name">🏁 UAI 100K</div>
+      <div class="pc-date">25 Jul 2026</div>
+      <div class="pc-stats">
+        <div><b>100 km</b>Distância</div>
+        <div><b>+1.733m</b>D+</div>
+        <div><b>26h</b>Corte</div>
+      </div>
+    </div>
+    <div class="prova-card" onclick="showProva('amuralha')">
+      <div class="pc-name">🧱 A Muralha Up and Down</div>
+      <div class="pc-date">16 Ago 2026</div>
+      <div class="pc-stats">
+        <div><b>42,195 km</b>Distância</div>
+        <div><b>+1.324m</b>D+</div>
+        <div><b>~6h</b>Corte</div>
+      </div>
+    </div>
+    <div class="prova-card" onclick="showProva('utmbparaty')">
+      <div class="pc-name">🌴 UTMB Paraty PTR58</div>
+      <div class="pc-date">19 Set 2026</div>
+      <div class="pc-stats">
+        <div><b>58 km</b>Distância</div>
+        <div><b>+3.400m</b>D+</div>
+        <div><b>16h30</b>Corte</div>
+      </div>
+    </div>
+    <div class="prova-card" onclick="showProva('br135')">
+      <div class="pc-name">🏔️ Brazil135 Solo</div>
+      <div class="pc-date">07 Jan 2027</div>
+      <div class="pc-stats">
+        <div><b>217 km</b>Distância</div>
+        <div><b>~9-11.000m</b>D+</div>
+        <div><b>60h</b>Corte</div>
+      </div>
+    </div>
+  </div>
+
+<div class="prova-detail" id="pd-uai">
+  <button class="prova-back" onclick="showProvasList()">← Voltar para Provas</button>
+  <div class="ph">🏁 UAI 100K — Ultramaratona dos Anjos Internacional</div>
+  <p class="ps">Baependi → Passa Quatro, MG · UTMB World Series · Sábado 25 Jul 2026, 18h00 · <a href="https://www.ultrarunnereventos.com.br/files/UAI_REGULAMENTO.pdf" target="_blank" rel="noopener" style="color:var(--accent)">regulamento oficial ↗</a></p>
+
+
   <div class="ph">🏁 UAI Race — Dados Oficiais 100K</div>
   <p class="ps">Perfil completo, regras, cortes e logística de largada · UAI Ultramaratona dos Anjos Internacional · Baependi → Passa Quatro &nbsp;·&nbsp; <a href="https://www.ultrarunnereventos.com.br/files/UAI_REGULAMENTO_2026.pdf" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700">📄 Regulamento Oficial 2026 ↗</a></p>
 
@@ -3536,69 +2819,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     </div>
   </div>
 
-</div>
-
-<!-- ═══════════════ STRATEGY ═══════════════ -->
-<div class="page" id="p-strategy">
-  <div class="ph">🧭 Estratégia de Prova — UAI 100K</div>
-  <p class="ps">Pace por segmento · Drop bags · O que pegar e o que deixar · Baependi → Passa Quatro · 25 Jul 2026 · 18h00</p>
-
-  <!-- ALTIMETRY CHART -->
-  <div style="margin-bottom:28px">
-<h3>🏔️ Perfil de Altimetria Detalhado — UAI 100KM · Baependi → Passa Quatro</h3>
-    <svg viewBox="0 0 900 210" style="width:100%;height:210px;display:block" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="raceElevGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#f5a623" stop-opacity=".45"/>
-          <stop offset="100%" stop-color="#f5a623" stop-opacity=".04"/>
-        </linearGradient>
-      </defs>
-      <!-- Grid lines — scale matches official altimetry (848–1.323m) -->
-      <line x1="0" y1="20.8" x2="900" y2="20.8" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="75.0" x2="900" y2="75.0" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="129.6" x2="900" y2="129.6" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="183.8" x2="900" y2="183.8" stroke="#242a38" stroke-width="1"/>
-      <!-- Elev labels -->
-      <text x="6" y="19" fill="#8892a4" font-size="9" font-family="monospace">1.323m</text>
-      <text x="6" y="73" fill="#8892a4" font-size="9" font-family="monospace">1.165m</text>
-      <text x="6" y="128" fill="#8892a4" font-size="9" font-family="monospace">1.006m</text>
-      <text x="6" y="182" fill="#8892a4" font-size="9" font-family="monospace">848m</text>
-      <!-- Elevation fill -->
-      <path d="M0.0,162.2 L9.1,170.1 L18.2,169.1 L27.3,169.1 L36.4,154.3 L45.5,166.3 L54.7,170.4 L63.8,163.9 L72.9,141.6 L82.0,152.3 L91.1,166.7 L100.2,164.3 L109.3,171.1 L118.4,172.5 L127.5,172.2 L136.6,170.8 L146.7,160.5 L154.9,162.5 L164.0,165.3 L173.1,152.6 L182.2,166.0 L191.3,162.9 L200.4,155.0 L209.5,153.6 L218.6,150.5 L227.7,141.3 L238.7,151.9 L246.0,157.4 L255.1,162.5 L264.2,163.6 L272.4,162.9 L281.5,167.4 L290.6,163.9 L300.6,161.2 L308.8,158.4 L317.9,139.2 L327.0,162.2 L336.1,151.9 L345.2,163.9 L354.4,172.2 L363.5,156.0 L372.6,138.5 L381.7,166.3 L390.8,172.8 L399.9,173.9 L409.0,174.6 L418.1,175.2 L428.1,170.1 L436.3,151.9 L445.4,153.3 L454.6,147.5 L463.7,169.8 L472.8,156.0 L481.9,170.8 L491.0,165.6 L500.1,166.0 L509.2,166.0 L519.2,171.5 L527.4,164.6 L536.5,172.5 L545.6,171.8 L554.8,166.0 L563.9,166.7 L573.0,154.7 L582.1,157.1 L591.2,158.4 L600.3,148.5 L608.5,154.7 L618.5,164.6 L626.7,169.8 L636.7,168.0 L645.9,169.8 L655.0,145.0 L664.1,145.7 L672.3,162.5 L681.4,163.9 L690.5,159.8 L701.4,149.2 L708.7,150.9 L717.8,139.6 L726.9,135.4 L736.0,125.8 L745.1,108.3 L754.3,75.7 L763.4,50.0 L772.5,42.5 L781.6,69.2 L790.7,89.8 L799.8,100.1 L808.9,86.4 L818.0,92.5 L827.1,76.1 L836.2,86.4 L845.3,78.8 L854.5,72.3 L863.6,102.2 L872.7,114.9 L881.8,138.2 L891.8,160.1 L900.0,157.7 L900.0,190 L0.0,190 Z" fill="url(#raceElevGrad)"/>
-      <!-- Elevation line -->
-      <path d="M0.0,162.2 L9.1,170.1 L18.2,169.1 L27.3,169.1 L36.4,154.3 L45.5,166.3 L54.7,170.4 L63.8,163.9 L72.9,141.6 L82.0,152.3 L91.1,166.7 L100.2,164.3 L109.3,171.1 L118.4,172.5 L127.5,172.2 L136.6,170.8 L146.7,160.5 L154.9,162.5 L164.0,165.3 L173.1,152.6 L182.2,166.0 L191.3,162.9 L200.4,155.0 L209.5,153.6 L218.6,150.5 L227.7,141.3 L238.7,151.9 L246.0,157.4 L255.1,162.5 L264.2,163.6 L272.4,162.9 L281.5,167.4 L290.6,163.9 L300.6,161.2 L308.8,158.4 L317.9,139.2 L327.0,162.2 L336.1,151.9 L345.2,163.9 L354.4,172.2 L363.5,156.0 L372.6,138.5 L381.7,166.3 L390.8,172.8 L399.9,173.9 L409.0,174.6 L418.1,175.2 L428.1,170.1 L436.3,151.9 L445.4,153.3 L454.6,147.5 L463.7,169.8 L472.8,156.0 L481.9,170.8 L491.0,165.6 L500.1,166.0 L509.2,166.0 L519.2,171.5 L527.4,164.6 L536.5,172.5 L545.6,171.8 L554.8,166.0 L563.9,166.7 L573.0,154.7 L582.1,157.1 L591.2,158.4 L600.3,148.5 L608.5,154.7 L618.5,164.6 L626.7,169.8 L636.7,168.0 L645.9,169.8 L655.0,145.0 L664.1,145.7 L672.3,162.5 L681.4,163.9 L690.5,159.8 L701.4,149.2 L708.7,150.9 L717.8,139.6 L726.9,135.4 L736.0,125.8 L745.1,108.3 L754.3,75.7 L763.4,50.0 L772.5,42.5 L781.6,69.2 L790.7,89.8 L799.8,100.1 L808.9,86.4 L818.0,92.5 L827.1,76.1 L836.2,86.4 L845.3,78.8 L854.5,72.3 L863.6,102.2 L872.7,114.9 L881.8,138.2 L891.8,160.1 L900.0,157.7" fill="none" stroke="#f5a623" stroke-width="2"/>
-            <!-- Start -->
-      <circle cx="0" cy="162.2" r="5" fill="#4f9cf9"/>
-      <text x="4" y="207" fill="#4f9cf9" font-size="8" font-weight="700">0km · 887m</text>
-      <!-- PC1 Caxambu km20 -->
-      <line x1="182.1" y1="166.0" x2="182.1" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="182.1" cy="166.0" r="4" fill="#3ecf8e"/>
-      <text x="152" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC1 Caxambu 20k</text>
-      <!-- PC2 São Lourenço km45 -->
-      <line x1="409.7" y1="175.3" x2="409.7" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="409.7" cy="175.3" r="4" fill="#3ecf8e"/>
-      <text x="375" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC2 S.Lourenço 45k</text>
-      <!-- PC3 Virgínia km66 -->
-      <line x1="600.8" y1="148.5" x2="600.8" y2="194" stroke="#3ecf8e" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="600.8" cy="148.5" r="4" fill="#3ecf8e"/>
-      <text x="577" y="207" fill="#3ecf8e" font-size="8" font-weight="700">PC3 Virgínia 66k</text>
-      <!-- Summit km85 ~1.298m -->
-      <circle cx="772.5" cy="42.5" r="5" fill="#f5a623"/>
-      <text x="718" y="38" fill="#f5a623" font-size="9" font-weight="800">1.298m · km85</text>
-      <!-- Finish -->
-      <circle cx="900" cy="157.7" r="5" fill="#e05c5c"/>
-      <text x="860" y="207" fill="#e05c5c" font-size="8" font-weight="700">100km · 924m</text>
-      </svg>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)">
-      <span><span style="color:#4f9cf9">●</span> Largada Baependi</span>
-      <span><span style="color:#f5a623">●</span> Pico 1.298m (~km85)</span>
-      <span><span style="color:#3ecf8e">●</span> PCs: km20 Caxambu · km45 S.Lourenço · km66 Virgínia</span>
-      <span><span style="color:#e05c5c">●</span> Chegada Passa Quatro</span>
-    </div>
-
-  </div>
-
-    <!-- PACE -->
+<!-- PACE -->
   <div style="margin-bottom:28px">
     <div style="font-size:15px;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px">⏱️ Pace por Segmento</div>
     <div style="overflow-x:auto">
@@ -3854,12 +3075,190 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       </div>
     </div>
   </div>
+</div>
+
+<div class="prova-detail" id="pd-amuralha">
+  <button class="prova-back" onclick="showProvasList()">← Voltar para Provas</button>
+  <div class="ph">🧱 A Muralha Up and Down Marathon</div>
+  <p class="ps">Penedo → Visconde de Mauá, RJ · Edição "Up" 2026 · Domingo 16 Ago 2026, 06h00 · <a href="https://www.amuralha.com.br/_files/ugd/436ec8_d6f514e4c91e47e1bc7ee5e19637ff4c.pdf" target="_blank" rel="noopener" style="color:var(--accent)">regulamento oficial ↗</a></p>
+
+  <div class="profile-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-bottom:28px">
+    <div class="info-box" style="border-color:rgba(245,166,35,.4)">
+      <h3>🏁 Largada</h3>
+      <div class="stat-row"><span class="sl">Local</span><span class="sv">Penedo, Itatiaia - RJ</span></div>
+      <div class="stat-row"><span class="sl">Horário</span><span class="sv" style="color:var(--accent)">06h00</span></div>
+      <div class="stat-row"><span class="sl">Data</span><span class="sv">16 Ago 2026 (dom)</span></div>
+      <div class="stat-row"><span class="sl">Edição</span><span class="sv">UP (subida) · 2026</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(79,156,249,.4)">
+      <h3>📏 Distância &amp; Perfil</h3>
+      <div class="stat-row"><span class="sl">Distância</span><span class="sv" style="color:var(--blue)">42,195 km</span></div>
+      <div class="stat-row"><span class="sl">D+</span><span class="sv">+1.324 m</span></div>
+      <div class="stat-row"><span class="sl">Variação total</span><span class="sv">2.425 m</span></div>
+      <div class="stat-row"><span class="sl">Curvas</span><span class="sv">317</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(62,207,142,.4)">
+      <h3>🏔️ Terreno</h3>
+      <div class="stat-row"><span class="sl">Rota</span><span class="sv">RJ-163 (Estrada Parque)</span></div>
+      <div class="stat-row"><span class="sl">Superfície</span><span class="sv">100% asfalto</span></div>
+      <div class="stat-row"><span class="sl">Chegada</span><span class="sv">Visconde de Mauá, Resende-RJ</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(224,92,92,.4)">
+      <h3>⏱️ Limite de Tempo</h3>
+      <div class="stat-row"><span class="sl">Corte oficial</span><span class="sv" style="color:var(--red)">5h59min59s (bruto)</span></div>
+      <div class="stat-row"><span class="sl">Pace-limite</span><span class="sv">8:32 min/km</span></div>
+      <div class="stat-row"><span class="sl">Cronometragem</span><span class="sv">Tempo bruto (sem líquido)</span></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:28px">
+    <div class="ph" style="font-size:16px;margin-bottom:12px">📋 Regras &amp; Logística</div>
+    <div class="sci-grid">
+      <div class="sci-card" style="border-color:rgba(245,166,35,.3)">
+        <span class="sci-icon">🥇</span>
+        <h4>Medalhas por Faixa de Tempo</h4>
+        <p>1º–100º: Ouro · sub 2h59: Prata/Ouro · sub 3h59: Prata · sub 4h59: Bronze · até 5h59: Cobre. Base: tempo bruto de largada.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(79,156,249,.3)">
+        <span class="sci-icon">🥛</span>
+        <h4>Retirada de Kit</h4>
+        <p>Doação de 1L de leite obrigatória na retirada. Kit 14–15/ago em Visconde de Mauá. Termo de responsabilidade + atestado médico (6 meses) obrigatórios.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(62,207,142,.3)">
+        <span class="sci-icon">🚌</span>
+        <h4>Transporte para Largada</h4>
+        <p>Ônibus oficial de Visconde de Mauá → Penedo, saída às 4h00 (encerra pontualmente). Volta pós-prova às 12h30 da arena de chegada.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(224,92,92,.3)">
+        <span class="sci-icon">⚠️</span>
+        <h4>Idade Mínima &amp; Corte</h4>
+        <p>21 anos completos até 18/08/2026. Atleta fora do pace de corte em qualquer ponto de controle é convidado a embarcar no ônibus de recolhimento.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:11px;color:var(--muted)">🗺️ Altimetria detalhada, mapa e estratégia de pace: em breve (aguardando GPX oficial e definição de meta de tempo).</p>
+</div>
+
+<div class="prova-detail" id="pd-utmbparaty">
+  <button class="prova-back" onclick="showProvasList()">← Voltar para Provas</button>
+  <div class="ph">🌴 Paraty Brazil by UTMB — PTR 58</div>
+  <p class="ps">Paraty, RJ · UTMB World Series · Sábado 19 Set 2026, 05h00 · <a href="https://paraty.utmb.world/races/ptr58" target="_blank" rel="noopener" style="color:var(--accent)">página oficial ↗</a></p>
+
+  <div class="profile-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-bottom:28px">
+    <div class="info-box" style="border-color:rgba(245,166,35,.4)">
+      <h3>🏁 Largada</h3>
+      <div class="stat-row"><span class="sl">Local</span><span class="sv">Paraty — Centro Histórico</span></div>
+      <div class="stat-row"><span class="sl">Horário</span><span class="sv" style="color:var(--accent)">05h00</span></div>
+      <div class="stat-row"><span class="sl">Data</span><span class="sv">19 Set 2026 (sáb)</span></div>
+      <div class="stat-row"><span class="sl">Categoria</span><span class="sv">ws50KM · 2 Running Stones</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(79,156,249,.4)">
+      <h3>📏 Distância &amp; Perfil</h3>
+      <div class="stat-row"><span class="sl">Distância</span><span class="sv" style="color:var(--blue)">58 km</span></div>
+      <div class="stat-row"><span class="sl">D+</span><span class="sv">+3.400 m</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(62,207,142,.4)">
+      <h3>🏔️ Terreno</h3>
+      <div class="stat-row"><span class="sl">Parque</span><span class="sv">Serra da Bocaina (PARNA)</span></div>
+      <div class="stat-row"><span class="sl">Pico</span><span class="sv">Pedra da Macela</span></div>
+      <div class="stat-row"><span class="sl">Trecho técnico</span><span class="sv">Trilha do Ouro (+200 anos)</span></div>
+      <div class="stat-row"><span class="sl">UTMB Index</span><span class="sv" style="color:var(--green)">Qualifica p/ OCC/CCC</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(224,92,92,.4)">
+      <h3>⏱️ Limite de Tempo</h3>
+      <div class="stat-row"><span class="sl">Tempo máximo</span><span class="sv" style="color:var(--red)">16h30min</span></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:28px">
+    <div class="ph" style="font-size:16px;margin-bottom:12px">📋 Perfil do Percurso</div>
+    <div class="sci-grid">
+      <div class="sci-card" style="border-color:rgba(245,166,35,.3)">
+        <span class="sci-icon">🌅</span>
+        <h4>Largada ao Amanhecer</h4>
+        <p>Saída às 05h00 do centro histórico, lanterna frontal obrigatória. Trecho urbano inicial antes da primeira subida.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(79,156,249,.3)">
+        <span class="sci-icon">🌳</span>
+        <h4>1ª Subida — Mata Atlântica</h4>
+        <p>Trecho preservado dentro do Parque Nacional da Serra da Bocaina, subida técnica logo após o trecho urbano.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(62,207,142,.3)">
+        <span class="sci-icon">⛰️</span>
+        <h4>2ª Subida — Pedra da Macela</h4>
+        <p>Após descida ao nível do mar, segunda escalada até a Pedra da Macela — ponto alto da prova, vista da Baía de Paraty.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(167,139,250,.3)">
+        <span class="sci-icon">⛏️</span>
+        <h4>Trilha do Ouro (retorno)</h4>
+        <p>Descida técnica sobre calçamento de mais de 200 anos, usado no ciclo do ouro para transporte de Minas Gerais até o litoral.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:11px;color:var(--muted)">🗺️ Altimetria detalhada, mapa GPX e estratégia de pace: em breve (aguardando GPX oficial e definição de meta de tempo).</p>
+</div>
+
+<div class="prova-detail" id="pd-br135">
+  <button class="prova-back" onclick="showProvasList()">← Voltar para Provas</button>
+  <div class="ph">🏔️ Brazil135 Ultramarathon — Solo</div>
+  <p class="ps">Serra da Mantiqueira, MG · Categoria Solo (sem equipe de apoio) · Quinta 07 Jan 2027 · <a href="https://www.brazil135.com.br/" target="_blank" rel="noopener" style="color:var(--accent)">página oficial ↗</a></p>
+
+  <div class="profile-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-bottom:28px">
+    <div class="info-box" style="border-color:rgba(245,166,35,.4)">
+      <h3>🏁 Evento</h3>
+      <div class="stat-row"><span class="sl">Data</span><span class="sv">07 Jan 2027 (qui)</span></div>
+      <div class="stat-row"><span class="sl">Local</span><span class="sv">Serra da Mantiqueira, MG</span></div>
+      <div class="stat-row"><span class="sl">Rota</span><span class="sv">"Caminho de Fé"</span></div>
+      <div class="stat-row"><span class="sl">Acesso</span><span class="sv" style="color:var(--accent)">Por convite (Comitê de Seleção)</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(79,156,249,.4)">
+      <h3>📏 Distância &amp; Perfil</h3>
+      <div class="stat-row"><span class="sl">Distância</span><span class="sv" style="color:var(--blue)">217 km (135 mi)</span></div>
+      <div class="stat-row"><span class="sl">D+ estimado</span><span class="sv">~9.100–10.700 m*</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(62,207,142,.4)">
+      <h3>🎒 Modalidade Solo</h3>
+      <div class="stat-row"><span class="sl">Equipe de apoio</span><span class="sv">Não há</span></div>
+      <div class="stat-row"><span class="sl">Drop bags</span><span class="sv" style="color:var(--green)">Permitidos</span></div>
+      <div class="stat-row"><span class="sl">Numeração</span><span class="sv">2 bibs (peito + costas)</span></div>
+    </div>
+    <div class="info-box" style="border-color:rgba(224,92,92,.4)">
+      <h3>⏱️ Limite de Tempo</h3>
+      <div class="stat-row"><span class="sl">Corte</span><span class="sv" style="color:var(--red)">até 60 horas</span></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:28px">
+    <div class="ph" style="font-size:16px;margin-bottom:12px">📋 Sobre a Prova</div>
+    <div class="sci-grid">
+      <div class="sci-card" style="border-color:rgba(245,166,35,.3)">
+        <span class="sci-icon">🏅</span>
+        <h4>Inspirada no Badwater</h4>
+        <p>Criada em 2005 por Mario Lacerda. Considerada o "Badwater brasileiro" — referência de dureza e prestígio no ultra nacional.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(79,156,249,.3)">
+        <span class="sci-icon">📜</span>
+        <h4>Todo Trecho Deve Ser Coberto</h4>
+        <p>Qualquer desvio do trajeto exige retorno ao ponto exato onde saiu da rota — sem atalhos, sem exceções.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(62,207,142,.3)">
+        <span class="sci-icon">🌍</span>
+        <h4>Perfil Internacional</h4>
+        <p>Atletas de ~14 países e diversos estados brasileiros. Prova-referência para quem busca qualificação/experiência rumo ao Badwater 135.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:11px;color:var(--muted)">*Fontes oficiais divergem entre ~30.000 ft e ~35.000 ft de D+ — valor a confirmar quando a organização publicar a altimetria 2027. Estratégia de pace/drop bags: em breve.</p>
+</div>
 
 </div>
 
 <footer>
-  UAI Ultra dos Anjos Internacional 100K · Plano de Força para José Costa · v2.0 · 05/Mai/2026 — Integração Garmin/Treino Online<br>
-  <span style="opacity:.5">Consulte um preparador físico certificado antes de iniciar. Dados climáticos: WeatherSpark Passa Quatro / Dados de prova: UTMB World.</span>
+  Treino &amp; Provas — Plano de José Costa · v3.0 · UAI 100K · A Muralha · Paraty by UTMB · Brazil135 — Integração Garmin/Treino Online<br>
+  <span style="opacity:.5">Consulte um preparador físico certificado antes de iniciar. Dados de prova: fontes oficiais de cada evento (ver aba Provas).</span>
 </footer>
 
 <script>
