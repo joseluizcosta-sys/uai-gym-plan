@@ -11,12 +11,23 @@ function show(id, btn) {
   document.querySelectorAll('.nav button').forEach(b => b.classList.remove('a'));
   document.getElementById('p-' + id).classList.add('a');
   btn.classList.add('a');
+  if (id === 'forca') syncForcaDayToToday();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showForcaDay(day) {
   document.querySelectorAll('.forca-day').forEach(d => d.classList.remove('a'));
   document.getElementById('fd-' + day).classList.add('a');
+  const sel = document.getElementById('forca-day-select');
+  if (sel) sel.value = day;
 }
+function syncForcaDayToToday() {
+  // JS getDay(): 0=Dom,1=Seg,2=Ter,3=Qua,4=Qui,5=Sex,6=Sáb.
+  // Treino de força só existe Seg–Qui; Sex/Sáb/Dom cai para Segunda (próxima sessão).
+  const map = { 1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday' };
+  const day = map[new Date().getDay()] || 'monday';
+  showForcaDay(day);
+}
+document.addEventListener('DOMContentLoaded', syncForcaDayToToday);
 function showProva(id) {
   document.querySelectorAll('.prova-detail').forEach(d => d.classList.remove('a'));
   document.getElementById('pd-' + id).classList.add('a');
