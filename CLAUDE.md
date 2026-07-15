@@ -14,7 +14,7 @@ Repo: `joseluizcosta-sys/uai-gym-plan` · published via GitHub Pages (`main`, `.
 
 ## Multi-race context (since Jul/2026)
 
-José now trains toward **4 independent races**, each with its own periodization
+José now trains toward **5 independent races**, each with its own periodization
 (not one shared block toward a single goal):
 
 | Race | Date | Distance | D+ |
@@ -22,10 +22,25 @@ José now trains toward **4 independent races**, each with its own periodization
 | UAI 100K | 25/07/2026 | 100 km | +1.733 m |
 | A Muralha Up and Down | 16/08/2026 | 42,195 km | +1.324 m |
 | Paraty Brazil by UTMB — PTR58 | 19/09/2026 | 58 km | +3.400 m |
-| Brazil135 Ultramarathon (solo) | 07/01/2027 | 217 km | ~9.100–10.700 m* |
+| Brazil135 Ultramarathon (solo) | 07/01/2027 | 239,4 km (GPX 2026)* | ~5.000–8.400 m** |
+| Comrades Marathon 2027 (100ª edição, Down Run) | 13/06/2027 | ~87 km | alto impacto excêntrico |
 
-*Brazil135 elevation gain: official sources disagree (~30.000–35.000 ft) — confirm
-when the 2027 altimetry is published.
+*Brazil135 distance/elevation come directly from the official 2026 GPX (uploaded by
+José) — measured at 239.4 km, notably longer than the historic "135mi/217km"
+branding. **D+ is method-sensitive (raw GPS elevation noise); range reflects
+different smoothing levels, not a single authoritative figure.
+
+Comrades 2027 is a **strength-training target only** for now — no Provas-tab
+altimetry/pacing yet (added 13/06/2027 date + Down Run format from official
+comrades.com; full race detail pending closer to registration). Its "Branca
+Esportes" strength protocol (Aug/2026 PDF) drives two new Força exercises
+(Avanço Reverso on Wednesday, Extensora Unilateral Excêntrica on Thursday),
+both gated to start **18/08/2026** (after A Muralha) to avoid adding novel
+eccentric loading during the UAI taper/race or the tight A Muralha turnaround.
+When adding new exercises sourced from an external coach protocol like this,
+always check the current phase against the race calendar before making the
+change effective immediately — flag the conflict and propose a start date
+instead of applying blindly.
 
 The **Plano Branca (`#p-garmin`) tab always reflects whichever race is nearest** —
 it is a rolling single plan, not 4 parallel plans. When a race passes, rewrite the
@@ -71,8 +86,8 @@ not automatic logic.
   - `nutricao` — **"Nutrição"**. Static content, pre-race + cotidiana +
     suplementos. Rarely changes.
   - `provas` — **"Provas"**. A list view (`#provas-list-view`, grid of
-    `.prova-card`, each `onclick="showProva('<raceid>')"`) plus 4 detail
-    sub-panels (`<div class="prova-detail" id="pd-uai|amuralha|utmbparaty|br135">`),
+    `.prova-card`, each `onclick="showProva('<raceid>')"`) plus 5 detail
+    sub-panels (`<div class="prova-detail" id="pd-uai|amuralha|utmbparaty|br135|comrades">`),
     toggled by `showProva(id)` / `showProvasList()` — again NOT the top-level
     `show()` mechanism. CSS: `.prova-detail{display:none}` / `.prova-detail.a{display:block}`.
     Each `pd-*` panel starts with a `<button class="prova-back" onclick="showProvasList()">`.
