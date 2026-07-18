@@ -3,13 +3,13 @@
   "entries": [
     {
       "date": "2026-07-17",
-      "hrv": null,
-      "rhr": null,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": null,
-      "body_battery_end": null,
-      "steps": null,
+      "hrv": 32,
+      "rhr": 55,
+      "sleep_score": 66,
+      "sleep_hours": 5.2,
+      "body_battery_peak": 47,
+      "body_battery_end": 33,
+      "steps": 257,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -39,8 +39,8 @@
       "sleep_score": 71,
       "sleep_hours": 6.4,
       "body_battery_peak": 51,
-      "body_battery_end": 8,
-      "steps": 15091,
+      "body_battery_end": 7,
+      "steps": 15166,
       "weight": null,
       "body_fat": null,
       "activities": [
