@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-07-27",
+  "last_updated": "2026-07-28",
   "entries": [
+    {
+      "date": "2026-07-28",
+      "hrv": 37,
+      "rhr": 54,
+      "sleep_score": 58,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 41,
+      "body_battery_end": 26,
+      "steps": 7685,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "São Paulo Corrida",
+          "distance_km": 6.04,
+          "duration_min": 103.5,
+          "pace_min_per_km": "17:08",
+          "hr_avg": 78,
+          "elevation_gain_m": 40,
+          "training_load": 28.9,
+          "hr_zones": {
+            "z1_sec": 1036,
+            "z2_sec": 92,
+            "z3_sec": 457,
+            "z4_sec": 3,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-07-27",
       "hrv": 28,
@@ -8,8 +39,8 @@
       "sleep_score": 49,
       "sleep_hours": 9.8,
       "body_battery_peak": 31,
-      "body_battery_end": 17,
-      "steps": 610,
+      "body_battery_end": 21,
+      "steps": 1164,
       "weight": null,
       "body_fat": null,
       "activities": [
