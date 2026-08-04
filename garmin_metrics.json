@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-08-03",
+  "last_updated": "2026-08-04",
   "entries": [
+    {
+      "date": "2026-08-04",
+      "hrv": 29,
+      "rhr": 58,
+      "sleep_score": 63,
+      "sleep_hours": 5.2,
+      "body_battery_peak": 31,
+      "body_battery_end": 21,
+      "steps": 12858,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 04/08/2026",
+          "distance_km": 8.01,
+          "duration_min": 43.7,
+          "pace_min_per_km": "5:27",
+          "hr_avg": 131,
+          "elevation_gain_m": 33,
+          "training_load": 120.8,
+          "hr_zones": {
+            "z1_sec": 65,
+            "z2_sec": 252,
+            "z3_sec": 1099,
+            "z4_sec": 1194,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-08-03",
       "hrv": 37,
@@ -8,8 +39,8 @@
       "sleep_score": 68,
       "sleep_hours": 5.6,
       "body_battery_peak": 48,
-      "body_battery_end": 24,
-      "steps": 2323,
+      "body_battery_end": 5,
+      "steps": 3084,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1878,31 +1909,6 @@
             "z4_sec": 0,
             "z5_sec": 0
           }
-        }
-      ]
-    },
-    {
-      "date": "2026-05-28",
-      "hrv": null,
-      "rhr": null,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": null,
-      "body_battery_end": null,
-      "steps": null,
-      "weight": 86.7,
-      "body_fat": 16.8,
-      "activities": [
-        {
-          "type": "run",
-          "name": "CCR",
-          "distance_km": 8.0,
-          "duration_min": null,
-          "pace_min_per_km": "4:54",
-          "hr_avg": 144,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": null
         }
       ]
     }
