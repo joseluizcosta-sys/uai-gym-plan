@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-08-08",
+  "last_updated": "2026-08-09",
   "entries": [
     {
-      "date": "2026-08-08",
-      "hrv": 31,
-      "rhr": 58,
-      "sleep_score": 58,
-      "sleep_hours": 6.5,
-      "body_battery_peak": 35,
-      "body_battery_end": 35,
-      "steps": 237,
+      "date": "2026-08-09",
+      "hrv": null,
+      "rhr": null,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": null,
+      "body_battery_end": null,
+      "steps": null,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -28,6 +28,37 @@
             "z3_sec": 0,
             "z4_sec": 0,
             "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "hrv": 31,
+      "rhr": 58,
+      "sleep_score": 58,
+      "sleep_hours": 6.5,
+      "body_battery_peak": 35,
+      "body_battery_end": 10,
+      "steps": 17841,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 08/08/2026",
+          "distance_km": 14.02,
+          "duration_min": 75.0,
+          "pace_min_per_km": "5:20",
+          "hr_avg": 141,
+          "elevation_gain_m": 90,
+          "training_load": 232.5,
+          "hr_zones": {
+            "z1_sec": 20,
+            "z2_sec": 101,
+            "z3_sec": 701,
+            "z4_sec": 3367,
+            "z5_sec": 295
           }
         }
       ]
@@ -1876,37 +1907,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-09",
-      "hrv": null,
-      "rhr": null,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": null,
-      "body_battery_end": null,
-      "steps": null,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "CCL 10km SP",
-          "distance_km": 10.0,
-          "duration_min": 57.2,
-          "pace_min_per_km": "5:43",
-          "hr_avg": 134,
-          "elevation_gain_m": 55,
-          "training_load": 138.0,
-          "hr_zones": {
-            "z1_sec": 19,
-            "z2_sec": 165,
-            "z3_sec": 1779,
-            "z4_sec": 1464,
             "z5_sec": 0
           }
         }
