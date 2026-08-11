@@ -2310,7 +2310,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       <h3>&#128207; Dist&#226;ncia &amp; Perfil</h3>
       <div class="stat-row"><span class="sl">Dist&#226;ncia</span><span class="sv" style="color:var(--blue)">42,195 km</span></div>
       <div class="stat-row"><span class="sl">D+</span><span class="sv">+1.324 m</span></div>
-      <div class="stat-row"><span class="sl">D&minus;</span><span class="sv">&sim;&#8722;1.101 m</span></div>
+      <div class="stat-row"><span class="sl">D&minus;</span><span class="sv">&sim;&#8722;770 m</span></div>
       <div class="stat-row"><span class="sl">Curvas</span><span class="sv">317 &middot; asfalto 100%</span></div>
     </div>
     <div class="info-box" style="border-color:rgba(62,207,142,.4)">
@@ -2318,7 +2318,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
       <div class="stat-row"><span class="sl">Rota</span><span class="sv">RJ-163 (Estrada Parque)</span></div>
       <div class="stat-row"><span class="sl">Superf&#237;cie</span><span class="sv">100% asfalto</span></div>
       <div class="stat-row"><span class="sl">Chegada</span><span class="sv">Visconde de Mau&#225;, Resende&#8209;RJ</span></div>
-      <div class="stat-row"><span class="sl">Regi&#227;o</span><span class="sv">Serra da Mantiqueira (Itatiaia)</span></div>
+      <div class="stat-row"><span class="sl">Perfil</span><span class="sv">Plano at&#233; km25 &rarr; ACLIVE ALTO &rarr; descida final</span></div>
     </div>
     <div class="info-box" style="border-color:rgba(224,92,92,.4)">
       <h3>&#9201; Limite de Tempo</h3>
@@ -2337,61 +2337,61 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
 
   <!-- ALTIMETRY OFICIAL -->
   <div class="altimetry-wrap" style="margin-bottom:28px">
-    <h3>&#127956; Perfil de Altimetria Oficial &mdash; A Muralha 42,195km &middot; RJ-163 &middot; Penedo &#8594; Visconde de Mau&#225;</h3>
-    <svg viewBox="0 0 900 210" style="width:100%;height:210px;display:block" preserveAspectRatio="none">
+    <h3>&#127956; Perfil de Altimetria Oficial &mdash; A Muralha 42,195km &middot; RJ-163 &middot; Penedo (427m) &#8594; Visconde de Mau&#225; (981m)</h3>
+    <svg viewBox="0 0 900 215" style="width:100%;height:215px;display:block" preserveAspectRatio="none">
       <defs>
         <linearGradient id="muralhaGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#4f9cf9" stop-opacity=".45"/>
-          <stop offset="100%" stop-color="#4f9cf9" stop-opacity=".04"/>
+          <stop offset="0%" stop-color="#3ecf8e" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#3ecf8e" stop-opacity=".04"/>
         </linearGradient>
       </defs>
-      <!-- Grid lines — scale 200m–1200m over 170px -->
+      <!-- Grid: y = 190-(elev-300)*170/1100 | range 300–1400m -->
       <line x1="0" y1="20" x2="900" y2="20" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="70.5" x2="900" y2="70.5" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="121" x2="900" y2="121" stroke="#242a38" stroke-width="1"/>
-      <line x1="0" y1="171.5" x2="900" y2="171.5" stroke="#242a38" stroke-width="1"/>
-      <!-- Elev labels -->
-      <text x="6" y="18" fill="#8892a4" font-size="9" font-family="monospace">1.200m</text>
-      <text x="6" y="68" fill="#8892a4" font-size="9" font-family="monospace">900m</text>
-      <text x="6" y="119" fill="#8892a4" font-size="9" font-family="monospace">600m</text>
-      <text x="6" y="169" fill="#8892a4" font-size="9" font-family="monospace">300m</text>
-      <!-- y = 190 - (elev-200)*170/1000 -->
-      <!-- Profile: 417m start → descent to 270m ~km4 → ACLIVE ALTO → 516m km15.3 → peak 1100m km19 → descent → 516m km25.3 → ACLIVE MEDIO → 981m finish -->
-      <path d="M0,153 L43,163 L85,178 L128,171 L171,163 L214,148 L260,136 L326,136 L362,100 L405,37 L448,42 L490,70 L539,136 L576,122 L618,107 L661,89 L703,77 L746,68 L789,57 L900,57 L900,190 L0,190 Z" fill="url(#muralhaGrad)"/>
-      <path d="M0,153 L43,163 L85,178 L128,171 L171,163 L214,148 L260,136 L326,136 L362,100 L405,37 L448,42 L490,70 L539,136 L576,122 L618,107 L661,89 L703,77 L746,68 L789,57 L900,57" fill="none" stroke="#4f9cf9" stroke-width="2"/>
+      <line x1="0" y1="66" x2="900" y2="66" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="113" x2="900" y2="113" stroke="#242a38" stroke-width="1"/>
+      <line x1="0" y1="159" x2="900" y2="159" stroke="#242a38" stroke-width="1"/>
+      <text x="6" y="18" fill="#8892a4" font-size="9" font-family="monospace">1.400m</text>
+      <text x="6" y="64" fill="#8892a4" font-size="9" font-family="monospace">1.100m</text>
+      <text x="6" y="111" fill="#8892a4" font-size="9" font-family="monospace">800m</text>
+      <text x="6" y="157" fill="#8892a4" font-size="9" font-family="monospace">500m</text>
+      <!-- Profile path (start=left/km0, finish=right/km42) -->
+      <!-- Key: km0=x0 y170 | km15.3=x326 y172 | km25.3=x539 y157 | km38peak=x810 y35 | km42.195=x900 y85 -->
+      <path d="M0,170 L64,171 L128,169 L192,172 L256,171 L326,172 L384,169 L448,165 L512,158 L539,157 L575,141 L618,121 L661,97 L703,73 L746,53 L789,38 L810,35 L832,46 L865,63 L900,85 L900,190 L0,190 Z" fill="url(#muralhaGrad)"/>
+      <path d="M0,170 L64,171 L128,169 L192,172 L256,171 L326,172 L384,169 L448,165 L512,158 L539,157 L575,141 L618,121 L661,97 L703,73 L746,53 L789,38 L810,35 L832,46 L865,63 L900,85" fill="none" stroke="#3ecf8e" stroke-width="2.5"/>
       <!-- Terrain zones bar -->
-      <rect x="0" y="196" width="230" height="6" fill="#e05c5c" rx="2"/>
-      <rect x="232" y="196" width="320" height="6" fill="#f5a623" rx="2"/>
-      <rect x="554" y="196" width="346" height="6" fill="#7be27b" rx="2"/>
-      <text x="60" y="208" fill="#e05c5c" font-size="7" font-weight="700" text-anchor="middle">DECLIVE</text>
-      <text x="390" y="208" fill="#f5a623" font-size="7" font-weight="700" text-anchor="middle">ACLIVE ALTO</text>
-      <text x="724" y="208" fill="#7be27b" font-size="7" font-weight="700" text-anchor="middle">ACLIVE M&#201;DIO</text>
-      <!-- Start -->
-      <circle cx="0" cy="153" r="5" fill="#4f9cf9"/>
-      <text x="4" y="194" fill="#4f9cf9" font-size="8" font-weight="700">0km &middot; 417m</text>
-      <!-- Portal de Penedo km 15.30 -->
-      <line x1="326" y1="136" x2="326" y2="155" stroke="#7be27b" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="326" cy="136" r="4" fill="#7be27b"/>
-      <text x="290" y="193" fill="#7be27b" font-size="7.5" font-weight="700">Portal km15,3 &middot; 516m</text>
-      <!-- Peak ~km19 -->
-      <circle cx="405" cy="37" r="5" fill="#f5a623"/>
-      <text x="355" y="30" fill="#f5a623" font-size="9" font-weight="800">pico ~km19 &middot; ~1.100m</text>
-      <!-- Capelinha km 25.30 -->
-      <line x1="539" y1="136" x2="539" y2="155" stroke="#7be27b" stroke-width="1" stroke-dasharray="3,3"/>
-      <circle cx="539" cy="136" r="4" fill="#7be27b"/>
-      <text x="503" y="193" fill="#7be27b" font-size="7.5" font-weight="700">Capelinha km25,3 &middot; 516m</text>
-      <!-- Finish -->
-      <circle cx="900" cy="57" r="5" fill="#e05c5c"/>
-      <text x="840" y="194" fill="#e05c5c" font-size="8" font-weight="700">42,195km &middot; 981m</text>
+      <rect x="0" y="193" width="537" height="7" fill="#f5a623" rx="2"/>
+      <rect x="540" y="193" width="268" height="7" fill="#e05c5c" rx="2"/>
+      <rect x="811" y="193" width="89" height="7" fill="#4f9cf9" rx="2"/>
+      <text x="268" y="208" fill="#f5a623" font-size="7" font-weight="700" text-anchor="middle">ACLIVE M&#201;DIO (km 0&ndash;25,3)</text>
+      <text x="674" y="208" fill="#e05c5c" font-size="7" font-weight="700" text-anchor="middle">ACLIVE ALTO (km 25,3&ndash;38)</text>
+      <text x="855" y="208" fill="#4f9cf9" font-size="7" font-weight="700" text-anchor="middle">DECLIVE</text>
+      <!-- Start km 0 = 427m -->
+      <circle cx="0" cy="170" r="5" fill="#4f9cf9"/>
+      <text x="4" y="189" fill="#4f9cf9" font-size="8" font-weight="700">0km &middot; 427m</text>
+      <!-- Portal de Penedo km 15.30 = 417m -->
+      <line x1="326" y1="172" x2="326" y2="158" stroke="#7be27b" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="326" cy="172" r="4" fill="#7be27b"/>
+      <text x="262" y="155" fill="#7be27b" font-size="7.5" font-weight="700">Portal km15,3 &middot; 417m</text>
+      <!-- Capelinha km 25.30 = 516m -->
+      <line x1="539" y1="157" x2="539" y2="143" stroke="#7be27b" stroke-width="1" stroke-dasharray="3,3"/>
+      <circle cx="539" cy="157" r="4" fill="#7be27b"/>
+      <text x="475" y="140" fill="#7be27b" font-size="7.5" font-weight="700">Capelinha km25,3 &middot; 516m</text>
+      <!-- Peak km 38 = 1300m -->
+      <circle cx="810" cy="35" r="5" fill="#f5a623"/>
+      <text x="740" y="28" fill="#f5a623" font-size="9" font-weight="800">pico km38 ~1.300m</text>
+      <!-- Finish km 42.195 = 981m -->
+      <circle cx="900" cy="85" r="5" fill="#e05c5c"/>
+      <text x="820" y="189" fill="#e05c5c" font-size="8" font-weight="700">42,195km &middot; 981m</text>
     </svg>
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)">
-      <span><span style="color:#4f9cf9">&#9679;</span> Largada Penedo 417m</span>
-      <span><span style="color:#f5a623">&#9679;</span> Pico ~km19 ~1.100m</span>
-      <span><span style="color:#7be27b">&#9679;</span> Cortes: Portal km15,3 &amp; Capelinha km25,3 (516m)</span>
+      <span><span style="color:#4f9cf9">&#9679;</span> Largada Penedo 427m</span>
+      <span><span style="color:#f5a623">&#9679;</span> Pico ~km38 ~1.300m</span>
+      <span><span style="color:#7be27b">&#9679;</span> Cortes: Portal km15,3 (417m) &amp; Capelinha km25,3 (516m)</span>
       <span><span style="color:#e05c5c">&#9679;</span> Chegada Visconde de Mau&#225; 981m</span>
       <span style="color:rgba(255,255,255,.35);font-style:italic">Fonte: altimetria oficial amuralha.com.br</span>
     </div>
   </div>
+
 
   <!-- CUTOFFS -->
   <div style="margin-bottom:28px">
@@ -2417,7 +2417,7 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           </tr>
           <tr>
             <td><strong style="color:var(--green)">Portal de Penedo</strong></td>
-            <td>km 15,30 &middot; 516m</td>
+            <td>km 15,30 &middot; 417m</td>
             <td>+2h08min</td>
             <td><strong>08h08 Dom</strong></td>
             <td>~8:21 min/km</td>
@@ -2561,46 +2561,46 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
           <tr>
             <td><strong>Largada &#8594; Portal de Penedo</strong></td>
             <td>0&ndash;15,3km</td>
-            <td style="white-space:nowrap"><span style="color:#e05c5c">&#8595; DECLIVE</span><br><span style="color:#f5a623">&#8593; ACLIVE ALTO</span><br><span style="font-size:10px;color:var(--muted)">417m &#8594; 270m &#8594; 516m</span></td>
+            <td style="white-space:nowrap"><span style="color:#f5a623">ACLIVE M&#201;DIO</span><br><span style="font-size:10px;color:var(--muted)">427m &#8594; 417m (quase plano)</span></td>
             <td>06h00 Dom</td>
-            <td style="color:var(--accent)">1h50 &middot; chega 07h50<br><span style="font-size:10px;color:var(--muted)">7:11/km &middot; buffer 18min</span></td>
-            <td style="color:var(--green)">1h44 &middot; chega 07h44<br><span style="font-size:10px;color:var(--muted)">6:49/km &middot; buffer 24min</span></td>
-            <td style="color:var(--muted)">2h10 &middot; chega 08h10<br><span style="font-size:10px">8:30/km &middot; buffer corte &minus;2min &#9888;</span></td>
-            <td>&#127774; Sa&#237;da fria (~12&#176;C) &mdash; inicio com <strong>descida</strong> (DECLIVE) antes da subida principal. <span style="color:var(--purple)">Z2 nas subidas &middot; HR &#8804; 122</span>. Resiste ao ritmo dos primeiros kms. G&#233;l aos ~35min.</td>
+            <td style="color:var(--accent)">1h40 &middot; chega 07h40<br><span style="font-size:10px;color:var(--muted)">6:33/km &middot; buffer 28min</span></td>
+            <td style="color:var(--green)">1h32 &middot; chega 07h32<br><span style="font-size:10px;color:var(--muted)">6:02/km &middot; buffer 36min</span></td>
+            <td style="color:var(--muted)">2h05 &middot; chega 08h05<br><span style="font-size:10px">8:10/km &middot; buffer 3min &#9888;</span></td>
+            <td>&#9888; <strong>Parece f&#225;cil &mdash; mas n&#227;o comece devagar!</strong> Os cortes s&#227;o rel. apertados para quem "guardar" para o final. Terreno quase plano, frio (~12&#176;C). <span style="color:var(--purple)">Z2 &middot; HR &#8804; 120</span>. G&#233;l aos ~40min.</td>
           </tr>
           <tr>
             <td><strong>Portal de Penedo &#8594; Capelinha</strong></td>
             <td>15,3&ndash;25,3km</td>
-            <td style="white-space:nowrap"><span style="color:#f5a623">&#8593; ACLIVE ALTO</span><br><span style="color:#e05c5c">&#8595; descida</span><br><span style="font-size:10px;color:var(--muted)">516m &#8594; ~1.100m &#8594; 516m</span></td>
+            <td style="white-space:nowrap"><span style="color:#f5a623">ACLIVE M&#201;DIO</span><br><span style="font-size:10px;color:var(--muted)">417m &#8594; 516m (+99m)</span></td>
             <td>&mdash;</td>
-            <td style="color:var(--accent)">1h08 &middot; chega 08h58<br><span style="font-size:10px;color:var(--muted)">6:48/km &middot; buffer 37min</span></td>
-            <td style="color:var(--green)">1h02 &middot; chega 08h46<br><span style="font-size:10px;color:var(--muted)">6:12/km &middot; buffer 49min</span></td>
-            <td style="color:var(--muted)">1h25 &middot; chega 09h35<br><span style="font-size:10px">8:30/km &middot; buffer corte 0min &#9888;&#9888;</span></td>
-            <td>&#9888; <strong>PICO do percurso (~km19, ~1.100m)</strong> &mdash; <span style="color:var(--purple)">Z2&ndash;Z3 na subida &middot; HR &#8804; 133</span>. Descida ap&#243;s o pico: <strong>encurte a passada</strong>, poupe o quadr&#237;ceps no asfalto. G&#233;l aos ~75min.</td>
+            <td style="color:var(--accent)">1h10 &middot; chega 08h50<br><span style="font-size:10px;color:var(--muted)">7:00/km &middot; buffer 45min</span></td>
+            <td style="color:var(--green)">1h01 &middot; chega 08h33<br><span style="font-size:10px;color:var(--muted)">6:06/km &middot; buffer 1h02</span></td>
+            <td style="color:var(--muted)">1h26 &middot; chega 09h31<br><span style="font-size:10px">8:36/km &middot; buffer 4min &#9888;</span></td>
+            <td>Gradiente suave (+99m em 10km). <span style="color:var(--purple)">Z2&ndash;Z3 &middot; HR 120&ndash;130</span>. Guarde energia &mdash; <strong>a prova come&#231;a a seguir</strong>. G&#233;l aos ~75min. Aproveite os postos de hidrata&#231;&#227;o.</td>
           </tr>
-          <tr style="background:rgba(62,207,142,.04)">
+          <tr style="background:rgba(224,92,92,.05)">
             <td><strong>Capelinha &#8594; Chegada</strong></td>
             <td>25,3&ndash;42,2km</td>
-            <td style="white-space:nowrap"><span style="color:#7be27b">&#8593; ACLIVE M&#201;DIO</span><br><span style="font-size:10px;color:var(--muted)">516m &#8594; 981m (+465m)</span></td>
+            <td style="white-space:nowrap"><span style="color:#e05c5c">&#8593; ACLIVE ALTO</span><br><span style="color:#4f9cf9">&#8595; DECLIVE</span><br><span style="font-size:10px;color:var(--muted)">516m &#8594; ~1.300m &#8594; 981m</span></td>
             <td>&mdash;</td>
-            <td style="color:var(--accent)">2h01 &middot; chega 10h59<br><span style="font-size:10px;color:var(--muted)">7:09/km &middot; buffer 1h00</span></td>
-            <td style="color:var(--green)">1h59 &middot; chega 10h45<br><span style="font-size:10px;color:var(--muted)">7:02/km &middot; buffer 1h14</span></td>
-            <td style="color:var(--muted)">2h24 &middot; chega 11h59<br><span style="font-size:10px">8:32/km &middot; buffer 0min &#9888;&#9888;</span></td>
-            <td>&#9888; <strong>A PROVA SE DECIDE AQUI</strong> &middot; quadr&#237;ceps fadigados + subida sustentada +465m. <span style="color:var(--purple)">Z3 aceit&#225;vel &middot; HR at&#233; 133</span>. Caf&#233;&#237;na ~km30. N&#227;o acelere at&#233; km39&ndash;40.</td>
+            <td style="color:var(--accent)">2h09 &middot; chega 10h59<br><span style="font-size:10px;color:var(--muted)">7:40/km m&#233;dio &middot; buffer 1h00</span></td>
+            <td style="color:var(--green)">2h12 &middot; chega 10h45<br><span style="font-size:10px;color:var(--muted)">7:49/km m&#233;dio &middot; buffer 1h14</span></td>
+            <td style="color:var(--muted)">2h28 &middot; chega 11h59<br><span style="font-size:10px">8:46/km m&#233;dio &middot; buffer 0min &#9888;&#9888;</span></td>
+            <td>&#9888; <strong>A PROVA SE DECIDE AQUI</strong> &middot; +784m em 13km &#8594; force hike nas rampas acima de 10%, corra o que der. <span style="color:var(--purple)">HR at&#233; 133 nas subidas</span>. Km38 = pico &#8594; <strong>descida final 319m asfalto: encurte a passada!</strong> Caf&#233;&#237;na ~km30.</td>
           </tr>
           <tr style="background:rgba(245,166,35,.06)">
             <td colspan="2"><strong>TOTAL</strong></td>
-            <td style="white-space:nowrap;font-size:11px">+1.324m &#8593;<br><span style="color:var(--red)">&minus;1.101m &#8595;</span></td>
+            <td style="white-space:nowrap;font-size:11px">+1.324m &#8593;<br><span style="color:var(--red)">&minus;770m &#8595;</span></td>
             <td>&mdash;</td>
             <td style="color:var(--accent);font-weight:800">~4h59<br>chega 10h59</td>
             <td style="color:var(--green);font-weight:800">~4h45<br>chega 10h45</td>
             <td style="color:var(--muted);font-weight:700">~5h59<br>chega 11h59 &#9888;</td>
-            <td style="font-size:11px;color:var(--muted)">Meta C est&#225; no limite &mdash; qualquer atraso num posto descarta a conclus&#227;o. Metas A e B t&#234;m margens confort&#225;veis em todos os cortes. M&#233;dalha Bronze garantida na Meta A.</td>
+            <td style="font-size:11px;color:var(--muted)">&#9888; Meta C est&#225; <em>exatamente</em> no limite em todos os cortes &mdash; qualquer parada longa compromete. Metas A e B t&#234;m folga confort&#225;vel. A diferenci&#231;&#227;o A/B acontece nos primeiros 25km (terreno plano onde se pode ir mais r&#225;pido) &mdash; o segmento final ser&#225; parecido para ambos pelo gradiente da subida.</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:11px;color:var(--muted);margin-top:8px">&#9888; Paces incluem ~2&ndash;3min em postos de hidrata&#231;&#227;o. Ancorados em: VT1 HR122 (~7:00&ndash;7:30/km plano) + VT2 HR145 (~4:54/km) da ergoespirometria 29/mai + corrida 08/ago 14km TEMPO 5:20/km HR141. Pontos de corte (Portal de Penedo km15,3 e Capelinha km25,3) e eleva&#231;&#245;es (417m / 516m / 516m / 981m) da altimetria oficial amuralha.com.br. O limitante n&#227;o &#233; cardiopulmonar &mdash; &#233; o estresse exc&#234;ntrico do quadr&#237;ceps nas descidas de asfalto p&#243;s-pico.</p>
+    <p style="font-size:11px;color:var(--muted);margin-top:8px">Paces incluem ~2min em postos de hidrata&#231;&#227;o. Segmento final (km25&ndash;42): pace m&#233;dio mascarado pelo brutal ACLIVE ALTO (km25&ndash;38: +784m em 13km &#8776;+6% m&#233;dio) seguido de descida final de 319m. Ancorado em VT1 HR122 (~7:00&ndash;7:30/km plano) + VT2 HR145 (~4:54/km) da ergoespirometria 29/mai + corrida 08/ago 14km TEMPO 5:20/km HR141. Eleva&#231;&#245;es e cortes da altimetria oficial amuralha.com.br: Penedo 427m &middot; Portal km15,3 417m &middot; Capelinha km25,3 516m &middot; chegada 981m &middot; pico ~km38 ~1.300m.</p>
   </div>
 
   <!-- PHYSIOLOGY -->
