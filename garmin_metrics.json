@@ -1,46 +1,77 @@
 {
-  "last_updated": "2026-08-10",
+  "last_updated": "2026-08-11",
   "entries": [
     {
-      "date": "2026-08-10",
-      "hrv": null,
-      "rhr": null,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": null,
-      "body_battery_end": null,
-      "steps": null,
+      "date": "2026-08-11",
+      "hrv": 36,
+      "rhr": 57,
+      "sleep_score": 70,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 41,
+      "body_battery_end": 29,
+      "steps": 13011,
       "weight": null,
       "body_fat": null,
       "activities": [
         {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
+          "type": "run",
+          "name": "Corrida 11/08/2026",
+          "distance_km": 9.01,
+          "duration_min": 51.2,
+          "pace_min_per_km": "5:40",
+          "hr_avg": 128,
+          "elevation_gain_m": 33,
+          "training_load": 116.7,
           "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
+            "z1_sec": 35,
+            "z2_sec": 187,
+            "z3_sec": 2464,
+            "z4_sec": 368,
             "z5_sec": 0
           }
         }
       ]
     },
     {
+      "date": "2026-08-10",
+      "hrv": 30,
+      "rhr": 57,
+      "sleep_score": 70,
+      "sleep_hours": 5.8,
+      "body_battery_peak": 40,
+      "body_battery_end": 5,
+      "steps": 4129,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "swim",
+          "name": "Natação em piscina",
+          "distance_km": 1.42,
+          "duration_min": 59.8,
+          "pace_min_per_km": null,
+          "hr_avg": 113,
+          "elevation_gain_m": null,
+          "training_load": 80.2,
+          "hr_zones": {
+            "z1_sec": 970,
+            "z2_sec": 1429,
+            "z3_sec": 901,
+            "z4_sec": 141,
+            "z5_sec": 86
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-08-09",
-      "hrv": null,
+      "hrv": 26,
       "rhr": 55,
-      "sleep_score": null,
-      "sleep_hours": null,
+      "sleep_score": 71,
+      "sleep_hours": 9.7,
       "body_battery_peak": 34,
-      "body_battery_end": 31,
-      "steps": 378,
+      "body_battery_end": 19,
+      "steps": 940,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -70,8 +101,8 @@
       "sleep_score": 58,
       "sleep_hours": 6.5,
       "body_battery_peak": 35,
-      "body_battery_end": 10,
-      "steps": 17841,
+      "body_battery_end": 5,
+      "steps": 19945,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1877,37 +1908,6 @@
             "z3_sec": 0,
             "z4_sec": 0,
             "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-11",
-      "hrv": 30,
-      "rhr": 57,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": null,
-      "body_battery_end": null,
-      "steps": null,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "CCR 10km (esteira)",
-          "distance_km": 10.0,
-          "duration_min": 56.6,
-          "pace_min_per_km": "5:39",
-          "hr_avg": 143,
-          "elevation_gain_m": null,
-          "training_load": 191.0,
-          "hr_zones": {
-            "z1_sec": 17,
-            "z2_sec": 88,
-            "z3_sec": 692,
-            "z4_sec": 2087,
-            "z5_sec": 507
           }
         }
       ]
