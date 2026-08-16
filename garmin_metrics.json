@@ -1,6 +1,99 @@
 {
-  "last_updated": "2026-08-13",
+  "last_updated": "2026-08-16",
   "entries": [
+    {
+      "date": "2026-08-16",
+      "hrv": 31,
+      "rhr": 59,
+      "sleep_score": 38,
+      "sleep_hours": 3.4,
+      "body_battery_peak": 38,
+      "body_battery_end": 5,
+      "steps": 45745,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "hrv": 28,
+      "rhr": 59,
+      "sleep_score": 58,
+      "sleep_hours": 7.5,
+      "body_battery_peak": 52,
+      "body_battery_end": 18,
+      "steps": 6937,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-08-14",
+      "hrv": 32,
+      "rhr": 56,
+      "sleep_score": 76,
+      "sleep_hours": 6.6,
+      "body_battery_peak": 70,
+      "body_battery_end": 20,
+      "steps": 5812,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-08-13",
       "hrv": 34,
@@ -8,8 +101,8 @@
       "sleep_score": 69,
       "sleep_hours": 5.3,
       "body_battery_peak": 67,
-      "body_battery_end": 29,
-      "steps": 10389,
+      "body_battery_end": 19,
+      "steps": 12466,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1814,99 +1907,6 @@
             "z2_sec": 756,
             "z3_sec": 950,
             "z4_sec": 69,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-16",
-      "hrv": 35,
-      "rhr": 55,
-      "sleep_score": 71,
-      "sleep_hours": 5.7,
-      "body_battery_peak": 60,
-      "body_battery_end": 23,
-      "steps": 11814,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida 16/06/2026",
-          "distance_km": 7.76,
-          "duration_min": 43.8,
-          "pace_min_per_km": "5:38",
-          "hr_avg": 130,
-          "elevation_gain_m": 40,
-          "training_load": 111.7,
-          "hr_zones": {
-            "z1_sec": 46,
-            "z2_sec": 361,
-            "z3_sec": 1501,
-            "z4_sec": 708,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-15",
-      "hrv": 29,
-      "rhr": 55,
-      "sleep_score": 62,
-      "sleep_hours": 4.9,
-      "body_battery_peak": 52,
-      "body_battery_end": 14,
-      "steps": 5574,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "swim",
-          "name": "Natação em piscina",
-          "distance_km": 1.49,
-          "duration_min": 44.5,
-          "pace_min_per_km": null,
-          "hr_avg": 112,
-          "elevation_gain_m": null,
-          "training_load": 57.1,
-          "hr_zones": {
-            "z1_sec": 814,
-            "z2_sec": 1018,
-            "z3_sec": 595,
-            "z4_sec": 153,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-14",
-      "hrv": null,
-      "rhr": 59,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": 28,
-      "body_battery_end": 11,
-      "steps": 1412,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
