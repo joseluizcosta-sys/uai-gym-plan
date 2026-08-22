@@ -1,6 +1,85 @@
 {
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-21",
   "entries": [
+    {
+      "date": "2026-08-21",
+      "hrv": 29,
+      "rhr": 54,
+      "sleep_score": 80,
+      "sleep_hours": 7.9,
+      "body_battery_peak": 83,
+      "body_battery_end": 69,
+      "steps": 801,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "hrv": 28,
+      "rhr": 57,
+      "sleep_score": 60,
+      "sleep_hours": 4.2,
+      "body_battery_peak": 72,
+      "body_battery_end": 19,
+      "steps": 14943,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "other",
+          "name": "São Paulo Caminhada",
+          "distance_km": 3.2,
+          "duration_min": 36.6,
+          "pace_min_per_km": null,
+          "hr_avg": 93,
+          "elevation_gain_m": 37,
+          "training_load": 5.8,
+          "hr_zones": {
+            "z1_sec": 1006,
+            "z2_sec": 33,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "run",
+          "name": "São Paulo Corrida",
+          "distance_km": 7.31,
+          "duration_min": 40.0,
+          "pace_min_per_km": "5:28",
+          "hr_avg": 134,
+          "elevation_gain_m": 32,
+          "training_load": 94.4,
+          "hr_zones": {
+            "z1_sec": 81,
+            "z2_sec": 735,
+            "z3_sec": 1447,
+            "z4_sec": 122,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-08-19",
       "hrv": 35,
@@ -8,8 +87,8 @@
       "sleep_score": 73,
       "sleep_hours": 6.0,
       "body_battery_peak": 90,
-      "body_battery_end": 36,
-      "steps": 4952,
+      "body_battery_end": 27,
+      "steps": 5962,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1863,68 +1942,6 @@
             "z3_sec": 1164,
             "z4_sec": 224,
             "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-21",
-      "hrv": 26,
-      "rhr": 56,
-      "sleep_score": 65,
-      "sleep_hours": 8.8,
-      "body_battery_peak": 71,
-      "body_battery_end": 49,
-      "steps": 1523,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-20",
-      "hrv": 29,
-      "rhr": 58,
-      "sleep_score": 68,
-      "sleep_hours": 5.5,
-      "body_battery_peak": 58,
-      "body_battery_end": 10,
-      "steps": 26828,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida 20/06/2026",
-          "distance_km": 25.14,
-          "duration_min": 139.2,
-          "pace_min_per_km": "5:32",
-          "hr_avg": 138,
-          "elevation_gain_m": 154,
-          "training_load": 276.5,
-          "hr_zones": {
-            "z1_sec": 76,
-            "z2_sec": 416,
-            "z3_sec": 2789,
-            "z4_sec": 4881,
-            "z5_sec": 177
           }
         }
       ]
