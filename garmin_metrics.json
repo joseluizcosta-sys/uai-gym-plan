@@ -1,6 +1,54 @@
 {
-  "last_updated": "2026-08-23",
+  "last_updated": "2026-08-24",
   "entries": [
+    {
+      "date": "2026-08-24",
+      "hrv": 29,
+      "rhr": 56,
+      "sleep_score": 85,
+      "sleep_hours": 7.6,
+      "body_battery_peak": 78,
+      "body_battery_end": 78,
+      "steps": 7,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "other",
+          "name": "Ciclismo em local fechado",
+          "distance_km": null,
+          "duration_min": 20.0,
+          "pace_min_per_km": null,
+          "hr_avg": 100,
+          "elevation_gain_m": null,
+          "training_load": 8.6,
+          "hr_zones": {
+            "z1_sec": 923,
+            "z2_sec": 274,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "swim",
+          "name": "Natação em piscina",
+          "distance_km": 2.29,
+          "duration_min": 63.8,
+          "pace_min_per_km": null,
+          "hr_avg": 115,
+          "elevation_gain_m": null,
+          "training_load": 44.9,
+          "hr_zones": {
+            "z1_sec": 1475,
+            "z2_sec": 1595,
+            "z3_sec": 512,
+            "z4_sec": 20,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-08-23",
       "hrv": 26,
@@ -8,8 +56,8 @@
       "sleep_score": 83,
       "sleep_hours": 8.1,
       "body_battery_peak": 81,
-      "body_battery_end": 46,
-      "steps": 969,
+      "body_battery_end": 42,
+      "steps": 1143,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1894,37 +1942,6 @@
             "z3_sec": 1372,
             "z4_sec": 1113,
             "z5_sec": 232
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-24",
-      "hrv": 31,
-      "rhr": 56,
-      "sleep_score": 83,
-      "sleep_hours": 7.2,
-      "body_battery_peak": 76,
-      "body_battery_end": 26,
-      "steps": 8302,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
           }
         }
       ]
