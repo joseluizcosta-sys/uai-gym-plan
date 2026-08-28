@@ -1,15 +1,46 @@
 {
-  "last_updated": "2026-08-27",
+  "last_updated": "2026-08-28",
   "entries": [
     {
-      "date": "2026-08-27",
-      "hrv": 26,
+      "date": "2026-08-28",
+      "hrv": 29,
       "rhr": 60,
+      "sleep_score": 86,
+      "sleep_hours": 7.8,
+      "body_battery_peak": 73,
+      "body_battery_end": 63,
+      "steps": 1418,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-08-27",
+      "hrv": null,
+      "rhr": null,
       "sleep_score": 68,
       "sleep_hours": 5.6,
       "body_battery_peak": 54,
-      "body_battery_end": 34,
-      "steps": 11330,
+      "body_battery_end": 32,
+      "steps": 11932,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -38,9 +69,9 @@
       "rhr": 59,
       "sleep_score": 78,
       "sleep_hours": 6.6,
-      "body_battery_peak": 71,
-      "body_battery_end": 13,
-      "steps": 5902,
+      "body_battery_peak": null,
+      "body_battery_end": null,
+      "steps": null,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,37 +1958,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-28",
-      "hrv": 27,
-      "rhr": 56,
-      "sleep_score": 62,
-      "sleep_hours": 4.5,
-      "body_battery_peak": 42,
-      "body_battery_end": 42,
-      "steps": 13182,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Caminhada com corrida 28/06/2026",
-          "distance_km": 12.0,
-          "duration_min": 75.2,
-          "pace_min_per_km": "6:16",
-          "hr_avg": 129,
-          "elevation_gain_m": 56,
-          "training_load": 142.5,
-          "hr_zones": {
-            "z1_sec": 282,
-            "z2_sec": 771,
-            "z3_sec": 1874,
-            "z4_sec": 1584,
             "z5_sec": 0
           }
         }
