@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-08-28",
+  "last_updated": "2026-08-29",
   "entries": [
+    {
+      "date": "2026-08-29",
+      "hrv": 35,
+      "rhr": 58,
+      "sleep_score": 62,
+      "sleep_hours": 4.9,
+      "body_battery_peak": 68,
+      "body_battery_end": 37,
+      "steps": 20262,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Pirapora do Bom Jesus Corrida",
+          "distance_km": 15.51,
+          "duration_min": 157.9,
+          "pace_min_per_km": "10:10",
+          "hr_avg": 129,
+          "elevation_gain_m": 759,
+          "training_load": 113.4,
+          "hr_zones": {
+            "z1_sec": 1047,
+            "z2_sec": 2017,
+            "z3_sec": 5475,
+            "z4_sec": 394,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-08-28",
       "hrv": 29,
@@ -8,8 +39,8 @@
       "sleep_score": 86,
       "sleep_hours": 7.8,
       "body_battery_peak": 73,
-      "body_battery_end": 69,
-      "steps": 1756,
+      "body_battery_end": 38,
+      "steps": 4021,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,37 +1958,6 @@
             "z2_sec": 241,
             "z3_sec": 3568,
             "z4_sec": 1487,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-29",
-      "hrv": 35,
-      "rhr": 56,
-      "sleep_score": 59,
-      "sleep_hours": 6.8,
-      "body_battery_peak": 70,
-      "body_battery_end": 15,
-      "steps": 8423,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
