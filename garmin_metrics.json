@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-09-03",
+  "last_updated": "2026-09-04",
   "entries": [
     {
-      "date": "2026-09-03",
-      "hrv": null,
-      "rhr": null,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": null,
-      "body_battery_end": null,
-      "steps": null,
+      "date": "2026-09-04",
+      "hrv": 29,
+      "rhr": 55,
+      "sleep_score": 73,
+      "sleep_hours": 6.7,
+      "body_battery_peak": 73,
+      "body_battery_end": 58,
+      "steps": 902,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -33,14 +33,62 @@
       ]
     },
     {
+      "date": "2026-09-03",
+      "hrv": 34,
+      "rhr": 57,
+      "sleep_score": 75,
+      "sleep_hours": 6.4,
+      "body_battery_peak": 69,
+      "body_battery_end": 22,
+      "steps": 21750,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "other",
+          "name": "São Paulo Caminhada",
+          "distance_km": 2.51,
+          "duration_min": 26.8,
+          "pace_min_per_km": null,
+          "hr_avg": 94,
+          "elevation_gain_m": 26,
+          "training_load": 6.6,
+          "hr_zones": {
+            "z1_sec": 706,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "run",
+          "name": "Corrida 03/09/2026",
+          "distance_km": 11.16,
+          "duration_min": 64.9,
+          "pace_min_per_km": "5:48",
+          "hr_avg": 124,
+          "elevation_gain_m": 44,
+          "training_load": 128.7,
+          "hr_zones": {
+            "z1_sec": 509,
+            "z2_sec": 2284,
+            "z3_sec": 471,
+            "z4_sec": 524,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-09-02",
       "hrv": 35,
       "rhr": 57,
       "sleep_score": 56,
       "sleep_hours": 4.1,
       "body_battery_peak": 70,
-      "body_battery_end": 60,
-      "steps": 125,
+      "body_battery_end": 19,
+      "steps": 2811,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,37 +1975,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-06",
-      "hrv": 31,
-      "rhr": 55,
-      "sleep_score": 72,
-      "sleep_hours": 5.8,
-      "body_battery_peak": 64,
-      "body_battery_end": 32,
-      "steps": 26988,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Lambeth Corrida",
-          "distance_km": 6.01,
-          "duration_min": 34.2,
-          "pace_min_per_km": "5:41",
-          "hr_avg": 127,
-          "elevation_gain_m": 35,
-          "training_load": 84.8,
-          "hr_zones": {
-            "z1_sec": 14,
-            "z2_sec": 213,
-            "z3_sec": 1621,
-            "z4_sec": 188,
             "z5_sec": 0
           }
         }
