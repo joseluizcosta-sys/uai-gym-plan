@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-09-04",
+  "last_updated": "2026-09-05",
   "entries": [
+    {
+      "date": "2026-09-05",
+      "hrv": 33,
+      "rhr": 57,
+      "sleep_score": 55,
+      "sleep_hours": 4.2,
+      "body_battery_peak": 59,
+      "body_battery_end": 59,
+      "steps": 344,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-04",
       "hrv": 29,
@@ -8,8 +39,8 @@
       "sleep_score": 73,
       "sleep_hours": 6.7,
       "body_battery_peak": 73,
-      "body_battery_end": 58,
-      "steps": 902,
+      "body_battery_end": 27,
+      "steps": 3250,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1944,37 +1975,6 @@
             "z2_sec": 437,
             "z3_sec": 1816,
             "z4_sec": 52,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-07",
-      "hrv": 40,
-      "rhr": 51,
-      "sleep_score": 74,
-      "sleep_hours": 5.7,
-      "body_battery_peak": 91,
-      "body_battery_end": 20,
-      "steps": 23427,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
