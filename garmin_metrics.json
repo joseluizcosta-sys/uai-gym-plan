@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-09-05",
+  "last_updated": "2026-09-06",
   "entries": [
     {
-      "date": "2026-09-05",
-      "hrv": 33,
-      "rhr": 57,
-      "sleep_score": 55,
-      "sleep_hours": 4.2,
-      "body_battery_peak": 59,
-      "body_battery_end": 59,
-      "steps": 344,
+      "date": "2026-09-06",
+      "hrv": null,
+      "rhr": 56,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": 68,
+      "body_battery_end": 68,
+      "steps": 27,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -27,6 +27,37 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "hrv": 33,
+      "rhr": 57,
+      "sleep_score": 55,
+      "sleep_hours": 4.2,
+      "body_battery_peak": 59,
+      "body_battery_end": 21,
+      "steps": 18902,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 05/09/2026",
+          "distance_km": 14.83,
+          "duration_min": 85.3,
+          "pace_min_per_km": "5:45",
+          "hr_avg": 134,
+          "elevation_gain_m": 89,
+          "training_load": 152.5,
+          "hr_zones": {
+            "z1_sec": 238,
+            "z2_sec": 908,
+            "z3_sec": 3592,
+            "z4_sec": 361,
             "z5_sec": 0
           }
         }
@@ -1927,54 +1958,6 @@
             "z2_sec": 853,
             "z3_sec": 2747,
             "z4_sec": 11,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "hrv": 28,
-      "rhr": 57,
-      "sleep_score": 63,
-      "sleep_hours": 4.9,
-      "body_battery_peak": 43,
-      "body_battery_end": 5,
-      "steps": 34954,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "swim",
-          "name": "Paris Natação em alto mar",
-          "distance_km": 0.14,
-          "duration_min": 2.5,
-          "pace_min_per_km": null,
-          "hr_avg": 131,
-          "elevation_gain_m": null,
-          "training_load": 29.0,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 22,
-            "z3_sec": 102,
-            "z4_sec": 28,
-            "z5_sec": 0
-          }
-        },
-        {
-          "type": "run",
-          "name": "Paris Corrida",
-          "distance_km": 7.03,
-          "duration_min": 41.5,
-          "pace_min_per_km": "5:54",
-          "hr_avg": 122,
-          "elevation_gain_m": 62,
-          "training_load": 83.7,
-          "hr_zones": {
-            "z1_sec": 166,
-            "z2_sec": 437,
-            "z3_sec": 1816,
-            "z4_sec": 52,
             "z5_sec": 0
           }
         }
