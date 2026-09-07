@@ -1,6 +1,54 @@
 {
-  "last_updated": "2026-09-06",
+  "last_updated": "2026-09-07",
   "entries": [
+    {
+      "date": "2026-09-07",
+      "hrv": 28,
+      "rhr": 58,
+      "sleep_score": 74,
+      "sleep_hours": 6.2,
+      "body_battery_peak": 79,
+      "body_battery_end": 61,
+      "steps": 8941,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "other",
+          "name": "São Paulo Caminhada",
+          "distance_km": 1.19,
+          "duration_min": 13.6,
+          "pace_min_per_km": null,
+          "hr_avg": 105,
+          "elevation_gain_m": 41,
+          "training_load": 5.4,
+          "hr_zones": {
+            "z1_sec": 694,
+            "z2_sec": 121,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "run",
+          "name": "São Paulo Corrida",
+          "distance_km": 7.01,
+          "duration_min": 37.6,
+          "pace_min_per_km": "5:21",
+          "hr_avg": 133,
+          "elevation_gain_m": 28,
+          "training_load": 86.6,
+          "hr_zones": {
+            "z1_sec": 105,
+            "z2_sec": 552,
+            "z3_sec": 1551,
+            "z4_sec": 18,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-06",
       "hrv": 31,
@@ -8,8 +56,8 @@
       "sleep_score": 79,
       "sleep_hours": 11.4,
       "body_battery_peak": 88,
-      "body_battery_end": 67,
-      "steps": 868,
+      "body_battery_end": 49,
+      "steps": 1382,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,37 +1975,6 @@
             "z2_sec": 95,
             "z3_sec": 2346,
             "z4_sec": 569,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "hrv": 27,
-      "rhr": 56,
-      "sleep_score": 62,
-      "sleep_hours": 5.5,
-      "body_battery_peak": 36,
-      "body_battery_end": 5,
-      "steps": 28546,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Paris Corrida",
-          "distance_km": 10.51,
-          "duration_min": 65.4,
-          "pace_min_per_km": "6:13",
-          "hr_avg": 121,
-          "elevation_gain_m": 67,
-          "training_load": 103.9,
-          "hr_zones": {
-            "z1_sec": 280,
-            "z2_sec": 853,
-            "z3_sec": 2747,
-            "z4_sec": 11,
             "z5_sec": 0
           }
         }
