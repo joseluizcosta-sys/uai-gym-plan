@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-09-07",
+  "last_updated": "2026-09-08",
   "entries": [
+    {
+      "date": "2026-09-08",
+      "hrv": 31,
+      "rhr": 60,
+      "sleep_score": 72,
+      "sleep_hours": 5.8,
+      "body_battery_peak": 68,
+      "body_battery_end": 47,
+      "steps": 13890,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 08/09/2026",
+          "distance_km": 11.29,
+          "duration_min": 75.6,
+          "pace_min_per_km": "6:41",
+          "hr_avg": 123,
+          "elevation_gain_m": 52,
+          "training_load": 84.1,
+          "hr_zones": {
+            "z1_sec": 1066,
+            "z2_sec": 924,
+            "z3_sec": 2399,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-07",
       "hrv": 28,
@@ -8,8 +39,8 @@
       "sleep_score": 74,
       "sleep_hours": 6.2,
       "body_battery_peak": 79,
-      "body_battery_end": 34,
-      "steps": 12206,
+      "body_battery_end": 32,
+      "steps": 12789,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1944,37 +1975,6 @@
             "z2_sec": 686,
             "z3_sec": 4181,
             "z4_sec": 228,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-10",
-      "hrv": 30,
-      "rhr": 53,
-      "sleep_score": 75,
-      "sleep_hours": 6.5,
-      "body_battery_peak": 54,
-      "body_battery_end": 11,
-      "steps": 34024,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida 10/07/2026",
-          "distance_km": 8.82,
-          "duration_min": 50.6,
-          "pace_min_per_km": "5:44",
-          "hr_avg": 130,
-          "elevation_gain_m": 44,
-          "training_load": 120.4,
-          "hr_zones": {
-            "z1_sec": 21,
-            "z2_sec": 95,
-            "z3_sec": 2346,
-            "z4_sec": 569,
             "z5_sec": 0
           }
         }
