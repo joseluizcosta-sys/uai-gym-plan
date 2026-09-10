@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-09-09",
+  "last_updated": "2026-09-10",
   "entries": [
+    {
+      "date": "2026-09-10",
+      "hrv": 30,
+      "rhr": 57,
+      "sleep_score": 79,
+      "sleep_hours": 7.2,
+      "body_battery_peak": 78,
+      "body_battery_end": 78,
+      "steps": 79,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-09",
       "hrv": 27,
@@ -8,8 +39,8 @@
       "sleep_score": 79,
       "sleep_hours": 6.9,
       "body_battery_peak": 82,
-      "body_battery_end": 43,
-      "steps": 8772,
+      "body_battery_end": 35,
+      "steps": 10356,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,54 +1958,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-12",
-      "hrv": 27,
-      "rhr": 56,
-      "sleep_score": 71,
-      "sleep_hours": 5.7,
-      "body_battery_peak": 59,
-      "body_battery_end": 21,
-      "steps": 24087,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "City of Westminster Corrida",
-          "distance_km": 10.15,
-          "duration_min": 50.8,
-          "pace_min_per_km": "5:00",
-          "hr_avg": 143,
-          "elevation_gain_m": 52,
-          "training_load": 229.1,
-          "hr_zones": {
-            "z1_sec": 15,
-            "z2_sec": 18,
-            "z3_sec": 550,
-            "z4_sec": 1660,
-            "z5_sec": 753
-          }
-        },
-        {
-          "type": "run",
-          "name": "Lambeth Corrida",
-          "distance_km": 4.0,
-          "duration_min": 27.3,
-          "pace_min_per_km": "6:49",
-          "hr_avg": 122,
-          "elevation_gain_m": 33,
-          "training_load": 46.4,
-          "hr_zones": {
-            "z1_sec": 76,
-            "z2_sec": 430,
-            "z3_sec": 889,
-            "z4_sec": 226,
             "z5_sec": 0
           }
         }
