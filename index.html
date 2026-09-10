@@ -3225,10 +3225,11 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
         <div style="font-size:24px;font-weight:900;color:var(--green)">Sub 9h</div>
         <div style="font-size:11px;color:var(--muted);margin-top:4px">~9:15/km médio</div>
       </div>
-      <div style="background:rgba(79,156,249,.1);border:1px solid rgba(79,156,249,.35);border-radius:12px;padding:16px;text-align:center">
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:6px">Meta B</div>
+      <div style="background:rgba(79,156,249,.18);border:2px solid rgba(79,156,249,.7);border-radius:12px;padding:16px 16px 14px;text-align:center;position:relative">
+        <div style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1.5px;padding:3px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase">✓ Alvo recomendado</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:6px;margin-top:4px">Meta B</div>
         <div style="font-size:24px;font-weight:900;color:var(--blue)">Sub 11h</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px">~11:18/km médio</div>
+        <div style="font-size:11px;color:var(--blue);margin-top:4px;font-weight:600">projeção: 10h–10h30</div>
       </div>
       <div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.35);border-radius:12px;padding:16px;text-align:center">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px">Meta C</div>
@@ -3514,7 +3515,142 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     <p style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.4">⚠️ <strong style="color:#e05c5c">Meta C — margem crítica:</strong> Macela 0h55 e Cachoeira 7Q 1h10 antes do corte. Qualquer problema na subida da Pedra da Macela compromete o finish. Interpolação linear proporcional entre fastest/slowest do histórico oficial.</p>
   </div>
 
-    <!-- CALOR & ESTRATÉGIA CLIMÁTICA -->
+    <!-- ESTRATÉGIA RECOMENDADA -->
+  <div style="margin-bottom:28px">
+    <div class="ph" style="font-size:16px;margin-bottom:12px">🧭 Estratégia Recomendada — Análise Garmin + Clima (10/set/2026)</div>
+
+    <!-- Form + clima -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:18px">
+      <div class="info-box" style="border-color:rgba(62,207,142,.4)">
+        <h3>📊 Estado de Forma</h3>
+        <div class="stat-row"><span class="sl">Training Readiness</span><span class="sv" style="color:var(--green)">64–75 · HIGH</span></div>
+        <div class="stat-row"><span class="sl">ACWR</span><span class="sv" style="color:var(--green)">99% · VERY GOOD</span></div>
+        <div class="stat-row"><span class="sl">Recovery time</span><span class="sv" style="color:var(--green)">0h · recuperado</span></div>
+        <div class="stat-row"><span class="sl">HRV semanal</span><span class="sv">30 · BALANCED</span></div>
+        <div class="stat-row"><span class="sl">Carga 30d</span><span class="sv">797 pts · taper OK</span></div>
+      </div>
+      <div class="info-box" style="border-color:rgba(79,156,249,.4)">
+        <h3>🌤️ Clima 19/set (Climatempo)</h3>
+        <div class="stat-row"><span class="sl">Temperatura</span><span class="sv" style="color:var(--green)">19–21°C ✓</span></div>
+        <div class="stat-row"><span class="sl">Umidade</span><span class="sv" style="color:var(--accent)">80–94%</span></div>
+        <div class="stat-row"><span class="sl">Chuva</span><span class="sv" style="color:var(--accent)">72% tarde/noite</span></div>
+        <div class="stat-row"><span class="sl">Vento</span><span class="sv">SW 2 km/h · calmo</span></div>
+        <div class="stat-row"><span class="sl">vs. projeção</span><span class="sv" style="color:var(--green)">8–10°C abaixo ↓</span></div>
+      </div>
+      <div class="info-box" style="border-color:rgba(245,166,35,.4)">
+        <h3>🎯 Conclusão</h3>
+        <div class="stat-row"><span class="sl">Alvo</span><span class="sv" style="color:var(--blue);font-weight:700">Meta B (Sub 11h)</span></div>
+        <div class="stat-row"><span class="sl">Projeção</span><span class="sv" style="color:var(--blue)">10h–10h30</span></div>
+        <div class="stat-row"><span class="sl">Clima</span><span class="sv">técnica &gt; calor</span></div>
+        <div class="stat-row"><span class="sl">Risco crítico</span><span class="sv" style="color:var(--red)">single track nocturno</span></div>
+        <div class="stat-row"><span class="sl">Risco 2</span><span class="sv" style="color:var(--accent)">Trilha do Ouro molhada</span></div>
+      </div>
+    </div>
+
+    <!-- Tabela de pacing -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px">
+      <div style="padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);border-bottom:1px solid var(--border)">⏱ Pacing alvo — Meta B · projeção 10h–10h30</div>
+      <div style="overflow-x:auto">
+        <table style="width:100%;font-size:12px;border-collapse:collapse;min-width:560px">
+          <thead>
+            <tr style="background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)">
+              <th style="padding:8px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Ponto</th>
+              <th style="padding:8px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">km</th>
+              <th style="padding:8px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--blue)">Alvo</th>
+              <th style="padding:8px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--red)">vs Corte</th>
+              <th style="padding:8px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">HR / Instrução</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;font-weight:700;color:var(--blue)">🏁 Largada</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">0</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700;color:var(--blue)">05:00</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">—</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--muted)">Z1 ≤115 · escuro · headlamp</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px">Grauna</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">13,5</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:600;color:var(--blue)">06:30</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">—</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--muted)">Z1–Z2 ≤115 · amanhecer</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(224,92,92,.04)">
+              <td style="padding:8px 12px;font-weight:600">Rio Pequeno <span style="font-size:9px;color:#e05c5c">✂</span></td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">22,6</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700;color:var(--blue)">08:30</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">3h45 antes</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--muted)">VT1 ≤122 · subida contínua</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;color:var(--accent);font-weight:600">⛰️ Pedra da Macela</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">35,6</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:600;color:var(--blue)">11:15</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">—</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--red);font-weight:600">VT1 ≤122 obrigatório · caminhar se HR &gt;125</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(224,92,92,.04)">
+              <td style="padding:8px 12px;font-weight:600">Macela <span style="font-size:9px;color:#e05c5c">✂</span></td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">37,9</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700;color:var(--blue)">11:35</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">5h25 antes</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--muted)">refeição quente · eletrólitos</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px">Janela do Mar</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">39,5</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:600;color:var(--blue)">11:50</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">—</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--muted)">descida técnica · preservar quad</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:rgba(224,92,92,.04)">
+              <td style="padding:8px 12px;font-weight:600">Cachoeira 7Q <span style="font-size:9px;color:#e05c5c">✂</span></td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">47,0</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700;color:var(--blue)">13:10</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">6h50 antes</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--muted)">água + WC · último abastecimento</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px">Caboclo</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">53,3</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:600;color:var(--blue)">14:10</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">—</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--accent)">⚠ Trilha do Ouro começa · chuva possível</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;font-weight:700;color:var(--green)">🏆 Chegada</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--muted)">58,7</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:800;color:var(--blue);font-size:14px">~15:10</td>
+              <td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:700">6h20 antes</td>
+              <td style="padding:8px 12px;font-size:11px;color:var(--green);font-weight:600">10h10 de prova</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3 alertas táticos -->
+    <div class="sci-grid">
+      <div class="sci-card" style="border-color:rgba(224,92,92,.4)">
+        <span class="sci-icon">🗺️</span>
+        <h4>Rio Peq. → Pedra da Macela: seção decisiva</h4>
+        <p>+1.435m em 13km de single track técnico. Se HR passar de 125 — caminhar imediatamente. Subir no limite do VT1 (122 bpm) aqui decide se você chega inteiro no km 47. Não há recuperação depois do pico.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(245,166,35,.4)">
+        <span class="sci-icon">⛰️</span>
+        <h4>Trilha do Ouro com chuva = risco de queda</h4>
+        <p>72% de chance de pancadas na tarde. A Trilha do Ouro (km 53–58,7) tem calçamento secular irregular. Se chover antes de Caboclo, reduza o ritmo da descida final — 5 minutos a mais valem mais do que uma queda no km 55.</p>
+      </div>
+      <div class="sci-card" style="border-color:rgba(79,156,249,.4)">
+        <span class="sci-icon">🧂</span>
+        <h4>Eletrólitos pela umidade, não pelo calor</h4>
+        <p>19°C mas 90% de umidade: suor não evapora, perda de sódio continua. Manter 400–500mg Na⁺/h mesmo sem sentir calor. Câimbras aparecem km 40+ sem reposição. Não pular essa estratégia por causa da temperatura baixa.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALOR & ESTRATÉGIA CLIMÁTICA -->
   <div style="margin-bottom:28px">
     <div class="ph" style="font-size:16px;margin-bottom:12px">🌡️ Gestão do Calor — O Fator Decisivo</div>
     <div class="sci-grid">
