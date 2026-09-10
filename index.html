@@ -3449,6 +3449,112 @@ footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;border-t
     </div>
   </div>
 
+  <!-- ESTRATÉGIA DE TEMPO POR PONTO -->
+  <div style="margin-bottom:28px">
+    <div class="ph" style="font-size:16px;margin-bottom:8px">⏱️ Estratégia de Tempo por Ponto de Apoio</div>
+    <p class="ps" style="margin-top:0;margin-bottom:14px">Horários estimados por interpolação entre os tempos mais rápidos e mais lentos do histórico oficial (paraty.utmb.world). Largada 05h00.</p>
+
+    <!-- Legend -->
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;font-size:11px">
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(62,207,142,.25);border:1px solid rgba(62,207,142,.5);display:inline-block"></span><strong style="color:var(--green)">Meta A</strong> Sub 9h · chegada 14h00</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(79,156,249,.25);border:1px solid rgba(79,156,249,.5);display:inline-block"></span><strong style="color:var(--blue)">Meta B</strong> Sub 11h · chegada 16h00</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(245,166,35,.25);border:1px solid rgba(245,166,35,.5);display:inline-block"></span><strong style="color:var(--accent)">Meta C</strong> Sub 16h30 · chegada 21h30</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(224,92,92,.25);border:1px solid rgba(224,92,92,.5);display:inline-block"></span><strong style="color:var(--red)">Corte</strong> sair antes</span>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+      <div style="overflow-x:auto">
+        <table style="width:100%;font-size:12px;border-collapse:collapse;min-width:640px">
+          <thead>
+            <tr style="background:rgba(255,255,255,.04);border-bottom:1px solid var(--border)">
+              <th style="padding:9px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Ponto</th>
+              <th style="padding:9px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">km</th>
+              <th style="padding:9px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--green)">Meta A · 9h</th>
+              <th style="padding:9px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--blue)">Meta B · 11h</th>
+              <th style="padding:9px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--accent)">Meta C · 16h30</th>
+              <th style="padding:9px 12px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--red)">Corte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:700;color:var(--blue)">🏁 Paraty Largada</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">0</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:700;color:var(--green)">05:00</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:700;color:var(--blue)">05:00</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:700;color:var(--accent)">05:00</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600">Grauna</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">13,5</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">06:35</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">06:55</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">07:55</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600">Rio Pequeno</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">22,6</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">08:10<div style="font-size:9px;color:var(--muted);font-weight:400">4h05 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">08:55<div style="font-size:9px;color:var(--muted);font-weight:400">3h20 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">10:55<div style="font-size:9px;color:var(--muted);font-weight:400">1h20 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;font-weight:800;color:var(--red)">12:15</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600;color:var(--accent)">⛰️ Pedra da Macela <span style="font-size:10px;color:var(--muted);font-weight:400">(pico)</span></td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">35,6</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">10:40</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">11:55</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">15:30</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600">Macela</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">37,9</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">11:00<div style="font-size:9px;color:var(--muted);font-weight:400">6h00 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">12:20<div style="font-size:9px;color:var(--muted);font-weight:400">4h40 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">16:05<div style="font-size:9px;color:var(--muted);font-weight:400;color:var(--red)">⚠ 0h55 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;font-weight:800;color:var(--red)">17:00</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600">Janela do Mar</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">39,5</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">11:15</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">12:40</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">16:35</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600">Cachoeira 7 Quedas</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">47,0</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">12:30<div style="font-size:9px;color:var(--muted);font-weight:400">7h30 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">14:10<div style="font-size:9px;color:var(--muted);font-weight:400">5h50 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">18:50<div style="font-size:9px;color:var(--muted);font-weight:400">1h10 antes corte</div></td>
+              <td style="padding:9px 12px;text-align:center;font-weight:800;color:var(--red)">20:00</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:9px 12px;font-weight:600">Caboclo</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">53,3</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.06);font-weight:600;color:var(--green)">13:20</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.06);font-weight:600;color:var(--blue)">15:15</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.06);font-weight:600;color:var(--accent)">20:25</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">—</td>
+            </tr>
+            <tr>
+              <td style="padding:9px 12px;font-weight:700;color:var(--green)">🏆 Paraty Chegada</td>
+              <td style="padding:9px 12px;text-align:center;color:var(--muted)">58,7</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(62,207,142,.12);font-weight:800;color:var(--green);font-size:14px">14:00</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(79,156,249,.12);font-weight:800;color:var(--blue);font-size:14px">16:00</td>
+              <td style="padding:9px 12px;text-align:center;background:rgba(245,166,35,.12);font-weight:800;color:var(--accent);font-size:14px">21:30</td>
+              <td style="padding:9px 12px;text-align:center;font-weight:800;color:var(--red)">21:30</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.4">⚠️ Meta C: margem crítica em Macela (0h55) e Cachoeira 7 Quedas (1h10) — qualquer atraso nessas seções compromete o finish. Interpolação por proporção linear entre fastest/slowest do histórico oficial.</p>
+  </div>
+
   <!-- CALOR & ESTRATÉGIA CLIMÁTICA -->
   <div style="margin-bottom:28px">
     <div class="ph" style="font-size:16px;margin-bottom:12px">🌡️ Gestão do Calor — O Fator Decisivo</div>
