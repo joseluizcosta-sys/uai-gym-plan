@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-09-13",
+  "last_updated": "2026-09-14",
   "entries": [
+    {
+      "date": "2026-09-14",
+      "hrv": 29,
+      "rhr": 57,
+      "sleep_score": 73,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 60,
+      "body_battery_end": 60,
+      "steps": 21,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "swim",
+          "name": "Natação em piscina",
+          "distance_km": 1.33,
+          "duration_min": 45.6,
+          "pace_min_per_km": null,
+          "hr_avg": 120,
+          "elevation_gain_m": null,
+          "training_load": 60.8,
+          "hr_zones": {
+            "z1_sec": 493,
+            "z2_sec": 1717,
+            "z3_sec": 391,
+            "z4_sec": 88,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-13",
       "hrv": 31,
@@ -8,8 +39,8 @@
       "sleep_score": 80,
       "sleep_hours": 7.0,
       "body_battery_peak": 64,
-      "body_battery_end": 38,
-      "steps": 1227,
+      "body_battery_end": 20,
+      "steps": 1818,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1944,37 +1975,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-16",
-      "hrv": 32,
-      "rhr": 54,
-      "sleep_score": 71,
-      "sleep_hours": 6.4,
-      "body_battery_peak": 51,
-      "body_battery_end": 7,
-      "steps": 15166,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida 16/07/2026",
-          "distance_km": 9.35,
-          "duration_min": 55.2,
-          "pace_min_per_km": "5:54",
-          "hr_avg": 129,
-          "elevation_gain_m": 23,
-          "training_load": 95.8,
-          "hr_zones": {
-            "z1_sec": 73,
-            "z2_sec": 295,
-            "z3_sec": 2142,
-            "z4_sec": 781,
             "z5_sec": 0
           }
         }
