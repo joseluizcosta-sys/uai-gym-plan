@@ -1,15 +1,46 @@
 {
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "entries": [
+    {
+      "date": "2026-09-22",
+      "hrv": 31,
+      "rhr": 55,
+      "sleep_score": 60,
+      "sleep_hours": 4.7,
+      "body_battery_peak": 72,
+      "body_battery_end": 43,
+      "steps": 7185,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida em esteira",
+          "distance_km": 5.33,
+          "duration_min": 53.9,
+          "pace_min_per_km": "10:06",
+          "hr_avg": 95,
+          "elevation_gain_m": null,
+          "training_load": 9.1,
+          "hr_zones": {
+            "z1_sec": 2428,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-21",
       "hrv": 25,
-      "rhr": 57,
+      "rhr": 53,
       "sleep_score": 62,
       "sleep_hours": 9.8,
-      "body_battery_peak": 59,
-      "body_battery_end": 59,
-      "steps": 47,
+      "body_battery_peak": 64,
+      "body_battery_end": 42,
+      "steps": 967,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1945,37 +1976,6 @@
             "z3_sec": 18971,
             "z4_sec": 10570,
             "z5_sec": 179
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-24",
-      "hrv": 28,
-      "rhr": 59,
-      "sleep_score": 51,
-      "sleep_hours": 5.8,
-      "body_battery_peak": 33,
-      "body_battery_end": 5,
-      "steps": 7773,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
           }
         }
       ]
