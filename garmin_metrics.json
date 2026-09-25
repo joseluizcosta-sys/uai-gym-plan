@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-09-23",
+  "last_updated": "2026-09-24",
   "entries": [
+    {
+      "date": "2026-09-24",
+      "hrv": 34,
+      "rhr": 57,
+      "sleep_score": 66,
+      "sleep_hours": 5.0,
+      "body_battery_peak": 68,
+      "body_battery_end": 64,
+      "steps": 7703,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "other",
+          "name": "São Paulo Caminhada",
+          "distance_km": 4.82,
+          "duration_min": 54.9,
+          "pace_min_per_km": null,
+          "hr_avg": 82,
+          "elevation_gain_m": 32,
+          "training_load": 9.5,
+          "hr_zones": {
+            "z1_sec": 126,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-23",
       "hrv": 30,
@@ -8,8 +39,8 @@
       "sleep_score": 61,
       "sleep_hours": 5.4,
       "body_battery_peak": 72,
-      "body_battery_end": 69,
-      "steps": 227,
+      "body_battery_end": 19,
+      "steps": 588,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,37 +1958,6 @@
       "body_battery_peak": 31,
       "body_battery_end": 21,
       "steps": 1164,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-26",
-      "hrv": null,
-      "rhr": 60,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": 5,
-      "body_battery_end": 5,
-      "steps": 75378,
       "weight": null,
       "body_fat": null,
       "activities": [
