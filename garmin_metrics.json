@@ -1,15 +1,46 @@
 {
-  "last_updated": "2026-09-24",
+  "last_updated": "2026-09-25",
   "entries": [
+    {
+      "date": "2026-09-25",
+      "hrv": 33,
+      "rhr": 55,
+      "sleep_score": 81,
+      "sleep_hours": 7.1,
+      "body_battery_peak": 85,
+      "body_battery_end": 85,
+      "steps": 449,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-09-24",
       "hrv": 34,
-      "rhr": 57,
+      "rhr": 52,
       "sleep_score": 66,
       "sleep_hours": 5.0,
       "body_battery_peak": 68,
-      "body_battery_end": 64,
-      "steps": 7703,
+      "body_battery_end": 33,
+      "steps": 8578,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1944,37 +1975,6 @@
             "z2_sec": 92,
             "z3_sec": 457,
             "z4_sec": 3,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-27",
-      "hrv": 28,
-      "rhr": 60,
-      "sleep_score": 49,
-      "sleep_hours": 9.8,
-      "body_battery_peak": 31,
-      "body_battery_end": 21,
-      "steps": 1164,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
