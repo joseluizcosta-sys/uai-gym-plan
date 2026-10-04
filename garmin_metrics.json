@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-10-03",
+  "last_updated": "2026-10-04",
   "entries": [
+    {
+      "date": "2026-10-04",
+      "hrv": 29,
+      "rhr": 57,
+      "sleep_score": 74,
+      "sleep_hours": 6.3,
+      "body_battery_peak": 72,
+      "body_battery_end": 66,
+      "steps": 2256,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-03",
       "hrv": 29,
@@ -8,8 +39,8 @@
       "sleep_score": 61,
       "sleep_hours": 4.8,
       "body_battery_peak": 57,
-      "body_battery_end": 23,
-      "steps": 15343,
+      "body_battery_end": 20,
+      "steps": 15988,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1944,37 +1975,6 @@
             "z2_sec": 319,
             "z3_sec": 1939,
             "z4_sec": 124,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-05",
-      "hrv": 29,
-      "rhr": 59,
-      "sleep_score": 68,
-      "sleep_hours": 6.6,
-      "body_battery_peak": 29,
-      "body_battery_end": 5,
-      "steps": 4429,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
