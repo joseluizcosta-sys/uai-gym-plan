@@ -1,15 +1,46 @@
 {
-  "last_updated": "2026-10-09",
+  "last_updated": "2026-10-10",
   "entries": [
+    {
+      "date": "2026-10-10",
+      "hrv": 31,
+      "rhr": 58,
+      "sleep_score": 64,
+      "sleep_hours": 5.0,
+      "body_battery_peak": 58,
+      "body_battery_end": 37,
+      "steps": 13894,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Corrida 10/10/2026",
+          "distance_km": 12.62,
+          "duration_min": 72.5,
+          "pace_min_per_km": "5:44",
+          "hr_avg": 135,
+          "elevation_gain_m": 61,
+          "training_load": 125.5,
+          "hr_zones": {
+            "z1_sec": 81,
+            "z2_sec": 677,
+            "z3_sec": 2681,
+            "z4_sec": 783,
+            "z5_sec": 120
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-09",
       "hrv": 28,
-      "rhr": 60,
+      "rhr": 59,
       "sleep_score": 69,
       "sleep_hours": 5.8,
       "body_battery_peak": 47,
-      "body_battery_end": 29,
-      "steps": 2049,
+      "body_battery_end": 21,
+      "steps": 2788,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1944,37 +1975,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-11",
-      "hrv": 36,
-      "rhr": 55,
-      "sleep_score": 70,
-      "sleep_hours": 5.5,
-      "body_battery_peak": 41,
-      "body_battery_end": 15,
-      "steps": 14553,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida 11/08/2026",
-          "distance_km": 9.01,
-          "duration_min": 51.2,
-          "pace_min_per_km": "5:40",
-          "hr_avg": 128,
-          "elevation_gain_m": 33,
-          "training_load": 116.7,
-          "hr_zones": {
-            "z1_sec": 35,
-            "z2_sec": 187,
-            "z3_sec": 2464,
-            "z4_sec": 368,
             "z5_sec": 0
           }
         }
