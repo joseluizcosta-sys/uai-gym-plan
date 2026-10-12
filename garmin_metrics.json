@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-10-11",
+  "last_updated": "2026-10-12",
   "entries": [
+    {
+      "date": "2026-10-12",
+      "hrv": 28,
+      "rhr": 56,
+      "sleep_score": 71,
+      "sleep_hours": 5.8,
+      "body_battery_peak": 69,
+      "body_battery_end": 69,
+      "steps": 146,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-11",
       "hrv": 24,
@@ -8,8 +39,8 @@
       "sleep_score": 63,
       "sleep_hours": 5.8,
       "body_battery_peak": 43,
-      "body_battery_end": 20,
-      "steps": 8929,
+      "body_battery_end": 18,
+      "steps": 9092,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1961,37 +1992,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-13",
-      "hrv": 34,
-      "rhr": 56,
-      "sleep_score": 69,
-      "sleep_hours": 5.3,
-      "body_battery_peak": 67,
-      "body_battery_end": 19,
-      "steps": 12466,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "São Paulo Corrida",
-          "distance_km": 6.53,
-          "duration_min": 43.1,
-          "pace_min_per_km": "6:36",
-          "hr_avg": 121,
-          "elevation_gain_m": 23,
-          "training_load": 64.1,
-          "hr_zones": {
-            "z1_sec": 22,
-            "z2_sec": 805,
-            "z3_sec": 1717,
-            "z4_sec": 9,
             "z5_sec": 0
           }
         }
