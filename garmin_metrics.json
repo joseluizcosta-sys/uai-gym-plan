@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-14",
   "entries": [
+    {
+      "date": "2026-10-14",
+      "hrv": 31,
+      "rhr": 54,
+      "sleep_score": 88,
+      "sleep_hours": 8.4,
+      "body_battery_peak": 81,
+      "body_battery_end": 60,
+      "steps": 3735,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-13",
       "hrv": 30,
@@ -8,8 +39,8 @@
       "sleep_score": 71,
       "sleep_hours": 5.5,
       "body_battery_peak": 66,
-      "body_battery_end": 37,
-      "steps": 12459,
+      "body_battery_end": 22,
+      "steps": 12779,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1962,37 +1993,6 @@
             "z3_sec": 3162,
             "z4_sec": 13442,
             "z5_sec": 685
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-15",
-      "hrv": 28,
-      "rhr": 59,
-      "sleep_score": 58,
-      "sleep_hours": 7.5,
-      "body_battery_peak": 52,
-      "body_battery_end": 18,
-      "steps": 6937,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
           }
         }
       ]
