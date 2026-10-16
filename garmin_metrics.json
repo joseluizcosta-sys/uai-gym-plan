@@ -1,6 +1,54 @@
 {
-  "last_updated": "2026-10-14",
+  "last_updated": "2026-10-15",
   "entries": [
+    {
+      "date": "2026-10-15",
+      "hrv": 36,
+      "rhr": 53,
+      "sleep_score": 61,
+      "sleep_hours": 4.8,
+      "body_battery_peak": 77,
+      "body_battery_end": 17,
+      "steps": 15645,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "other",
+          "name": "São Paulo Caminhada",
+          "distance_km": 2.0,
+          "duration_min": 21.0,
+          "pace_min_per_km": null,
+          "hr_avg": 99,
+          "elevation_gain_m": 23,
+          "training_load": 5.8,
+          "hr_zones": {
+            "z1_sec": 1038,
+            "z2_sec": 175,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        },
+        {
+          "type": "run",
+          "name": "São Paulo Corrida",
+          "distance_km": 8.03,
+          "duration_min": 46.7,
+          "pace_min_per_km": "5:48",
+          "hr_avg": 129,
+          "elevation_gain_m": 37,
+          "training_load": 82.4,
+          "hr_zones": {
+            "z1_sec": 164,
+            "z2_sec": 714,
+            "z3_sec": 1648,
+            "z4_sec": 259,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-14",
       "hrv": 31,
@@ -8,8 +56,8 @@
       "sleep_score": 88,
       "sleep_hours": 8.4,
       "body_battery_peak": 81,
-      "body_battery_end": 60,
-      "steps": 3735,
+      "body_battery_end": 43,
+      "steps": 5739,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -65,7 +113,7 @@
     },
     {
       "date": "2026-10-12",
-      "hrv": 28,
+      "hrv": null,
       "rhr": 56,
       "sleep_score": 71,
       "sleep_hours": 5.8,
@@ -1962,37 +2010,6 @@
             "z3_sec": 0,
             "z4_sec": 0,
             "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-16",
-      "hrv": 31,
-      "rhr": 59,
-      "sleep_score": 38,
-      "sleep_hours": 3.4,
-      "body_battery_peak": 38,
-      "body_battery_end": 5,
-      "steps": 49157,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Itatiaia Corrida",
-          "distance_km": 41.55,
-          "duration_min": 293.5,
-          "pace_min_per_km": "7:03",
-          "hr_avg": 140,
-          "elevation_gain_m": 1173,
-          "training_load": 411.1,
-          "hr_zones": {
-            "z1_sec": 20,
-            "z2_sec": 202,
-            "z3_sec": 3162,
-            "z4_sec": 13442,
-            "z5_sec": 685
           }
         }
       ]
