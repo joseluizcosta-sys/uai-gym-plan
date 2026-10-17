@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-17",
   "entries": [
+    {
+      "date": "2026-10-17",
+      "hrv": 30,
+      "rhr": 56,
+      "sleep_score": 78,
+      "sleep_hours": 6.5,
+      "body_battery_peak": 65,
+      "body_battery_end": 30,
+      "steps": 24728,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Caminhada com corrida 17/10/2026",
+          "distance_km": 25.01,
+          "duration_min": 142.7,
+          "pace_min_per_km": "5:42",
+          "hr_avg": 143,
+          "elevation_gain_m": 195,
+          "training_load": 225.4,
+          "hr_zones": {
+            "z1_sec": 23,
+            "z2_sec": 71,
+            "z3_sec": 3723,
+            "z4_sec": 4744,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-16",
       "hrv": 33,
@@ -8,8 +39,8 @@
       "sleep_score": 72,
       "sleep_hours": 5.7,
       "body_battery_peak": 65,
-      "body_battery_end": 53,
-      "steps": 1019,
+      "body_battery_end": 21,
+      "steps": 2541,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1978,37 +2009,6 @@
             "z2_sec": 1365,
             "z3_sec": 449,
             "z4_sec": 4,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-18",
-      "hrv": 29,
-      "rhr": 56,
-      "sleep_score": 74,
-      "sleep_hours": 6.9,
-      "body_battery_peak": 70,
-      "body_battery_end": 46,
-      "steps": 7515,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida em esteira",
-          "distance_km": 3.0,
-          "duration_min": 36.3,
-          "pace_min_per_km": "12:06",
-          "hr_avg": 102,
-          "elevation_gain_m": null,
-          "training_load": 10.8,
-          "hr_zones": {
-            "z1_sec": 1351,
-            "z2_sec": 194,
-            "z3_sec": 85,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
