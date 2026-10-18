@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-10-17",
+  "last_updated": "2026-10-18",
   "entries": [
+    {
+      "date": "2026-10-18",
+      "hrv": 29,
+      "rhr": 57,
+      "sleep_score": 59,
+      "sleep_hours": 4.5,
+      "body_battery_peak": 46,
+      "body_battery_end": 22,
+      "steps": 24030,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "Pirapora do Bom Jesus Corrida",
+          "distance_km": 16.05,
+          "duration_min": 170.5,
+          "pace_min_per_km": "10:37",
+          "hr_avg": 128,
+          "elevation_gain_m": 852,
+          "training_load": 122.5,
+          "hr_zones": {
+            "z1_sec": 1217,
+            "z2_sec": 2187,
+            "z3_sec": 5277,
+            "z4_sec": 1223,
+            "z5_sec": 170
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-17",
       "hrv": 30,
@@ -8,8 +39,8 @@
       "sleep_score": 78,
       "sleep_hours": 6.5,
       "body_battery_peak": 65,
-      "body_battery_end": 13,
-      "steps": 27045,
+      "body_battery_end": 20,
+      "steps": 27168,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1961,54 +1992,6 @@
             "z2_sec": 735,
             "z3_sec": 1447,
             "z4_sec": 122,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-19",
-      "hrv": 35,
-      "rhr": 56,
-      "sleep_score": 73,
-      "sleep_hours": 6.0,
-      "body_battery_peak": 90,
-      "body_battery_end": 27,
-      "steps": 5962,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "other",
-          "name": "Ciclismo em local fechado",
-          "distance_km": null,
-          "duration_min": 20.0,
-          "pace_min_per_km": null,
-          "hr_avg": 95,
-          "elevation_gain_m": null,
-          "training_load": 5.9,
-          "hr_zones": {
-            "z1_sec": 1187,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        },
-        {
-          "type": "swim",
-          "name": "Natação em piscina",
-          "distance_km": 1.74,
-          "duration_min": 59.3,
-          "pace_min_per_km": null,
-          "hr_avg": 114,
-          "elevation_gain_m": null,
-          "training_load": 53.8,
-          "hr_zones": {
-            "z1_sec": 1454,
-            "z2_sec": 1365,
-            "z3_sec": 449,
-            "z4_sec": 4,
             "z5_sec": 0
           }
         }
