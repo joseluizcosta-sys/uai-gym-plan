@@ -4,12 +4,12 @@
     {
       "date": "2026-10-19",
       "hrv": 29,
-      "rhr": 57,
+      "rhr": 55,
       "sleep_score": 81,
       "sleep_hours": 8.2,
       "body_battery_peak": 59,
-      "body_battery_end": 59,
-      "steps": 24,
+      "body_battery_end": 48,
+      "steps": 1015,
       "weight": null,
       "body_fat": null,
       "activities": [
