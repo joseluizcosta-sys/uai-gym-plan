@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-10-24",
+  "last_updated": "2026-10-25",
   "entries": [
+    {
+      "date": "2026-10-25",
+      "hrv": null,
+      "rhr": 57,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": 35,
+      "body_battery_end": 35,
+      "steps": 122,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-24",
       "hrv": 37,
@@ -8,8 +39,8 @@
       "sleep_score": 62,
       "sleep_hours": 4.8,
       "body_battery_peak": 69,
-      "body_battery_end": 8,
-      "steps": 42282,
+      "body_battery_end": 5,
+      "steps": 42899,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1927,54 +1958,6 @@
             "z2_sec": 2005,
             "z3_sec": 335,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-26",
-      "hrv": 33,
-      "rhr": 59,
-      "sleep_score": 78,
-      "sleep_hours": 6.6,
-      "body_battery_peak": 71,
-      "body_battery_end": 13,
-      "steps": 5902,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "other",
-          "name": "Ciclismo em local fechado",
-          "distance_km": null,
-          "duration_min": 20.0,
-          "pace_min_per_km": null,
-          "hr_avg": 102,
-          "elevation_gain_m": null,
-          "training_load": 12.4,
-          "hr_zones": {
-            "z1_sec": 768,
-            "z2_sec": 433,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        },
-        {
-          "type": "swim",
-          "name": "Natação em piscina",
-          "distance_km": 2.45,
-          "duration_min": 60.9,
-          "pace_min_per_km": null,
-          "hr_avg": 129,
-          "elevation_gain_m": null,
-          "training_load": 113.1,
-          "hr_zones": {
-            "z1_sec": 350,
-            "z2_sec": 1495,
-            "z3_sec": 1643,
-            "z4_sec": 116,
             "z5_sec": 0
           }
         }
