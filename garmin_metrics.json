@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-01",
+  "last_updated": "2026-11-02",
   "entries": [
+    {
+      "date": "2026-11-02",
+      "hrv": 31,
+      "rhr": 51,
+      "sleep_score": 69,
+      "sleep_hours": 5.9,
+      "body_battery_peak": 74,
+      "body_battery_end": 50,
+      "steps": 1083,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-01",
       "hrv": 30,
@@ -8,8 +39,8 @@
       "sleep_score": 53,
       "sleep_hours": 6.6,
       "body_battery_peak": 60,
-      "body_battery_end": 30,
-      "steps": 4819,
+      "body_battery_end": 26,
+      "steps": 5157,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1910,54 +1941,6 @@
             "z2_sec": 0,
             "z3_sec": 0,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-03",
-      "hrv": 34,
-      "rhr": 57,
-      "sleep_score": 75,
-      "sleep_hours": 6.4,
-      "body_battery_peak": 69,
-      "body_battery_end": 22,
-      "steps": 21750,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "other",
-          "name": "São Paulo Caminhada",
-          "distance_km": 2.51,
-          "duration_min": 26.8,
-          "pace_min_per_km": null,
-          "hr_avg": 94,
-          "elevation_gain_m": 26,
-          "training_load": 6.6,
-          "hr_zones": {
-            "z1_sec": 706,
-            "z2_sec": 0,
-            "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        },
-        {
-          "type": "run",
-          "name": "Corrida 03/09/2026",
-          "distance_km": 11.16,
-          "duration_min": 64.9,
-          "pace_min_per_km": "5:48",
-          "hr_avg": 124,
-          "elevation_gain_m": 44,
-          "training_load": 128.7,
-          "hr_zones": {
-            "z1_sec": 509,
-            "z2_sec": 2284,
-            "z3_sec": 471,
-            "z4_sec": 524,
             "z5_sec": 0
           }
         }
