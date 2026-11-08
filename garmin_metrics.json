@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-08",
   "entries": [
+    {
+      "date": "2026-11-08",
+      "hrv": null,
+      "rhr": 57,
+      "sleep_score": null,
+      "sleep_hours": null,
+      "body_battery_peak": 27,
+      "body_battery_end": 27,
+      "steps": 63,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-07",
       "hrv": 27,
@@ -9,7 +40,7 @@
       "sleep_hours": 4.4,
       "body_battery_peak": 45,
       "body_battery_end": 5,
-      "steps": 45616,
+      "steps": 45869,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1926,37 +1957,6 @@
             "z1_sec": 336,
             "z2_sec": 958,
             "z3_sec": 1114,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-09",
-      "hrv": 27,
-      "rhr": 56,
-      "sleep_score": 79,
-      "sleep_hours": 6.9,
-      "body_battery_peak": 82,
-      "body_battery_end": 35,
-      "steps": 10356,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "rest",
-          "name": "Descanso",
-          "distance_km": null,
-          "duration_min": null,
-          "pace_min_per_km": null,
-          "hr_avg": null,
-          "elevation_gain_m": null,
-          "training_load": null,
-          "hr_zones": {
-            "z1_sec": 0,
-            "z2_sec": 0,
-            "z3_sec": 0,
             "z4_sec": 0,
             "z5_sec": 0
           }
