@@ -1,15 +1,46 @@
 {
-  "last_updated": "2026-11-08",
+  "last_updated": "2026-11-09",
   "entries": [
     {
+      "date": "2026-11-09",
+      "hrv": 29,
+      "rhr": 56,
+      "sleep_score": 70,
+      "sleep_hours": 5.9,
+      "body_battery_peak": 58,
+      "body_battery_end": 42,
+      "steps": 2364,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "swim",
+          "name": "Natação em piscina",
+          "distance_km": 1.37,
+          "duration_min": 30.1,
+          "pace_min_per_km": null,
+          "hr_avg": 121,
+          "elevation_gain_m": null,
+          "training_load": 47.3,
+          "hr_zones": {
+            "z1_sec": 147,
+            "z2_sec": 672,
+            "z3_sec": 953,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-11-08",
-      "hrv": null,
-      "rhr": 57,
-      "sleep_score": null,
-      "sleep_hours": null,
-      "body_battery_peak": 27,
-      "body_battery_end": 27,
-      "steps": 63,
+      "hrv": 24,
+      "rhr": 56,
+      "sleep_score": 62,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 30,
+      "body_battery_end": 12,
+      "steps": 4306,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1926,37 +1957,6 @@
             "z1_sec": 0,
             "z2_sec": 0,
             "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-10",
-      "hrv": 30,
-      "rhr": 57,
-      "sleep_score": 79,
-      "sleep_hours": 7.2,
-      "body_battery_peak": 78,
-      "body_battery_end": 37,
-      "steps": 9805,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Corrida 10/09/2026",
-          "distance_km": 7.0,
-          "duration_min": 40.1,
-          "pace_min_per_km": "5:43",
-          "hr_avg": 125,
-          "elevation_gain_m": null,
-          "training_load": 46.9,
-          "hr_zones": {
-            "z1_sec": 336,
-            "z2_sec": 958,
-            "z3_sec": 1114,
             "z4_sec": 0,
             "z5_sec": 0
           }
