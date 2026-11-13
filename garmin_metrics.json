@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "entries": [
+    {
+      "date": "2026-11-13",
+      "hrv": 27,
+      "rhr": 59,
+      "sleep_score": 65,
+      "sleep_hours": 5.4,
+      "body_battery_peak": 36,
+      "body_battery_end": 36,
+      "steps": 37,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "rest",
+          "name": "Descanso",
+          "distance_km": null,
+          "duration_min": null,
+          "pace_min_per_km": null,
+          "hr_avg": null,
+          "elevation_gain_m": null,
+          "training_load": null,
+          "hr_zones": {
+            "z1_sec": 0,
+            "z2_sec": 0,
+            "z3_sec": 0,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-12",
       "hrv": 27,
@@ -8,8 +39,8 @@
       "sleep_score": 72,
       "sleep_hours": 6.6,
       "body_battery_peak": 50,
-      "body_battery_end": 18,
-      "steps": 17426,
+      "body_battery_end": 5,
+      "steps": 20499,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1910,37 +1941,6 @@
             "z2_sec": 2942,
             "z3_sec": 165,
             "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-14",
-      "hrv": 29,
-      "rhr": 57,
-      "sleep_score": 73,
-      "sleep_hours": 5.5,
-      "body_battery_peak": 60,
-      "body_battery_end": 19,
-      "steps": 10625,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "swim",
-          "name": "Natação em piscina",
-          "distance_km": 1.33,
-          "duration_min": 45.6,
-          "pace_min_per_km": null,
-          "hr_avg": 120,
-          "elevation_gain_m": null,
-          "training_load": 60.8,
-          "hr_zones": {
-            "z1_sec": 493,
-            "z2_sec": 1717,
-            "z3_sec": 391,
-            "z4_sec": 88,
             "z5_sec": 0
           }
         }
