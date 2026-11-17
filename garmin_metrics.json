@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-16",
+  "last_updated": "2026-11-17",
   "entries": [
+    {
+      "date": "2026-11-17",
+      "hrv": 27,
+      "rhr": 58,
+      "sleep_score": 63,
+      "sleep_hours": 5.1,
+      "body_battery_peak": 44,
+      "body_battery_end": 44,
+      "steps": 610,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "run",
+          "name": "São Paulo Corrida",
+          "distance_km": 12.12,
+          "duration_min": 71.5,
+          "pace_min_per_km": "5:53",
+          "hr_avg": 129,
+          "elevation_gain_m": 52,
+          "training_load": 114.8,
+          "hr_zones": {
+            "z1_sec": 56,
+            "z2_sec": 591,
+            "z3_sec": 3615,
+            "z4_sec": 4,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-16",
       "hrv": 25,
@@ -8,8 +39,8 @@
       "sleep_score": 73,
       "sleep_hours": 8.3,
       "body_battery_peak": 36,
-      "body_battery_end": 31,
-      "steps": 2866,
+      "body_battery_end": 11,
+      "steps": 3893,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1910,37 +1941,6 @@
             "z2_sec": 29526,
             "z3_sec": 28381,
             "z4_sec": 3208,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-18",
-      "hrv": 29,
-      "rhr": 56,
-      "sleep_score": 82,
-      "sleep_hours": 7.4,
-      "body_battery_peak": 64,
-      "body_battery_end": 29,
-      "steps": 14386,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "Paraty Corrida",
-          "distance_km": 5.01,
-          "duration_min": 35.6,
-          "pace_min_per_km": "7:06",
-          "hr_avg": 125,
-          "elevation_gain_m": 20,
-          "training_load": 40.6,
-          "hr_zones": {
-            "z1_sec": 145,
-            "z2_sec": 1018,
-            "z3_sec": 928,
-            "z4_sec": 0,
             "z5_sec": 0
           }
         }
