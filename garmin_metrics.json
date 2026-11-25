@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "entries": [
+    {
+      "date": "2026-11-25",
+      "hrv": 29,
+      "rhr": 55,
+      "sleep_score": 65,
+      "sleep_hours": 5.5,
+      "body_battery_peak": 60,
+      "body_battery_end": 60,
+      "steps": 232,
+      "weight": null,
+      "body_fat": null,
+      "activities": [
+        {
+          "type": "swim",
+          "name": "Natação em piscina",
+          "distance_km": 1.65,
+          "duration_min": 39.3,
+          "pace_min_per_km": null,
+          "hr_avg": 115,
+          "elevation_gain_m": null,
+          "training_load": 38.2,
+          "hr_zones": {
+            "z1_sec": 334,
+            "z2_sec": 1486,
+            "z3_sec": 436,
+            "z4_sec": 0,
+            "z5_sec": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-24",
       "hrv": 33,
@@ -8,8 +39,8 @@
       "sleep_score": 70,
       "sleep_hours": 5.6,
       "body_battery_peak": 74,
-      "body_battery_end": 39,
-      "steps": 18454,
+      "body_battery_end": 17,
+      "steps": 18999,
       "weight": null,
       "body_fat": null,
       "activities": [
@@ -1909,37 +1940,6 @@
             "z1_sec": 0,
             "z2_sec": 0,
             "z3_sec": 0,
-            "z4_sec": 0,
-            "z5_sec": 0
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-09-26",
-      "hrv": 31,
-      "rhr": 58,
-      "sleep_score": 59,
-      "sleep_hours": 6.2,
-      "body_battery_peak": 68,
-      "body_battery_end": 46,
-      "steps": 15700,
-      "weight": null,
-      "body_fat": null,
-      "activities": [
-        {
-          "type": "run",
-          "name": "São Paulo Corrida",
-          "distance_km": 9.39,
-          "duration_min": 75.3,
-          "pace_min_per_km": "8:01",
-          "hr_avg": 107,
-          "elevation_gain_m": 20,
-          "training_load": 53.2,
-          "hr_zones": {
-            "z1_sec": 1468,
-            "z2_sec": 1172,
-            "z3_sec": 731,
             "z4_sec": 0,
             "z5_sec": 0
           }
